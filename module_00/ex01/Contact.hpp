@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/03 12:33:36 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/03 13:45:05 by vjean            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 
@@ -5,16 +17,15 @@
 #include <iostream>
 #include <iomanip>
 
-//faire ses getMachin et setMachin
 class Contact {
 
 	//functions will be called from outside
 	public:
-		void setFirstName(std::string _firstName);
-		void setLastName(std::string _lastName);
-		void setNickname(std::string _nickname);
-		void setPhoneNumber(std::string _phoneNumber);
-		void setDarkestSecret(std::string _darkestSecret);
+		void setFirstName(std::string firstName);
+		void setLastName(std::string lastName);
+		void setNickname(std::string nickname);
+		void setPhoneNumber(std::string phoneNumber);
+		void setDarkestSecret(std::string darkestSecret);
 		std::string getFirstName(void) const; //in the function, I will give them the right var
 		std::string getLastName(void) const;
 		std::string getNickname(void) const;
