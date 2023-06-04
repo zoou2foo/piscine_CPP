@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
+/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:33:45 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/03 14:25:15 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/04 07:27:56 by valeriejean      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_CLASS_H
 
 #include "Contact.hpp"
+#include <iostream>
 
 class PhoneBook {
 	//functions add, search, exit
