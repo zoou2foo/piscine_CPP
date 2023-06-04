@@ -6,7 +6,7 @@
 /*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:09:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/04 07:42:27 by valeriejean      ###   ########.fr       */
+/*   Updated: 2023/06/04 12:33:57 by valeriejean      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ void    PhoneBook::add(void)
     
     std::cout << "First name: ";
     std::cin >> firstName;
-    PhoneBook.Contact::setFirstName(std::string firstName);
+    this->contactList[i].setFirstName(firstName);
     std::cout << "Last name: ";
     std::cin >> lastName;
-    Contact::setLastName(lastName); //need to send the input
+    this->contactList[i].setLastName(lastName); //need to send the input
     std::cout << "Nickname: ";
     std::cin >> nickname;
-    Contact::setNickname(nickname); //need to send input 
+    this->contactList[i].setNickname(nickname); //need to send input 
     std::cout << "Phone number (must be digits): ";
-    std::cin >> phoneNumber;
-    if (input >= 48 && input <= 57)
-        Contact::setPhoneNumber(phoneNumber); //add input
+    std::cin >> phoneNumber; //need a while loop to check each character in the string
+    if (phoneNumber >= 48 && phoneNumber <= 57)
+        this->contactList[i].setPhoneNumber(phoneNumber); //add input
     std::cout << "Darkest secret: ";
     std::cin >> darkestSecret;
-    Contact::setDarkestSecret(darkestSecret);
+    this->contactList->setDarkestSecret(darkestSecret);
     
 }
