@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:09:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/05 15:59:11 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:26:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void    PhoneBook::add(void)
 	{
 		std::cout << "Darkest secret: ";
 		std::getline(std::cin, darkestSecret);
-		if (!darkestSecret.empty()) //need to add a checkup for digits
+		if (!darkestSecret.empty())
 		{
 			this->contactList[i].setDarkestSecret(darkestSecret);
 			std::cout << this->contactList[i].getDarkestSecret() << std::endl;
@@ -90,4 +90,7 @@ void    PhoneBook::add(void)
 	}
 }
 
-void	
+void	PhoneBook::search(void)
+{
+	
+}
