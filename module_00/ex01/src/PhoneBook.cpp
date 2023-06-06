@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:09:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/06 10:40:17 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/06 11:39:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,16 @@ void    PhoneBook::add(void)
 void	PhoneBook::search(void)
 {
 	std::string		input;
-	unsigned long	index;
+	//unsigned long	index;
 	//int				i;
 
-	index = -1;
+	//index = -1;
 	//i = 0;
 	std::cout << std::endl;
 	std::cout << "............................................." << std::endl;
 	std::cout << "|.....index|first.name|.last.name|..nickname|" << std::endl;
 	std::cout << "|...........................................|" << std::endl;
+	std::cout << "|" << std::setw(10) << this->i << "|" << std::setw(10) << this->_contactList[i - 1].getFirstName() << "|" << std::setw(10) << this->_contactList[i - 1].getLastName() << "|" << std::setw(10) << this->_contactList[i - 1].getNickname() << "|" << std::endl;
 	std::cout << std::endl;
 	while (1)
 	{
