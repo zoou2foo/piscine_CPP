@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:09:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/06 11:39:12 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/06 13:54:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    PhoneBook::add(void)
 		if (!firstName.empty())
 		{
 			this->_contactList[this->i].setFirstName(firstName);
-			std::cout << this->_contactList[this->i].getFirstName() << std::endl;
+			//std::cout << this->_contactList[this->i].getFirstName() << std::endl;
 			break;
 		}
 		std::cout << "Must provide an input. Try again." << std::endl;
@@ -45,7 +45,7 @@ void    PhoneBook::add(void)
 		if (!lastName.empty())
 		{
 			this->_contactList[this->i].setLastName(lastName);
-			std::cout << this->_contactList[this->i].getLastName() << std::endl;
+			//std::cout << this->_contactList[this->i].getLastName() << std::endl;
 			break;
 		}
 		std::cout << "Must provide an input. Try again." << std::endl;
@@ -57,7 +57,7 @@ void    PhoneBook::add(void)
 		if (!nickname.empty())
 		{
 			this->_contactList[this->i].setNickname(nickname);
-			std::cout << this->_contactList[this->i].getNickname() << std::endl;
+			//std::cout << this->_contactList[this->i].getNickname() << std::endl;
 			break;
 		}
 		std::cout << "Must provide an input. Try again." << std::endl;
@@ -71,7 +71,7 @@ void    PhoneBook::add(void)
 		if (!phoneNumber.empty() && (index == phoneNumber.length())) //if I got an input AND the ENTIRE input was digit
 		{
 			this->_contactList[this->i].setPhoneNumber(phoneNumber);
-			std::cout << this->_contactList[this->i].getPhoneNumber() << std::endl;
+			//std::cout << this->_contactList[this->i].getPhoneNumber() << std::endl;
 			break;
 		}
 		std::cout << "Must provide an valid input. Try again." << std::endl;
@@ -83,12 +83,12 @@ void    PhoneBook::add(void)
 		if (!darkestSecret.empty())
 		{
 			this->_contactList[this->i].setDarkestSecret(darkestSecret);
-			std::cout << this->_contactList[this->i].getDarkestSecret() << std::endl;
-			std::cout << this->i << std::endl;
+			//std::cout << this->_contactList[this->i].getDarkestSecret() << std::endl;
+			//std::cout << this->i << std::endl;
 			this->i += 1;
 			if (this->i == 8)
 				this->i = 0; //need to reset at zero
-			std::cout << this->i << std::endl;
+			//std::cout << this->i << std::endl;
 			break;
 		}
 		std::cout << "Must provide an input. Try again." << std::endl;
@@ -107,7 +107,21 @@ void	PhoneBook::search(void)
 	std::cout << "............................................." << std::endl;
 	std::cout << "|.....index|first.name|.last.name|..nickname|" << std::endl;
 	std::cout << "|...........................................|" << std::endl;
-	std::cout << "|" << std::setw(10) << this->i << "|" << std::setw(10) << this->_contactList[i - 1].getFirstName() << "|" << std::setw(10) << this->_contactList[i - 1].getLastName() << "|" << std::setw(10) << this->_contactList[i - 1].getNickname() << "|" << std::endl;
+	int j = 0;
+	while (j < 2)
+	{
+		std::cout << "|" << std::setw(10) << this->i << "|";
+		std::cout << std::setw(10);
+		if (this->_contactList[i - 1].getFirstName().length() > 10)
+		{
+			std::string tmp = this->_contactList[i - 1].getFirstName();
+			tmp[10 - 1] = '.';
+			tmp.resize(10);
+			std::cout << tmp << "|";
+		}
+		j++;
+	}
+	//std::cout << "|" << std::setw(10) << this->i << "|" << std::setw(10) << this->_contactList[i - 1].getFirstName() << "|" << std::setw(10) << this->_contactList[i - 1].getLastName() << "|" << std::setw(10) << this->_contactList[i - 1].getNickname() << "|" << std::endl;
 	std::cout << std::endl;
 	while (1)
 	{
