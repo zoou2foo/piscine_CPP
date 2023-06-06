@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:33:21 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/03 14:02:26 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/06 10:23:30 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,16 @@ std::string Contact::getPhoneNumber(void) const
 std::string Contact::getDarkestSecret(void) const
 {
 	return (this->_darkestSecret);
+}
+
+/*				CONSTRUCTOR				*/
+Contact::Contact(void)
+{
+	return;
+}
+
+/*				DESTRUCTOR				*/
+Contact::~Contact(void)
+{
+	return;
 }

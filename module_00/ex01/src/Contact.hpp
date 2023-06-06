@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 12:33:36 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/03 13:45:05 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/06 10:22:20 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Contact {
 
 	//functions will be called from outside
 	public:
+		Contact(void); //constructor
+		~Contact(void); //destructor
 		void setFirstName(std::string firstName);
 		void setLastName(std::string lastName);
 		void setNickname(std::string nickname);

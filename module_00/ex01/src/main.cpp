@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 12:34:11 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/06/06 08:41:53 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/06 10:40:23 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,8 @@ int main(void)
 			instBook.search();
 		if (tmp.compare ("EXIT") == 0 || tmp.compare("exit") == 0)
 			break;
-		
+		//instBook.setIndex();
+
 	}
 	return 0;
 }
-
-/*Deal with the index; things to try:
-1.index in private of PhoneBook. Then make a setter to change it
-through the time in main
-
-2. Or leave in public???
-*/
