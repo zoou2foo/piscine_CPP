@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:09:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/05 16:26:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/06 08:40:37 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,36 @@ void    PhoneBook::add(void)
 
 void	PhoneBook::search(void)
 {
-	
+	std::string		input;
+	unsigned long	index;
+	int				i;
+
+	index = -1;
+	i = 0;
+	std::cout << std::endl;
+	std::cout << "............................................." << std::endl;
+	std::cout << "|.....index|first.name|.last.name|..nickname|" << std::endl;
+	std::cout << "|...........................................|" << std::endl;
+	std::cout << std::endl;
+	while (1)
+	{
+		std::cout << "Which index would you like to see? ";
+		std::getline(std::cin, input);
+		while (isdigit(input[++index]));
+		if (!input.empty() && (index == input.length()))
+		{
+			std::cout << "First name: " << this->contactList[i].getFirstName() << std::endl;
+			std::cout << "Last name: " << this->contactList[i].getLastName() << std::endl;
+			std::cout << "Nickname: " << this->contactList[i].getNickname() << std::endl;
+			std::cout << "Phone number: " << this->contactList[i].getPhoneNumber() << std::endl;
+			std::cout << "Darkest secret: " << this->contactList[i].getDarkestSecret() << std::endl;
+			break;
+		}
+		std::cout << "Must provide a valid index. Try again." << std::endl;
+	}
+}
+
+void	PhoneBook::setIndex(void)
+{
+	this->_i += 1;
 }
