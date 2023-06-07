@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:09:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/07 15:33:24 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/07 16:11:58 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void    PhoneBook::add(void)
 	{
 		std::cout << "First name: ";
 		std::getline(std::cin, firstName);
+		if (std::cin.eof()) //in case someone has the bad idea of doing a ctrl-d
+			exit (1);
 		if (!firstName.empty())
 		{
 			this->_contactList[this->i].setFirstName(firstName);
@@ -36,6 +38,8 @@ void    PhoneBook::add(void)
 	{
 		std::cout << "Last name: ";
 		std::getline(std::cin, lastName);
+		if (std::cin.eof())
+			exit (1);
 		if (!lastName.empty())
 		{
 			this->_contactList[this->i].setLastName(lastName);
@@ -47,6 +51,8 @@ void    PhoneBook::add(void)
 	{
 		std::cout << "Nickname: ";
 		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+			exit (1);
 		if (!nickname.empty())
 		{
 			this->_contactList[this->i].setNickname(nickname);
@@ -59,6 +65,8 @@ void    PhoneBook::add(void)
 		index = -1;
 		std::cout << "Phone number: ";
 		std::getline(std::cin, phoneNumber);
+		if (std::cin.eof())
+			exit (1);
 		while (isdigit(phoneNumber[++index]));
 		if (!phoneNumber.empty() && (index == phoneNumber.length()))
 		{
@@ -71,6 +79,8 @@ void    PhoneBook::add(void)
 	{
 		std::cout << "Darkest secret: ";
 		std::getline(std::cin, darkestSecret);
+		if (std::cin.eof())
+			exit (1);
 		if (!darkestSecret.empty())
 		{
 			this->_contactList[this->i].setDarkestSecret(darkestSecret);
@@ -141,6 +151,8 @@ void	PhoneBook::search(void)
 		j = -1;
 		std::cout << "Which index would you like to see? ";
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit (1);
 		while(isdigit(input[++j]));
 		if(!input.empty() && (j == input.length()))
 			ii = std::stoi(input, nullptr, 10);

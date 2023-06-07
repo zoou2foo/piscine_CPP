@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
@@ -23,6 +23,8 @@ int main(void)
 	{
 		std::cout << "Please type your selection between ADD, SEARCH, EXIT: ";
 		std::getline(std::cin, tmp);
+		if (std::cin.eof())
+			exit (1);
 		if (tmp.compare("ADD") == 0 || tmp.compare("add") == 0)
 			instBook.add();
 		if (tmp.compare("SEARCH") == 0 || tmp.compare("search") == 0)

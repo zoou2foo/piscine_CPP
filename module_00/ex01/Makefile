@@ -63,7 +63,7 @@ CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 MD		=	mkdir -p
-INCLUDE =	-I include
+#INCLUDE =	-I include
 
 # Program and directory names
 NAME	=	phonebook
@@ -96,12 +96,12 @@ ldirs:
 $(NAME): $(OBJS)
 	$(HIDE) $(START)
 #	$(HIDE) cd libft && make && cd ..
-	$(HIDE) $(CC) $(MODE) $(CFLAGS) $(INCLUDE) -o $@ $^
+	$(HIDE) $(CC) $(MODE) $(CFLAGS) -o $@ $^
 	@echo "$(GREEN)Files compiled$(DEF_COLOR)"
 
 $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.cpp
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-	$(HIDE) $(CC) $(MODE) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+	$(HIDE) $(CC) $(MODE) $(CFLAGS) -c $< -o $@
 
 # Removes objects
 clean:
@@ -131,4 +131,4 @@ run: re
 # Runs the program with valgrind
 leaks: all
 	@echo "$(RED)Checking leaks...$(DEF_COLOR)"
-	$(HIDE) valgrind --leak-check=full --show-leak-kinds=all -s $(CMD) 1 800 200 200
+	$(HIDE) valgrind --leak-check=full --show-leak-kinds=all -s $(CMD)
