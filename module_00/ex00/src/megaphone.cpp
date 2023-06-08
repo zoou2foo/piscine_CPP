@@ -17,8 +17,6 @@ int	main(int ac, char **av)
 
 			}
 			i++;
-			if (av[i])
-				std::cout << " ";
 			j = 0;
 		}
 	}

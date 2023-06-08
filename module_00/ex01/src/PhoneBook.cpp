@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:09:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/07 16:11:58 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/08 07:17:04 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ void	PhoneBook::search(void)
 		if (std::cin.eof())
 			exit (1);
 		while(isdigit(input[++j]));
-		if(!input.empty() && (j == input.length()))
+		if(!input.empty() && (j == input.length()) && (j < 11))
 			ii = std::stoi(input, nullptr, 10);
 		if (!input.empty() && (ii >= 1 && ii <= 8))
 		{
