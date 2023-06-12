@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 08:27:29 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/12 08:52:36 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/12 09:30:40 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ Zombie::Zombie(void) : _name("Chose")
 Zombie::~Zombie(void)
 {
 	return;
+}
+
+//setter
+void	Zombie::setName(std::string name)
+{
+	this->_name = name;
+}
+
+//getter
+std::string	Zombie::getName(void) const
+{
+	return (this->_name);
 }
 
 

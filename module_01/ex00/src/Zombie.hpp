@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 08:21:09 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/12 08:27:17 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/12 09:30:02 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Zombie {
 		Zombie(void); //constructor
 		~Zombie(void); //destructor
 		void announce(void);
+		void setName(std::string name);
+		std::string	getName(void) const;
 
 	private:
 		std::string _name;
