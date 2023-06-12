@@ -72,7 +72,8 @@ OBJDIR	=	bin/
 #TSTDIR	=	tests/
 
 # File names
-FILES	=	
+FILES	=	Zombie \
+			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
