@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 13:55:12 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/12 14:03:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/12 16:16:55 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 Zombie *zombieHorde(int N, std::string name)
 {
-	int index = 0;
+	Zombie *nZombie = new Zombie[N];
 
-	while (index <= N)
+	for (int index = 0; index < N; index++)
 	{
-		
+		nZombie[index].setName(name);
 	}
-	return ();
+	return (nZombie);
 }
