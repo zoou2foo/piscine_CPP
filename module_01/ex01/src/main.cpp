@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 08:27:29 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/12 13:14:40 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/12 08:37:45 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/12 14:02:07 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-//Constructor
-Zombie::Zombie(void) : _name("Chose")
+int	main(void)
 {
-	return;
-}
+	//Zombie instZombie;
+	Zombie *nZombie;
+	int		n = 20;
 
-//Destructor
-Zombie::~Zombie(void)
-{
-	std::cout << this->_name << ": Destructor called" << std::endl;
-	return;
-}
+	//instZombie.announce();
+	nZombie = zombieHorde(n, "Machin");
+	nZombie->announce();
+	randomChump("Binouche");
 
-//setter
-void	Zombie::setName(std::string name)
-{
-	this->_name = name;
-}
-
-//getter
-std::string	Zombie::getName(void) const
-{
-	return (this->_name);
-}
-
-
-void	Zombie::announce(void)
-{
-	std::cout << this->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
+	delete nZombie;
+	return (0);
 }

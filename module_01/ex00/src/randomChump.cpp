@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 09:00:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/12 09:31:01 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/12 11:00:23 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void randomChump(std::string name)
 {
 	Zombie newZombie;
-	newZombie.setName("Binouche");
+	newZombie.setName(name);
 	std::cout << newZombie.getName() << ":  BraiiiiiiinnnzzzZ..." << std::endl;
 }

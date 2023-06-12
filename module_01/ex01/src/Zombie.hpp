@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 08:21:09 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/12 11:02:52 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/12 14:00:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ class Zombie {
 
 };
 
-void randomChump(std::string name);
-Zombie *newZombie(std::string name);
-
+Zombie *zombieHorde(int N, std::string name);
 
 #endif

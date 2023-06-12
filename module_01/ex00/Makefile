@@ -73,6 +73,8 @@ OBJDIR	=	bin/
 
 # File names
 FILES	=	Zombie \
+			newZombie \
+			randomChump \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))

@@ -1,44 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 08:27:29 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/12 13:14:40 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/12 13:55:12 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/12 14:03:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-//Constructor
-Zombie::Zombie(void) : _name("Chose")
+Zombie *zombieHorde(int N, std::string name)
 {
-	return;
-}
+	int index = 0;
 
-//Destructor
-Zombie::~Zombie(void)
-{
-	std::cout << this->_name << ": Destructor called" << std::endl;
-	return;
-}
-
-//setter
-void	Zombie::setName(std::string name)
-{
-	this->_name = name;
-}
-
-//getter
-std::string	Zombie::getName(void) const
-{
-	return (this->_name);
-}
-
-
-void	Zombie::announce(void)
-{
-	std::cout << this->_name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
+	while (index <= N)
+	{
+		
+	}
+	return ();
 }
