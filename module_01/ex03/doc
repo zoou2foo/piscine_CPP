@@ -7,11 +7,13 @@
 //FIXED: code setter and getter
 
 /*------------HUMAN_A----------------*/
-//TODO: 1. have one weapon
+//FIXED: 1. have one weapon
 //FIXED: 2. have a name
 //FIXED: 3. member function attack() that prints -> <name> attacks with their <weapon type>
 //FIXED: difference with B => constructor of A takes a Weapon in parameter. ***A will ALWAYS have a weapon***
-//TODO: code attack()
+//FIXED: code attack()
+//QUESTION: not sure what I need to do with the weapon parameter in constructor...
+// getType: std::string const &getType(void) const;
 
 /*------------HUMAN_B----------------*/
 //FIXED: 1. have one weapon
