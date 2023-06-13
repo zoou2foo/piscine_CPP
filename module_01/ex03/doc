@@ -3,8 +3,8 @@
 //FIXED: 1: create a class Weapon
 //FIXED: 2: add the following attributes/member functions: private attribute type string; member function getType() that returns
 //FIXED: a const ref on type; and member function setType() gives a new value to type passed in the parameter.
-//TODO: reference on getType()
-//TODO: code setter and getter
+//FIXED: reference on getType()
+//FIXED: code setter and getter
 
 /*------------HUMAN_A----------------*/
 //TODO: 1. have one weapon
@@ -14,7 +14,7 @@
 //TODO: code attack()
 
 /*------------HUMAN_B----------------*/
-//TODO: 1. have one weapon
+//FIXED: 1. have one weapon
 //FIXED: 2. have a name
 //FIXED: 3. member function attack() that prints -> <name> attacks with their <weapon type>
 //FIXED: difference with A => constructor B does NOT take a Weapon in parameter. ***B will NOT always have a weapon***

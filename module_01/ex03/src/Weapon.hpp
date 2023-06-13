@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 08:55:50 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/13 09:02:16 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/13 10:16:15 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Weapon{
 	public:
 		Weapon(void); //constructor
 		~Weapon(void); //destructor
-		std::string getType(void) const; //TODO: return a reference... need to check that
+		const std::string &getType(void);
 		void setType(std::string type);
 
 	private:

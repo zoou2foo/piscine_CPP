@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 09:08:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/13 09:09:08 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/13 10:20:11 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class HumanB{
 
 	private:
 		std::string _name;
+		Weapon _artillery;
 
 };
 
