@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
+/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:57:04 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/14 15:15:01 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/14 17:23:36 by valeriejean      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <fstream>
 
-void	search_n_replace(char *s1, char *s2, std::string line)
+void	search_n_replace(std::string s1, std::string s2, std::string line)
 {
 	size_t	pos = 0;
 
@@ -53,7 +53,7 @@ int main(int ac, char **av)
 				}
 				std::string line;
 				//while (!inputFile.eof())
-				search_n_replace(av[2], av[3], line, inputFile);
+				search_n_replace(s1, s2, line);
 				//while (getline(inputFile, line))
 				//{
 					//getline(inputFile, line);
