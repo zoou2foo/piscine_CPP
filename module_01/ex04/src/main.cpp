@@ -6,13 +6,25 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:57:04 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/14 11:20:27 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/14 15:15:01 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <fstream>
+
+void	search_n_replace(char *s1, char *s2, std::string line)
+{
+	size_t	pos = 0;
+
+	while ((pos = line.find(s1, pos)) != std::string::npos)
+	{
+		line.erase(pos, s1.length);
+		line.insert(pos, s2);
+		pos += s2.length;
+	}
+}
 
 int main(int ac, char **av)
 {
@@ -32,25 +44,38 @@ int main(int ac, char **av)
 			if (inputFile.is_open() && outputFile.is_open())
 			{
 				//time to search and replace
-				std::string line;
-				while (inputFile.eof())
+				//need to check if s1 and s2 are empty
+				std::string s1 = av[2];
+				std::string s2 = av[3];
+				if (s1.length() == 0 && s2.length() == 0)
 				{
-					getline(inputFile, line);
-					if (line.find(av[2])) //if found
-					{
-						line = line.erase(0, av[2].length);
-						line = line.insert(0, av[3].length);
-						//outputFile << line << std::endl; //maybe not the right place to do it
-					}
-					else
-						outputFile << line << std::endl;
+					std::cout << "Error: args are empty" << std::endl;
 				}
+				std::string line;
+				//while (!inputFile.eof())
+				search_n_replace(av[2], av[3], line, inputFile);
+				//while (getline(inputFile, line))
+				//{
+					//getline(inputFile, line);
+					// if (line.find(av[2])) //if found
+					// {
+					// 	//std::cout << "found av[2]" << std::endl;
+					// 	line.erase(0, s1.length());
+					// 	line.insert(0, s2.length());
+					// 	outputFile << line << std::endl;
+					// }
+					// else
+					// {
+					// 	std::cout << "here or not" << std::endl;
+					// 	outputFile << line << std::endl;
+					// }
+				//}
 			}
 				//outputFile << inputFile.rdbuf(); //after no need of inputFile, we can close it
 			else
 			{
 				std::cout << "Error with creating new file" << std::endl;
-				exit;
+				return 0;
 			}
 		}
 	}
