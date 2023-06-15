@@ -1,0 +1,13 @@
+/*		Class Harl		*/
+//FIXED: 1. Create class Harl
+//FIXED: 2. Add private member functions (below):
+//FIXED: void debug(void); void info(void); void warning(void); void error(void)
+//FIXED: 3. Add a public member function: void complain(std::string level)
+
+/*		Harl CPP		*/
+//FIXED: code constructor and destructor
+//FIXED: code each of the private member functions of class Harl
+//TODO: code public member function of class Harl
+//TODO: use SWITCH case in my function complain to send the correct complain
+//TODO: message. To AVOID a forest of if/else if/else...
+//TODO: in the main(); add many options/tests
