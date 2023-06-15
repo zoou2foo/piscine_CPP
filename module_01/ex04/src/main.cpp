@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 07:57:04 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/15 14:09:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/15 14:21:40 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int main(int ac, char **av)
 					else //nothing found
 						outputFile << line << std::endl;
 				}
+				outputFile.close();
+				inputFile.close();
 			}
 			else
 			{

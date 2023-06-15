@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:09:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/15 11:36:20 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/15 15:09:09 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Harl::~Harl(void)
 void	Harl::complain(std::string level)
 {
 	//select the correct call depending of level
+	//pointers to member functions
 }
 
 void	Harl::debug(void)
