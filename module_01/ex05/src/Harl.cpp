@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:09:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/16 11:06:02 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/16 13:59:51 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	Harl::complain(std::string level)
 	//select the correct call depending of level
 	//pointers to member functions
 	void (Harl::*PtrMemFn[4])() = { //create a pointer for an array of functions
-		&Harl::debug, //where I pass the address to call the function
+		&Harl::debug, //where I pass the addresses to call the functions
 		&Harl::info,
 		&Harl::warning,
 		&Harl::error

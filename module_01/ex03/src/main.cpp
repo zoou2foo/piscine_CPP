@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 08:35:50 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/13 16:38:48 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/16 13:53:24 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 int main(void)
 {
 	{
-		Weapon *club = new Weapon("crude spiked club"); //instance de Weapon qui pointe sur Weapon dans la heap
+		//An instance of Weapon that points to Weapon on the heap
+		Weapon *club = new Weapon("crude spiked club");
 
-		HumanA bob("Bob", *club); //instance de HumanA qui s'appelle. Il prend en para son nom et un Weapon en référence. Pourquoi * et pas &: * car il prend en référence ce que club pointe(prend l'adresse que club pointe).
+		//An instance of HumanA. It takes in parameters a name and a weapon in REF.
+		//Why * and not &? It takes a reference of what this "club" points.
+		HumanA bob("Bob", *club);
 		bob.attack();
-		club->setType("fucking sword!!!! hahahaha"); //besoin de -> car on est sur la heap et non pas stack (local)
+		club->setType("fucking sword!!!! hahahaha"); //Need -> as we are on the heap and not stack
 		bob.attack();
 		delete club;
 	}
