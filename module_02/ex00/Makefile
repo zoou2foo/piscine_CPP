@@ -66,20 +66,20 @@ MD		=	mkdir -p
 #INCLUDE =	-I include
 
 # Program and directory names
-NAME	=	harlFilter
+NAME	=	firstCanon
 SRCDIR	=	src/
 OBJDIR	=	bin/
 #TSTDIR	=	tests/
 
 # File names
-FILES	=	Harl \
+FILES	=	Fixed \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
 
 
-CMD		=	./harlFilter
+CMD		=	./firstCanon
 
 #------------------------------------------------------------------------------#
 #                                   TARGETS                                    #
