@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:46:18 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/19 11:42:37 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/19 15:56:08 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,31 @@
 int	main()
 {
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	a = Fixed( 1234.4321f );
-
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a.getRawBits() << std::endl;
+	// std::cout << ++a << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << a++ << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << b << std::endl;
+	std::cout << "before pre: " << a.getRawBits() << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << "after pre et before post: " << a.getRawBits() << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << "after post: " << a.getRawBits() << std::endl;
+	//std::cout << Fixed::max( a, b ) << std::endl;
+	return 0;
 }
+
+/* This main should return that
+0
+0.00390625
+0.00390625
+0.00390625
+0.0078125
+10.1016
+10.1016
+
+*/
