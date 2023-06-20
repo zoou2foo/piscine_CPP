@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:45:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/19 16:25:20 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 11:47:30 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ class Fixed {
 
 		Fixed& operator++(void); //prefix increment (++num)
 		Fixed operator++(int); //postfix increment (num++)
+		Fixed& operator--(void); //prefix increment (--num)
+		Fixed operator--(int); //postfix increment (num--)
 
 		int	getRawBits(void) const;
 		void setRawBits(int const raw);
@@ -49,10 +51,10 @@ class Fixed {
 		int toInt(void) const;
 
 		//four public overloaded member functions
-		// int &min(int nb); //j'utilise le retour de mon bool pour renvoyer la bonne reponse
-		// int &min(int const num);
-		// int &max(int nb);
-		// int &max(int const num);
+		static Fixed	min(Fixed &a, Fixed &b); //j'utilise le retour de mon bool pour renvoyer la bonne reponse
+		static Fixed	min(Fixed const &a, Fixed const &b);
+		static Fixed	max(Fixed &a, Fixed &b);
+		static Fixed	max(Fixed &a, Fixed const &b);
 
 	private:
 		int _fixedComma;

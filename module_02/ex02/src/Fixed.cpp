@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:45:13 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/19 16:21:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 11:47:21 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 {
 	//insert a float representation of the fixed point value number as output
 	o << rhs.toFloat();
+	// std::cout << rhs.toFloat();
 	return o;
 }
 
@@ -73,22 +74,24 @@ std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 
 Fixed Fixed::operator+(Fixed const &rhs) const
 {
-	return (Fixed(this->_fixedComma + rhs.getRawBits()));
+	return (Fixed(this->toFloat() + rhs.toFloat()));
 }
 
 Fixed Fixed::operator-(Fixed const &rhs) const
 {
-	return (Fixed(this->_fixedComma - rhs.getRawBits()));
+	return (Fixed(this->toFloat() - rhs.toFloat()));
 }
 
 Fixed Fixed::operator/(Fixed const &rhs) const
 {
-	return (Fixed(this->_fixedComma / rhs.getRawBits()));
+	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 
 Fixed Fixed::operator*(Fixed const &rhs) const
 {
-	return(Fixed(this->_fixedComma * rhs.getRawBits()));
+	// std::cout << "valeur the this: " << this->_fixedComma << std::endl;
+	// std::cout << "valeur de rhs: " << rhs.getRawBits() << std::endl;
+	return((this->toFloat() * rhs.toFloat()));
 }
 
 
@@ -101,7 +104,7 @@ bool	Fixed::operator>(Fixed const &rhs) const
 	if (this->_fixedComma > rhs.getRawBits())
 		return (true);
 	return (false);
-	//return (this->_fixedComma > rhs.getRawBits()) //autre syntax de le faire
+	//return (this->_fixedComma > rhs.getRawBits()); //autre syntax de le faire
 }
 
 bool	Fixed::operator<(Fixed const &rhs) const
@@ -111,25 +114,63 @@ bool	Fixed::operator<(Fixed const &rhs) const
 	return (false);
 }
 
+bool	Fixed::operator>=(Fixed const &rhs) const
+{
+	if (this->_fixedComma >= rhs.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<=(Fixed const &rhs) const
+{
+	if (this->_fixedComma <= rhs.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator==(Fixed const &rhs) const
+{
+	if (this->_fixedComma == rhs.getRawBits())
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=(Fixed const &rhs) const
+{
+	if (this->_fixedComma != rhs.getRawBits())
+		return (true);
+	return (false);
+}
+
+/*****************************************************************/
+/*					INCREM. & DECREM. OPERATORS					 */
+/*****************************************************************/
+
 Fixed& Fixed::operator++(void)
 {
-	//std::cout << "before: " << this->_fixedComma << std::endl;
 	++this->_fixedComma;
-	//std::cout << "after: " << this->_fixedComma << std::endl;
 	return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
-	//std::cout << "before post: " << this->_fixedComma << std::endl;
 	Fixed copy(*this);
 	this->_fixedComma++;
-	std::cout << "COPY: " << copy._fixedComma << std::endl;
-	std::cout << "THIS: " << this->_fixedComma << std::endl;
 	return (copy);
 }
 
-//bool	Fixed
+Fixed& Fixed::operator--(void)
+{
+	--this->_fixedComma;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed copy(*this);
+	this->_fixedComma--;
+	return (copy);
+}
 
 /*****************************************************************/
 /*						DESTRUCTOR								 */
@@ -141,7 +182,6 @@ Fixed::~Fixed(void)
 	//std::cout << "Destructor called" << std::endl;
 	return;
 }
-
 
 
 /*****************************************************************/
@@ -160,6 +200,41 @@ void	Fixed::setRawBits(int const raw)
 	_fixedComma = raw;
 }
 
+/*****************************************************************/
+/*						 MIN & MAX								 */
+/*****************************************************************/
+
+Fixed	Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (b);
+	else
+		return (a);
+}
+
+Fixed	Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (a > b)
+		return (b);
+	else
+		return (a);
+}
+
+Fixed	Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed Fixed::max(Fixed &a, Fixed const &b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
 
 /*****************************************************************/
 /*						INT 🔁 FLOAT							 */
