@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:45:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/19 11:48:38 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 11:57:36 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ class Fixed {
 		static const int _bitsNumber = 8;
 };
 
-std::ostream &operator<<(std::ostream &o, Fixed const &rhs); //need to verify this...
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
 
 #endif

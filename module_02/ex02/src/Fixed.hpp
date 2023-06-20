@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:45:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/20 11:47:30 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 11:59:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed {
 
 		Fixed &operator=(Fixed const &rhs);
 
-		Fixed operator+(Fixed const &rhs) const; //new, ref, pointer???
+		Fixed operator+(Fixed const &rhs) const;
 		Fixed operator-(Fixed const &rhs) const;
 		Fixed operator/(Fixed const &rhs) const;
 		Fixed operator*(Fixed const &rhs) const;
@@ -51,7 +51,7 @@ class Fixed {
 		int toInt(void) const;
 
 		//four public overloaded member functions
-		static Fixed	min(Fixed &a, Fixed &b); //j'utilise le retour de mon bool pour renvoyer la bonne reponse
+		static Fixed	min(Fixed &a, Fixed &b);
 		static Fixed	min(Fixed const &a, Fixed const &b);
 		static Fixed	max(Fixed &a, Fixed &b);
 		static Fixed	max(Fixed &a, Fixed const &b);
@@ -61,6 +61,6 @@ class Fixed {
 		static const int _bitsNumber = 8;
 };
 
-std::ostream &operator<<(std::ostream &o, Fixed const &rhs); //need to verify this...
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs);
 
 #endif

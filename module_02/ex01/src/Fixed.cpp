@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:45:13 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/19 11:41:50 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 11:56:57 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ Fixed::Fixed(Fixed const &rhs)
 //assignation operator overload
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
-	this->_fixedComma = rhs.getRawBits(); //peut etre regarder protection
+	this->_fixedComma = rhs.getRawBits();
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }

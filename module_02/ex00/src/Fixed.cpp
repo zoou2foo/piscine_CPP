@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:45:13 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/19 08:29:56 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 11:56:17 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(void) : _fixedComma(0)
 //copy constructor
 Fixed::Fixed(Fixed const &rhs)
 {
-	*this = rhs; //il faut que je copie rhs dans l'instance courrante
+	*this = rhs; //copy to the current instance
 	std::cout << "Copy constructor called" << std::endl;
 	return;
 }
@@ -37,8 +37,7 @@ Fixed::~Fixed(void)
 //assignation operator overload
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
-	std::cout << "Assignation operator called " << this->_fixedComma;
-	std::cout << " to " << rhs.getRawBits() << std::endl;
+	std::cout << "Assignation operator called " << std::endl;
 
 	this->_fixedComma = rhs.getRawBits();
 	return (*this);

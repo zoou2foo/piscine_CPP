@@ -1,9 +1,0 @@
-//FIXED: create a Fixed class
-//FIXED: in private section add: int and static const int to store the bits number
-//FIXED: in the public section add: default constructor that initialize the first int in private;
-//FIXED: then a copy constructor, assignation operator overload, a destructor, member function
-//FIXED: int getRawBits(void)const; member function void setRawBits(int const raw) (getter and setter)
-//TODO: code setter and getter
-//TODO: all constructors
-//TODO: destructor
-//TODO: assignation operator overload
