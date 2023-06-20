@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:01 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/20 15:11:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 16:23:05 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ class	ClapTrap
 		ClapTrap(ClapTrap const &src); //copy constructor
 		~ClapTrap(void); //destructor
 
-		int		getValue(void) const;
-		void	setValue(int value);
+		ClapTrap& operator=(ClapTrap const &copy);
+
+		int		getHitPts(void) const;
+		void	setHitPts(int value);
+		int		getEnergyPts(void) const;
+		void	setEnergyPts(int value);
+		int		getAttackDamage(void) const;
+		void	setAttackDamage(int value);
 
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);

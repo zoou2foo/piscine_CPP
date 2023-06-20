@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/20 15:50:45 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/20 16:23:58 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,63 @@ ClapTrap::~ClapTrap(void)
 	return;
 }
 
-
 /*****************************************************************/
-/*						SETTER & GETTER							 */
+/*					ASSIGNATION OPERATOR						 */
 /*****************************************************************/
 
-int	ClapTrap::getValue(void) const
+ClapTrap& ClapTrap::operator=(ClapTrap const &copy)
 {
-	return (this->_attackDamage);
+	this->_attackDamage = copy._attackDamage;
+	this->_energyPts = copy._energyPts;
+	this->_hitPts = copy._hitPts;
+	this->_name = copy._name;
 }
 
-void	ClapTrap::setValue(int amount)
+/*****************************************************************/
+/*							SETTER								 */
+/*****************************************************************/
+
+void	ClapTrap::setHitPts(int value)
 {
-	this->_attackDamage = amount;
+	this->_hitPts = value;
+}
+
+void	ClapTrap::setEnergyPts(int value)
+{
+	this->_energyPts = value;
+}
+
+void	ClapTrap::setAttackDamage(int value)
+{
+	this->_attackDamage = value;
+}
+
+
+/*****************************************************************/
+/*							GETTER								 */
+/*****************************************************************/
+
+int	ClapTrap::getHitPts(void) const
+{
+	return (this->_hitPts);
+}
+
+int	ClapTrap::getEnergyPts(void) const
+{
+	return (this->_energyPts);
+}
+
+int	ClapTrap::getAttackDamage(void) const
+{
+	return (this->_attackDamage);
 }
 
 
 /*****************************************************************/
 /*						MEMBER FUNCTIONS						 */
 /*****************************************************************/
+
+void	ClapTrap::attack(const std::string& target)
+{
+	
+}
