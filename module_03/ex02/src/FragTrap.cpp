@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:16:17 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 15:43:21 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/26 16:08:51 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,16 @@ FragTrap&	FragTrap::operator=( FragTrap const & rhs )
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "\x1B[34m" << "Give me a high five!!!" << std::endl;
-	std::cout << "\x1B[0m";
+	if (this->_hitPts > 0 && this->_energyPts > 0)
+	{
+		std::cout << "\x1B[34m" << "Give me a high five!!!" << std::endl;
+		std::cout << "\x1B[0m";
+	}
+	else
+	{
+		std::cout << "\x1B[34m" << "Give me a high five from the other side!!!" << std::endl;
+		std::cout << "\x1B[0m";
+	}
 }
 
 /*
