@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:45:13 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/20 11:58:47 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/26 15:47:53 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,7 +218,7 @@ Fixed	Fixed::max(Fixed &a, Fixed &b)
 		return (b);
 }
 
-Fixed Fixed::max(Fixed &a, Fixed const &b)
+Fixed Fixed::max(Fixed const &a, Fixed const &b)
 {
 	if (a > b)
 		return (a);

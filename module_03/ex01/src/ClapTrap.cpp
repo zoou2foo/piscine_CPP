@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 11:36:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/26 14:59:53 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 /*****************************************************************/
 
 //Default constructor
-ClapTrap::ClapTrap(void)
+ClapTrap::ClapTrap(void) : _name("SansNom"), _hitPts(100), _energyPts(50), _attackDamage(20)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name) : _hitPts(10), _energyPts(10), _attackDamage(0)
+ClapTrap::ClapTrap(std::string name) : _hitPts(100), _energyPts(50), _attackDamage(20)
 {
 	this->_name = name;
-	std::cout << this->_name << " constructor called" << std::endl;
+	std::cout << this->_name << " constructor called (ClapTrap)" << std::endl;
 	return;
 }
 
 //Copy cosntructor
 ClapTrap::ClapTrap(ClapTrap const &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy ClapTrap constructor called" << std::endl;
 	(*this) = src;
 	return;
 }
@@ -45,7 +45,7 @@ ClapTrap::ClapTrap(ClapTrap const &src)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << this->_name << " destructor called" << std::endl;
+	std::cout << this->_name << " destructor called (ClapTrap)" << std::endl;
 	return;
 }
 
@@ -60,17 +60,6 @@ ClapTrap& ClapTrap::operator=(ClapTrap const &copy)
 	this->_hitPts = copy._hitPts;
 	this->_name = copy._name;
 	return (*this);
-}
-
-
-/*****************************************************************/
-/*					OVERLOAD OPERATOR						 */
-/*****************************************************************/
-
-std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 /*****************************************************************/
@@ -92,6 +81,11 @@ void	ClapTrap::setAttackDamage(int value)
 	this->_attackDamage = value;
 }
 
+void	ClapTrap::setName(std::string name)
+{
+	this->_name = name;
+}
+
 
 /*****************************************************************/
 /*							GETTER								 */
@@ -110,6 +104,11 @@ int	ClapTrap::getEnergyPts(void) const
 int	ClapTrap::getAttackDamage(void) const
 {
 	return (this->_attackDamage);
+}
+
+std::string	ClapTrap::getName(void) const
+{
+	return (this->_name);
 }
 
 
@@ -139,7 +138,6 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPts > 0)
 	{
-		this->_attackDamage += 1;
 		this->_hitPts -= amount;
 		std::cout << this->_name << " has lost " << amount << " hit point(s)." << std::endl;
 		std::cout << this->_name << " has now " << this->_hitPts << " hit points left!" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:52:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 09:59:18 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/26 11:18:28 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,6 @@ int main()
 		return (-1);
 	}
 	firstPerson.takeDamage(5);
- 
 
 	return 0;
 }
-
-/*
-main to test
-	Claptrap cp1("Bob");
-		Claptrap cp2(cp1);
-
-		cp1.attack("George");
-		cp1.beRepaired(1);
-		cp2.attack("George");
-		cp2.beRepaired(10);
-
-
-*/

@@ -1,5 +1,0 @@
-//TODO : things to check
-- ajouter msg quand plus de hitpts(vie) ou energie. If _hitPts > 0 &&
-_energyPts > 0: fait les actions. ELSE: msg de mort
-- Vérification qu'il reste assez de points de vie et d'énergie pour passer à
-l'action. Attack et repair: coût 1 pt d'énergie
