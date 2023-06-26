@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/21 10:37:03 by valeriejean      ###   ########.fr       */
+/*   Updated: 2023/06/26 09:49:24 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,27 +111,50 @@ int	ClapTrap::getAttackDamage(void) const
 //the damage pts will be taken care of in the takeDamage member funct
 void	ClapTrap::attack(const std::string& target)
 {
-	if (_energyPts > 0 && _hitPts)
+	if (this->_energyPts > 0 && this->_hitPts > 0)
 	{
-		_hitPts -= 1;
-		_energyPts -= 1;
-		_attackDamage += 1;
-		std::cout << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+		this->_energyPts -= 1;
+		std::cout << this->_name << " attacks " << target << ", causing 5 points of damage!" << std::endl;
 	}
-	
+	else
+	{
+		std::cout << this->_name << " is dead. No more hit point or energy point!" << std::endl;
+		return;
+	}
 }
 
 //substraction the amount of points (from amount) to hitPts add the msg
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	_hitPts -= amount;
-	std::cout << _name << " has now " << _hitPts << " hit points left!" << std::endl;
-	
+	if (this->_hitPts > 0)
+	{
+		this->_attackDamage += 1;
+		this->_hitPts -= amount;
+		std::cout << this->_name << " has lost " << amount << " hit point(s)." << std::endl;
+		std::cout << this->_name << " has now " << this->_hitPts << " hit points left!" << std::endl;
+	}
+	else
+	{
+		std::cout << this->_name << " is dead" << std::endl;
+		return;
+	}
+
 }
 
 
 //check if enough energy and hitPts; Adds amount to hitPts; substract 1 to energy and msg
-// void	ClapTrap::beRepaired(unsigned int amount)
-// {
-	
-// }
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	if (this->_energyPts > 0 && this->_hitPts > 0)
+	{
+		this->_hitPts += amount;
+		this->_energyPts -= 1;
+		std::cout << this->_name << " has been repaired. Now, " << amount << " more hit point(s)!!" << std::endl;
+		std::cout << this->_name << ": hitPts = " << this->_hitPts << std::endl;
+	}
+	else
+	{
+		std::cout << this->_name << " can't be repaired. No more energy to do it!" << std::endl;
+		return;
+	}
+}

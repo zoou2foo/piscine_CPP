@@ -1,7 +1,5 @@
 //TODO : things to check
-- If I have Bob and George fighting; do I need to make sure
-to print msg to tell number of points gain or lost
-- If Bob attacks, call takeDamage in the main for George
-to lose his points
 - ajouter msg quand plus de hitpts(vie) ou energie. If _hitPts > 0 &&
 _energyPts > 0: fait les actions. ELSE: msg de mort
+- Vérification qu'il reste assez de points de vie et d'énergie pour passer à
+l'action. Attack et repair: coût 1 pt d'énergie
