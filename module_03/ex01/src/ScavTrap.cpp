@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 11:37:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 15:12:19 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 11:39:09 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap() //default constructor
 {
-	this->_hitPts = 100;
+	this->setName("SansNom");
+	this->setHitPts(100);
+	this->setEnergyPts(50);
+	this->setAttackDamage(20);
 	std::cout << "Default ScavTrap constructor called" << std::endl;
 	return;
 }
@@ -47,10 +50,10 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
-	this->_attackDamage = rhs._attackDamage;
-	this->_energyPts = rhs._energyPts;
-	this->_hitPts = rhs._hitPts;
-	this->_name = rhs._name;
+	this->_attackDamage = rhs.getAttackDamage();
+	this->_energyPts = rhs.getEnergyPts();
+	this->_hitPts = rhs.getHitPts();
+	this->_name = rhs.getName();
 	return *this;
 }
 

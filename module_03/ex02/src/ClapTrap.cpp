@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/27 08:12:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 11:36:37 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,23 @@
 /*****************************************************************/
 
 //Default constructor
-ClapTrap::ClapTrap(void) : _name("SansNom"), _hitPts(100), _energyPts(50), _attackDamage(20)
+ClapTrap::ClapTrap(void)
 {
+	this->setName("SansNom");
+	this->setHitPts(10);
+	this->setEnergyPts(10);
+	this->setAttackDamage(0);
+
 	std::cout << "Default ClapTrap constructor called" << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name) : _hitPts(100), _energyPts(50), _attackDamage(20)
+ClapTrap::ClapTrap(std::string name)
 {
-	this->_name = name;
+	this->setName(name);
+	this->setHitPts(10);
+	this->setEnergyPts(10);
+	this->setAttackDamage(0);
 	std::cout << this->_name << " constructor called (ClapTrap)" << std::endl;
 	return;
 }
@@ -55,10 +63,10 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap& ClapTrap::operator=(ClapTrap const &copy)
 {
-	this->_attackDamage = copy._attackDamage;
-	this->_energyPts = copy._energyPts;
-	this->_hitPts = copy._hitPts;
-	this->_name = copy._name;
+	this->_attackDamage = copy.getAttackDamage();
+	this->_energyPts = copy.getEnergyPts();
+	this->_hitPts = copy.getHitPts();
+	this->_name = copy.getName();
 	return (*this);
 }
 
@@ -124,7 +132,7 @@ void	ClapTrap::attack(const std::string& target)
 	if (this->_energyPts > 0 && this->_hitPts > 0)
 	{
 		this->_energyPts -= 1;
-		std::cout << this->_name << " attacks " << target << ", causing "<< this->_attackDamage << " points of damage!" << std::endl;
+		std::cout << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	}
 	else
 	{

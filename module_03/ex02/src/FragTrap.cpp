@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:16:17 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 16:08:51 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 11:38:07 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 FragTrap::FragTrap(void) : ClapTrap() //default constructor
 {
-	this->_hitPts = 100;
-	this->_energyPts = 100;
-	this->_attackDamage = 30;
+	this->setHitPts(100);
+	this->setEnergyPts(100);
+	this->setAttackDamage(30);
 	std::cout << "Default FragTrap constructor called" << std::endl;
 	return;
 }
@@ -47,10 +47,10 @@ FragTrap::~FragTrap(void)
 
 FragTrap&	FragTrap::operator=( FragTrap const & rhs )
 {
-	this->_attackDamage = rhs._attackDamage;
-	this->_energyPts = rhs._energyPts;
-	this->_hitPts = rhs._hitPts;
-	this->_name = rhs._name;
+	this->_attackDamage = rhs.getAttackDamage();
+	this->_energyPts = rhs.getEnergyPts();
+	this->_hitPts = rhs.getHitPts();
+	this->_name = rhs.getName();
 	return *this;
 }
 
