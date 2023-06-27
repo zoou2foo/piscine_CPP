@@ -6,21 +6,21 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:53:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/27 14:03:24 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 16:13:22 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-/*****************************************************************/
-/*						CONSTRUCTORS							 */
-/*****************************************************************/
+/******************************************************************************/
+/*								CONSTRUCTORS								  */
+/******************************************************************************/
 
 Animal::Animal(void)
 {
 	this->setType("Animal");
-	this->setSound("some animal sound");
-	std::cout << "\033[35m" << "Animal Default constructor called" << std::endl;
+	this->setSound("aaaaarrrrrrggggghhhhhuuuuuuuuuuurrrrrrrrrrgggghhhh");
+	std::cout << "\033[35m" << this->getType() << " Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -31,28 +31,28 @@ Animal::Animal(Animal const & src)
 	this->_type = src.getType();
 	this->_sound = src.getSound();
 	(*this) = src;
-	std::cout << "\033[35m" << "Animal Copy constructor called" << std::endl;
+	std::cout << "\033[35m" << this->getType() << "  Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
 
 
-/*****************************************************************/
-/*						DESTRUCTORS								 */
-/*****************************************************************/
+/******************************************************************************/
+/*								DESTRUCTORS									  */
+/******************************************************************************/
 
 Animal::~Animal(void)
 {
-	std::cout << "\033[35m" << "Animal Destructor called" << std::endl;
+	std::cout << "\033[35m" << this->getType() << " Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
 
 
 
-/*****************************************************************/
-/*					ASSIGNATION OPERATOR						 */
-/*****************************************************************/
+/******************************************************************************/
+/*							ASSIGNATION OPERATOR							  */
+/******************************************************************************/
 
 Animal&		Animal::operator=(Animal const & rhs)
 {
@@ -62,9 +62,9 @@ Animal&		Animal::operator=(Animal const & rhs)
 
 
 
-/*****************************************************************/
-/*							SETTER								 */
-/*****************************************************************/
+/******************************************************************************/
+/*									SETTER									  */
+/******************************************************************************/
 
 void	Animal::setType(std::string type)
 {
@@ -78,7 +78,7 @@ void	Animal::setSound(std::string sound)
 
 
 /******************************************************************************/
-/*								GETTER										  */
+/*									GETTER									  */
 /******************************************************************************/
 
 std::string const &	Animal::getType(void) const
@@ -96,7 +96,7 @@ std::string const & Animal::getSound(void) const
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-std::string const & Animal::makeSound(void)
+std::string const & Animal::makeSound(void) const
 {
 	return (this->getSound());
 }

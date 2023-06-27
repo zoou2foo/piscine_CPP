@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:32:37 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/27 13:51:52 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 15:39:32 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Cat : public Animal
 		~Cat(void);
 
 		Cat&	operator=(Cat const & rhs);
+		virtual std::string	const &	makeSound(void) const;
 
 	private:
 

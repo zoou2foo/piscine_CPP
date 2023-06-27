@@ -74,6 +74,7 @@ OBJDIR	=	bin/
 # File names
 FILES	=	Animal \
 			Cat \
+			Dog \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
