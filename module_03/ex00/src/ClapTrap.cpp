@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 11:36:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 08:26:04 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,6 @@ ClapTrap& ClapTrap::operator=(ClapTrap const &copy)
 	this->_hitPts = copy._hitPts;
 	this->_name = copy._name;
 	return (*this);
-}
-
-
-/*****************************************************************/
-/*					OVERLOAD OPERATOR						 */
-/*****************************************************************/
-
-std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 /*****************************************************************/

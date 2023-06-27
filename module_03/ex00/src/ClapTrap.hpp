@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:01 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 11:36:22 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 08:26:10 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ class	ClapTrap
 		int			_attackDamage;
 };
 
-std::ostream &			operator<<( std::ostream & o, ClapTrap const & i );
 
 #endif
