@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 14:53:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/26 16:04:34 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/27 08:12:54 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,11 +143,12 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		if (this->_hitPts < 0)
 		{
 			std::cout << this->_name << " is dead" << std::endl;
+			this->_hitPts = 0;
 			return;
 		}
 		else
 		{
-			std::cout << this->_name << " has now " << this->_hitPts << " hit points left!" << std::endl;
+			std::cout << this->_name << " has now " << this->_hitPts << " hit point(s) left!" << std::endl;
 		}
 	}
 	else
