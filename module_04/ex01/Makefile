@@ -66,7 +66,7 @@ MD		=	mkdir -p
 #INCLUDE =	-I include
 
 # Program and directory names
-NAME	=	Poly
+NAME	=	DoNotBurnTheWorld
 SRCDIR	=	src/
 OBJDIR	=	bin/
 #TSTDIR	=	tests/
@@ -77,13 +77,14 @@ FILES	=	Animal \
 			Dog \
 			WrongAnimal \
 			WrongCat \
+			Brain \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
 
 
-CMD		=	./Poly
+CMD		=	./DoNotBurnTheWorld
 
 #------------------------------------------------------------------------------#
 #                                   TARGETS                                    #

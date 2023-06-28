@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 15:59:07 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:16:06 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/28 08:17:21 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/28 09:11:53 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 /******************************************************************************/
-/*								CONSTRUCTORS								  */
+/*								CONSTRUCTORS						 		  */
 /******************************************************************************/
 
-Dog::Dog(void) : Animal()
+WrongCat::WrongCat(void) : WrongAnimal()
 {
-	this->setType("Dog");
-	std::cout << "\033[33m" << this->getType() << " Default constructor called" << std::endl;
+	this->setType("WrongCat");
+	std::cout << "\033[31m" << this->getType() << " Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
 
-Dog::Dog(Dog const & src)
+//copy constructor
+WrongCat::WrongCat(WrongCat const & src) : WrongAnimal(src)
 {
 	this->_type = src.getType();
 	(*this) = src;
-	std::cout << "\033[33m" << this->getType() << " Copy constructor called" << std::endl;
+	std::cout << "\033[31m" << this->getType() << " Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -37,9 +38,9 @@ Dog::Dog(Dog const & src)
 /*								DESTRUCTORS									  */
 /******************************************************************************/
 
-Dog::~Dog(void)
+WrongCat::~WrongCat(void)
 {
-	std::cout << "\033[33m" << this->getType() << " Destructor called" << std::endl;
+	std::cout << "\033[31m" << "WrongCat Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -48,7 +49,7 @@ Dog::~Dog(void)
 /*							ASSIGNATION OPERATOR							  */
 /******************************************************************************/
 
-Dog&		Dog::operator=(Dog const & rhs)
+WrongCat&		WrongCat::operator=(WrongCat const & rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
@@ -58,7 +59,8 @@ Dog&		Dog::operator=(Dog const & rhs)
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-void	Dog::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
-	std::cout << this->_type << " makes this sound: wwwwwwwwwwwooooooooooooooooooooooooooooooooooooooffffffffffffffff!!!!!!" << std::endl;
+	std::cout << "\033[31m" << this->_type << " makes this sound: minou minou minou!" << std::endl;
+	std::cout << "\033[0m";
 }
