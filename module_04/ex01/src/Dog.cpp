@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:59:07 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:16:06 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 14:01:50 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@
 
 Dog::Dog(void) : Animal()
 {
+	_brain = new Brain();
 	this->setType("Dog");
 	std::cout << "\033[33m" << this->getType() << " Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
 
+//copy constructor
 Dog::Dog(Dog const & src)
 {
-	this->_type = src.getType();
+	this->_brain = new Brain(*src._brain);
 	(*this) = src;
-	std::cout << "\033[33m" << this->getType() << " Copy constructor called" << std::endl;
+	std::cout << "\033[33m" << "Dog Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -39,7 +41,8 @@ Dog::Dog(Dog const & src)
 
 Dog::~Dog(void)
 {
-	std::cout << "\033[33m" << this->getType() << " Destructor called" << std::endl;
+	delete _brain;
+	std::cout << "\033[33m" << "Dog Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -48,8 +51,9 @@ Dog::~Dog(void)
 /*							ASSIGNATION OPERATOR							  */
 /******************************************************************************/
 
-Dog&		Dog::operator=(Dog const & rhs)
+Dog&	Dog::operator=(Dog const & rhs)
 {
+	*this->_brain = *rhs._brain;
 	this->_type = rhs.getType();
 	return (*this);
 }

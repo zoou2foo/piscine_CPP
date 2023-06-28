@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:29:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:15:17 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:11:28 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 Cat::Cat(void) : Animal()
 {
+	_brain = new Brain();
 	this->setType("Cat");
 	std::cout << "\033[32m" << this->getType() << " Default constructor called" << std::endl;
 	std::cout << "\033[0m";
@@ -27,9 +28,9 @@ Cat::Cat(void) : Animal()
 //copy constructor
 Cat::Cat(Cat const & src) : Animal(src)
 {
-	this->_type = src.getType();
+	this->_brain = new Brain(*src._brain);
 	(*this) = src;
-	std::cout << "\033[32m" << this->getType() << " Copy constructor called" << std::endl;
+	std::cout << "\033[32m" << "Cat Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -40,6 +41,7 @@ Cat::Cat(Cat const & src) : Animal(src)
 
 Cat::~Cat(void)
 {
+	delete _brain;
 	std::cout << "\033[32m" << this->getType() << " Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
@@ -51,6 +53,7 @@ Cat::~Cat(void)
 
 Cat&		Cat::operator=(Cat const & rhs)
 {
+	*this->_brain = *rhs._brain;
 	this->_type = rhs.getType();
 	return (*this);
 }

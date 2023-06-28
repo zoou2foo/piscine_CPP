@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:32:37 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 08:04:58 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 10:57:02 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -28,6 +29,7 @@ class Cat : public Animal
 		virtual void	makeSound(void) const;
 
 	private:
+		Brain* _brain;
 
 	protected:
 };

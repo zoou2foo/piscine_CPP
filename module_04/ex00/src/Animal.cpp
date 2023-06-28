@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:53:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:14:10 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 11:39:47 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 Animal::Animal(void)
 {
 	this->setType("Animal");
-	std::cout << "\033[35m" << this->getType() << " Default constructor called" << std::endl;
+	std::cout << "\033[35m" << "Animal Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -29,7 +29,7 @@ Animal::Animal(Animal const & src)
 {
 	this->_type = src.getType();
 	(*this) = src;
-	std::cout << "\033[35m" << this->getType() << "  Copy constructor called" << std::endl;
+	std::cout << "\033[35m" << "Animal Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -41,7 +41,7 @@ Animal::Animal(Animal const & src)
 
 Animal::~Animal(void)
 {
-	std::cout << "\033[35m" << this->getType() << " Destructor called" << std::endl;
+	std::cout << "\033[35m" << "Animal Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }

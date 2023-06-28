@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:59:09 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 08:05:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 11:01:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -30,6 +31,7 @@ class Dog : public Animal
 	private:
 
 	protected:
+		Brain* _brain;
 
 };
 

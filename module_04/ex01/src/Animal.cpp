@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:53:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:14:10 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 13:37:17 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 Animal::Animal(void)
 {
 	this->setType("Animal");
-	std::cout << "\033[35m" << this->getType() << " Default constructor called" << std::endl;
+	std::cout << "\033[35m" << "Animal Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -27,9 +27,9 @@ Animal::Animal(void)
 //copy constructor
 Animal::Animal(Animal const & src)
 {
-	this->_type = src.getType();
+	//this->_type = src.getType(); repetitive
 	(*this) = src;
-	std::cout << "\033[35m" << this->getType() << "  Copy constructor called" << std::endl;
+	std::cout << "\033[35m" << "Animal Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -41,7 +41,7 @@ Animal::Animal(Animal const & src)
 
 Animal::~Animal(void)
 {
-	std::cout << "\033[35m" << this->getType() << " Destructor called" << std::endl;
+	std::cout << "\033[35m" << "Animal Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -73,7 +73,7 @@ void	Animal::setType(std::string type)
 /*									GETTER									  */
 /******************************************************************************/
 
-std::string const &	Animal::getType(void) const
+std::string const	Animal::getType(void) const
 {
 	return (this->_type);
 }

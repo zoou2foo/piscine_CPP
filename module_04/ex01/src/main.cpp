@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:42:05 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:30:52 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 14:02:55 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,100 +15,57 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int	main()
 {
+	/*		TEST 2		*/
+	Dog* Test = new Dog();
+	Dog Copy(*Test);
+
+	std::cout << "Test type is: " << Test->getType() << std::endl;
+	std::cout << "Copy type is: " << Copy.getType() << std::endl;
+	std::cout << "Changing copy";
+	Copy.setType("Animal");
+	std::cout << std::endl;
+	std::cout << "Copy type is now: " << Copy.getType() << std::endl;
+	std::cout << "Test type is now: " << Test->getType() << std::endl;
+
+	delete Test;
+
+	
 	/*		TEST 1		*/
-	const Animal* Parent = new Animal();
-	const Animal* Child1 = new Cat();
-	const Animal* Child3 = new Dog();
-	const Cat* Child2 = new Cat();
-	const Dog* Child4 = new Dog();
-	const WrongAnimal* Child5 = new WrongAnimal();
-	const WrongAnimal* Child6 = new WrongCat();
-	const WrongCat* Child7 = new WrongCat();
+	// const Animal** Parent = new const Animal*[10];
+	// int	index = 0;
 
-	std::cout << "\033[34m" << "------------------------------------------------------------" << std::endl;
-	std::cout << "\033[0m";
+	// while (index <= 4)
+	// {
+	// 	Animal* catObj = new Cat();
+	// 	Parent[index] = catObj;
+	// 	index++;
+	// }
+	// while (index <= 9)
+	// {
+	// 	Animal* dogObj = new Dog();
+	// 	Parent[index] = dogObj;
+	// 	index++;
+	// }
 
-	std::cout << "This thing, Parent, is " << Parent->getType() << std::endl;
-	std::cout << "This thing, child1, is " << Child1->getType() << std::endl;
-	std::cout << "This thing, child2, is " << Child2->getType() << std::endl;
-	std::cout << "This thing, child3, is " << Child3->getType() << std::endl;
-	std::cout << "This thing, child4, is " << Child4->getType() << std::endl;
-	std::cout << "This thing, child5, is " << Child5->getType() << std::endl;
-	std::cout << "This thing, child6, is " << Child6->getType() << std::endl;
-	std::cout << "This thing, child7, is " << Child7->getType() << std::endl;
-	std::cout << "This thing, Parent, makes this sound: ";
-	Parent->makeSound();
-	std::cout << std::endl;
-	std::cout << "This thing, child1, makes this sound: ";
-	Child1->makeSound();
-	std::cout << std::endl;
-	std::cout << "This thing, child2, makes this sound: ";
-	Child2->makeSound();
-	std::cout << std::endl;
-	std::cout << "This thing, child3, makes this sound: ";
-	Child3->makeSound();
-	std::cout << std::endl;
-	std::cout << "This thing, child4, makes this sound: ";
-	Child4->makeSound();
-	std::cout << std::endl;
-	std::cout << "This thing, child5, makes this sound: ";
-	Child5->makeSound();
-	std::cout << std::endl;
-	std::cout << "This thing, child6, makes this sound: ";
-	Child6->makeSound();
-	std::cout << std::endl;
-	std::cout << "This thing, child7, makes this sound: ";
-	Child7->makeSound();
-	std::cout << std::endl;
-	std::cout << "\033[34m" << "------------------------------------------------------------" << std::endl;
-	std::cout << "\033[0m";
- 	delete Parent;
-	delete Child1;
-	delete Child2;
-	delete Child3;
-	delete Child4;
-	delete Child5;
-	delete Child6;
-	delete Child7;
-
-	/*		TEST 2 - from subject pdf		*/
-	// const Animal* meta = new Animal();
-	// const Animal* j = new Dog();
-	// const Animal* i = new Cat();
-
-	// std::cout << j->getType() << " " << std::endl;
-	// std::cout << i->getType() << " " << std::endl;
-	// i->makeSound(); //will output the cat sound
-	// j->makeSound();
-	// meta->makeSound();
-
-	// delete meta;
-	// delete i;
-	// delete j;
-
-
-	/*		TEST 3		*/
-	// const WrongAnimal* meta = new WrongAnimal();
-	// const Animal* j = new Dog();
-	// const WrongAnimal* i = new WrongCat();
-
-	// std::cout << "\033[34m" << "------------------------------------------------------------" << std::endl;
+	// std::cout << "\033[33m" << "-------------------------------------------------------" << std::endl;
 	// std::cout << "\033[0m";
 
-	// std::cout << j->getType() << " " << std::endl;
-	// std::cout << i->getType() << " " << std::endl;
-	// i->makeSound(); //will output the WrongAnimal sound
-	// j->makeSound();
-	// meta->makeSound();
-	// std::cout << "\033[34m" << "------------------------------------------------------------" << std::endl;
-	// std::cout << "\033[0m";
+	// std::cout << "First: Animal -> Brain -> Cat or Dog. Then: Brain -> Cat or Dog -> Animal" << std::endl;
 
-	// delete meta;
-	// delete i;
-	// delete j;
+
+	// std::cout << "\033[33m" << "-------------------------------------------------------" << std::endl;
+	// std::cout << "\033[0m";
+	// index = 0;
+	// while (index <= 9)
+	// {
+	// 	delete Parent[index];
+	// 	index++;
+	// }
+	// delete[] Parent;
 
 	return 0;
 }

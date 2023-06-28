@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 09:37:35 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 13:56:06 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:21:53 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Brain::Brain(void)
 {
-	std::cout << "\033[35m" << "Brain Default constructor called" << std::endl;
+	std::cout << "\033[36m" << "Brain Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -26,8 +26,8 @@ Brain::Brain(void)
 //copy constructor
 Brain::Brain(Brain const & src)
 {
-	(*this) = src;
-	std::cout << "\033[35m" << "Brain  Copy constructor called" << std::endl;
+	(*this) = src; //then move to assignation operator
+	std::cout << "\033[36m" << "Brain Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -39,7 +39,7 @@ Brain::Brain(Brain const & src)
 
 Brain::~Brain(void)
 {
-	std::cout << "\033[35m" << "Brain Destructor called" << std::endl;
+	std::cout << "\033[36m" << "Brain Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }

@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 11:48:58 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 13:37:04 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/28 08:07:57 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/28 16:59:02 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-class Animal
+class AWrongAnimal
 {
 	public:
-		Animal(void); //default constructor
-		Animal(Animal const & src); //copy constructor
-		virtual ~Animal(void); //destructor
+		AWrongAnimal(void);
+		AWrongAnimal(AWrongAnimal const & src);
+		virtual ~AWrongAnimal(void);
 
-		Animal&				operator=(Animal const & rhs); //assignation op
+		AWrongAnimal&		operator=(AWrongAnimal const & rhs);
 		void				setType(std::string type);
-		std::string	const getType(void) const; //return cosnt & avoid to have a copy created each time
-		virtual void		makeSound(void) const;
+		std::string const & getType(void) const;
+		virtual void		makeSound(void) const = 0;//might be here my prob with WrongCat
 
 	private:
 
 	protected:
-		std::string	_type;
-		std::string	_sound;
+		std::string _type;
+		std::string _sound;
 };
 
 #endif

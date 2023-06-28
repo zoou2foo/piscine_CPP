@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 08:17:43 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 16:55:29 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:32:57 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*								CONSTRUCTORS								  */
 /******************************************************************************/
 
-WrongAnimal::WrongAnimal(void)
+AWrongAnimal::AWrongAnimal(void)
 {
 	this->setType("WrongAnimal");
 	std::cout << "\033[31m" << "WrongAnimal Default constructor called" << std::endl;
@@ -25,7 +25,7 @@ WrongAnimal::WrongAnimal(void)
 }
 
 //copy constructor
-WrongAnimal::WrongAnimal(WrongAnimal const & src)
+AWrongAnimal::AWrongAnimal(AWrongAnimal const & src)
 {
 	this->_type = src.getType();
 	(*this) = src;
@@ -38,7 +38,7 @@ WrongAnimal::WrongAnimal(WrongAnimal const & src)
 /*								DESTRUCTORS									  */
 /******************************************************************************/
 
-WrongAnimal::~WrongAnimal(void)
+AWrongAnimal::~AWrongAnimal(void)
 {
 	std::cout << "\033[31m" << "WrongAnimal Destructor called" << std::endl;
 	std::cout << "\033[0m";
@@ -49,7 +49,7 @@ WrongAnimal::~WrongAnimal(void)
 /*							ASSIGNATION OPERATOR							  */
 /******************************************************************************/
 
-WrongAnimal&		WrongAnimal::operator=(WrongAnimal const & rhs)
+AWrongAnimal&	AWrongAnimal::operator=(AWrongAnimal const & rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
@@ -59,7 +59,7 @@ WrongAnimal&		WrongAnimal::operator=(WrongAnimal const & rhs)
 /*									SETTER									  */
 /******************************************************************************/
 
-void	WrongAnimal::setType(std::string type)
+void	AWrongAnimal::setType(std::string type)
 {
 	this->_type = type;
 }
@@ -68,7 +68,7 @@ void	WrongAnimal::setType(std::string type)
 /*									GETTER									  */
 /******************************************************************************/
 
-std::string const &	WrongAnimal::getType(void) const
+std::string const &	AWrongAnimal::getType(void) const
 {
 	return (this->_type);
 }
@@ -77,7 +77,7 @@ std::string const &	WrongAnimal::getType(void) const
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-void WrongAnimal::makeSound(void) const
+void AWrongAnimal::makeSound(void) const
 {
 	std::cout << "\033[31m" << this->_type << " makes this sound: zzzzzzzzzzzzzz" << std::endl;
 	std::cout << "\033[0m";

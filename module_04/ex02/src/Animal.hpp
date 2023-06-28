@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:48:58 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 13:37:04 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 17:00:57 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 #include <iostream>
 #include <string>
 
-class Animal
+//need to add prefix A to Animal
+class AAnimal
 {
 	public:
-		Animal(void); //default constructor
-		Animal(Animal const & src); //copy constructor
-		virtual ~Animal(void); //destructor
+		AAnimal(void); //default constructor
+		AAnimal(AAnimal const & src); //copy constructor
+		virtual ~AAnimal(void); //destructor
 
-		Animal&				operator=(Animal const & rhs); //assignation op
+		AAnimal&			operator=(AAnimal const & rhs); //assignation op
 		void				setType(std::string type);
-		std::string	const getType(void) const; //return cosnt & avoid to have a copy created each time
-		virtual void		makeSound(void) const;
+		std::string	const 	getType(void) const; //return cosnt & avoid to have a copy created each time
+		virtual void		makeSound(void) const = 0; //equals ZERO to make it pure virtual method
 
 	private:
 

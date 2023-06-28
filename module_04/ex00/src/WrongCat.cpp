@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 08:17:21 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:11:53 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/28 16:53:03 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 WrongCat::WrongCat(void) : WrongAnimal()
 {
 	this->setType("WrongCat");
-	std::cout << "\033[31m" << this->getType() << " Default constructor called" << std::endl;
+	std::cout << "\033[31m" << "WrongCat Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -29,7 +29,7 @@ WrongCat::WrongCat(WrongCat const & src) : WrongAnimal(src)
 {
 	this->_type = src.getType();
 	(*this) = src;
-	std::cout << "\033[31m" << this->getType() << " Copy constructor called" << std::endl;
+	std::cout << "\033[31m" << "WrongCat Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }

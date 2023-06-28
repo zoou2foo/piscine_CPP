@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/28 08:17:43 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 16:55:29 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/27 13:29:59 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/28 16:10:38 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "Cat.hpp"
 
 /******************************************************************************/
-/*								CONSTRUCTORS								  */
+/*								CONSTRUCTORS						 		  */
 /******************************************************************************/
 
-WrongAnimal::WrongAnimal(void)
+Cat::Cat(void) : AAnimal()
 {
-	this->setType("WrongAnimal");
-	std::cout << "\033[31m" << "WrongAnimal Default constructor called" << std::endl;
+	_brain = new Brain();
+	this->setType("Cat");
+	std::cout << "\033[32m" << "Cat Default constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
 
 //copy constructor
-WrongAnimal::WrongAnimal(WrongAnimal const & src)
+Cat::Cat(Cat const & src) : AAnimal(src)
 {
-	this->_type = src.getType();
+	this->_brain = new Brain(*src._brain);
 	(*this) = src;
-	std::cout << "\033[31m" << "WrongAnimal Copy constructor called" << std::endl;
+	std::cout << "\033[32m" << "Cat Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -38,9 +39,10 @@ WrongAnimal::WrongAnimal(WrongAnimal const & src)
 /*								DESTRUCTORS									  */
 /******************************************************************************/
 
-WrongAnimal::~WrongAnimal(void)
+Cat::~Cat(void)
 {
-	std::cout << "\033[31m" << "WrongAnimal Destructor called" << std::endl;
+	delete _brain;
+	std::cout << "\033[32m" << "Cat Destructor called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -49,36 +51,18 @@ WrongAnimal::~WrongAnimal(void)
 /*							ASSIGNATION OPERATOR							  */
 /******************************************************************************/
 
-WrongAnimal&		WrongAnimal::operator=(WrongAnimal const & rhs)
+Cat&		Cat::operator=(Cat const & rhs)
 {
+	*this->_brain = *rhs._brain;
 	this->_type = rhs.getType();
 	return (*this);
-}
-
-/******************************************************************************/
-/*									SETTER									  */
-/******************************************************************************/
-
-void	WrongAnimal::setType(std::string type)
-{
-	this->_type = type;
-}
-
-/******************************************************************************/
-/*									GETTER									  */
-/******************************************************************************/
-
-std::string const &	WrongAnimal::getType(void) const
-{
-	return (this->_type);
 }
 
 /******************************************************************************/
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-void WrongAnimal::makeSound(void) const
+void Cat::makeSound(void) const
 {
-	std::cout << "\033[31m" << this->_type << " makes this sound: zzzzzzzzzzzzzz" << std::endl;
-	std::cout << "\033[0m";
+	std::cout << this->_type << " makes this sound: meeeeeeeeeeoooooooooooooooooooowwwwww!!!!!!!!!!" << this->_sound << std::endl;
 }

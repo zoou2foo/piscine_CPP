@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 11:48:58 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 13:37:04 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/27 13:32:37 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/28 16:12:30 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef CAT_CLASS_HPP
+# define CAT_CLASS_HPP
 
 #include <iostream>
 #include <string>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Animal
+class Cat : public AAnimal
 {
 	public:
-		Animal(void); //default constructor
-		Animal(Animal const & src); //copy constructor
-		virtual ~Animal(void); //destructor
+		Cat(void);
+		Cat(Cat const & src);
+		~Cat(void);
 
-		Animal&				operator=(Animal const & rhs); //assignation op
-		void				setType(std::string type);
-		std::string	const getType(void) const; //return cosnt & avoid to have a copy created each time
-		virtual void		makeSound(void) const;
+		Cat&	operator=(Cat const & rhs);
+		virtual void	makeSound(void) const;
 
 	private:
+		Brain* _brain;
 
 	protected:
-		std::string	_type;
-		std::string	_sound;
 };
+
 
 #endif
