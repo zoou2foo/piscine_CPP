@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:42:05 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 16:57:18 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/29 10:57:00 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main()
 {
 	/*		TEST 3		*/
 	const AAnimal** Parent = new const AAnimal*[10];
-	const AWrongAnimal* Wrong = new WrongCat(); //should do an animal sound not a cat
+	const AWrongAnimal* Wrong = new WrongCat(); //it will do it's proper sound as WrongAnimal is an abstract class
 	const WrongCat* c = new WrongCat();
 	//const AWrongAnimal* a = new AWrongAnimal(); //does not work
 	int	index = 0;

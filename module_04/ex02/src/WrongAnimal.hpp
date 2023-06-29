@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 08:07:57 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 16:59:02 by vjean            ###   ########.fr       */
+/*   Updated: 2023/06/29 10:57:19 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AWrongAnimal
 		AWrongAnimal&		operator=(AWrongAnimal const & rhs);
 		void				setType(std::string type);
 		std::string const & getType(void) const;
-		virtual void		makeSound(void) const = 0;//might be here my prob with WrongCat
+		virtual void		makeSound(void) const = 0;
 
 	private:
 
