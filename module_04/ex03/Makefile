@@ -73,7 +73,9 @@ OBJDIR	=	bin/
 
 # File names
 FILES	=	AMateria \
-			Character \
+			Ice \
+			Cure \
+			MateriaSource \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))

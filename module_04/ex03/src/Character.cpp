@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/29 16:13:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/30 14:50:41 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/30 11:46:48 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
+#include "Character.hpp"
 
 /******************************************************************************/
 /*								CONSTRUCTORS								  */
 /******************************************************************************/
 
-AMateria::AMateria(std::string const & type)
+Character::Character(std::string name)
 {
-	this->setType(type);
-	std::cout << "\033[35m" << "AMateria Default Constructor Called" << std::endl;
+	this->setName(name);
+	std::cout << "\033[33m" << "Character Default Constructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
 
 //copy constructor
-AMateria::AMateria(AMateria const & src)
+Character::Character(Character const & src)
 {
+	//delete les Materias du Character before new replace
 	(*this) = src;
-	std::cout << "\033[35m" << "AMateria Copy Constructor Called" << std::endl;
+	std::cout << "\033[35m" << "Character Copy Constructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -39,9 +38,10 @@ AMateria::AMateria(AMateria const & src)
 /*								DESTRUCTOR									  */
 /******************************************************************************/
 
-AMateria::~AMateria(void)
+Character::~Character(void)
 {
-	std::cout << "\033[35m" << "AMateria Destructor Called" << std::endl;
+	//need to make sure to delete Materia (array)
+	std::cout << "\033[35m" << "Character Destructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
 }
@@ -50,9 +50,9 @@ AMateria::~AMateria(void)
 /*							ASSIGNATION OPERATOR							  */
 /******************************************************************************/
 
-AMateria&		AMateria::operator=(AMateria const & rhs)
+Character& Character::operator=(Character const & rhs)
 {
-	this->_type = rhs.getType();
+	this->_name = rhs.getName();
 	return (*this);
 }
 
@@ -60,55 +60,50 @@ AMateria&		AMateria::operator=(AMateria const & rhs)
 /*									GETTER									  */
 /******************************************************************************/
 
-std::string const & AMateria::getType(void) const
+std::string const & ICharacter::getName(void) const
 {
-	return (this->_type);
+	return (this->_name);
 }
 
 /******************************************************************************/
 /*									SETTER									  */
 /******************************************************************************/
 
-void	AMateria::setType(std::string type)
+void	Character::setName(std::string name)
 {
-	this->_type = type;
+	this->_name = name;
 }
-
 
 /******************************************************************************/
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-// AMateria*	AMateria::clone(void) const
-// {
-// 	//create a new instance of the same type. Ice clone ice. Cure clone cure.
-// 	//new instance => new Ice() or new Cure()
-// 	//AMateria* clone1 = new Ice() or AMateria* clone2 = new Cure() Do I clone both here?
-// 	//do I code it here or not?
-// 	if (this->getType() == "ice")
-// 	{
-// 		AMateria* clone = new Ice();
-// 		return (clone);
-// 	}
-// 	else if (this->getType() == "cure")
-// 	{
-// 		AMateria* clone = new Cure();
-// 		return (clone);
-// 	}
-// 	return (NULL);
-// }
-
-void	AMateria::use(ICharacter& target)
+void	ICharacter::unequip(int idx)
 {
-	//is there a check to do or is it doing ice and cure at the same time??
-	if (this->getType() == "ice")
+	//transfer Materia to a tmp array?? to keep the address?
+	//DO NOT delete Materia, just take it out from the inventory
+	//Check if Materia exists. If NOT: do nothing.
+
+}
+
+void	ICharacter::equip(AMateria* m)
+{
+	//add the Materia in the first available/empty space in the arrayMateria
+	for (int index = 0; index < 4; ++index)
 	{
-		std::cout << "\033[36m" << "* shoots ice bolt at " << target.getName() << " *" << std::endl;
-		std::cout << "\033[0m";
+		if (this->_arrayMateria[index].empty()) //FIXME
+		{
+			this->_arrayMateria[index] = m; //FIXME
+		}
+		//if full return without doing anything
 	}
-	else if (this->getType() == "cure")
-	{
-		std::cout << "\033[32m" << "* heals " << target.getName() << "'s wounds *" << std::endl;
-		std::cout << "\033[0m";
-	}
+}
+
+void	ICharacter::use(int idx, ICharacter& target)
+{
+	//your character needs to know which Materia it has to use. Then it needs
+	//to know its target
+	//Need to getType at the idx and send this info to AMateria::use to know which
+	//msg to send
+	this->_arrayMateria[idx].getType(); //and do some shit with this
 }

@@ -1,0 +1,12 @@
+/*			Class AMateria & Ice & Cure			*/
+//QUESTION: in clone() not sure on what I did...
+//QUESTION: use() not sure on what I did... right track or not?
+//QUESTION: Do I need to re-code clone() and use() for class Ice and Cure...???
+
+
+/*			Class Character & ICharacter		*/
+//TODO: review copy constructor AND assignation operator
+//QUESTION: how to getName from ICharacter that Character inherited can getName???
+//QUESTION: transfer Materia to a tmp array?? to keep the address?
+//TODO: review how I code equip to add the Materia in the array... not the right way...
+//QUESTION: not sure on how to link the info from Character to AMateria for use...

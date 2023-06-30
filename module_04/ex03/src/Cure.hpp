@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/29 16:11:43 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/30 14:36:43 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/30 11:27:00 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/30 14:04:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CURE_HPP
+# define CURE_HPP
+
 #include "AMateria.hpp"
-//#include "Character.hpp"
-#include "MateriaSource.hpp"
 
-int	main()
+class Cure : public AMateria
 {
-	/*		TEST 1		*/
-	AMateria* ice = new Ice();
-	
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(ice); //variable ice pour éviter leaks
+	public:
+		Cure(void);
+		Cure(Cure const & src);
+		~Cure(void);
 
-	(void)src;
+		Cure & operator=(Cure const & rhs);
 
-	delete src;
-	delete ice;
+		AMateria*	clone(void) const;
+		void		use(ICharacter& target);
 
-	return (0);
-}
+	private:
+};
 
-//Test 1 should display the following:
-// $> clang++ -W -Wall -Werror *.cpp
-// $> ./a.out | cat -e
-// * shoots an ice bolt at bob *$
-// * heals bob's wounds *$
+#endif

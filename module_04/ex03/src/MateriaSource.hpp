@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/29 16:09:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/30 10:39:42 by vjean            ###   ########.fr       */
+/*   Created: 2023/06/30 11:48:35 by vjean             #+#    #+#             */
+/*   Updated: 2023/06/30 14:48:04 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-# define CHARACTER_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
 #include <iostream>
 #include <string>
 #include "AMateria.hpp"
 
 class AMateria;
-class ICharacter
+
+class IMateriaSource
 {
 	public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria* learn) = 0;
+		// virtual Amateria* createMateria(std::string const & type) = 0;
 };
 
-class Character : public ICharacter
+class MateriaSource : public IMateriaSource
 {
 	public:
-		Character(std::string name);
-		Character(Character const & src);
-		~Character(void);
+		MateriaSource(void);
+		MateriaSource(MateriaSource const & src);
+		~MateriaSource(void);
 
-		Character&	operator=(Character const & rhs);
-		void		setName(std::string name);
+		MateriaSource& operator=(MateriaSource const & rhs);
 
 	protected:
-		std::string	_name;
-		std::string _arrayMateria[4];
+		AMateria*	_arrayMatSrc[4];
+		int			_index;
 };
-
 
 #endif
