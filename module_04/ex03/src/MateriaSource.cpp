@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 13:05:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 12:54:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/03 16:13:39 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ MateriaSource::MateriaSource(void)
 	for(int i = 0; i < 4; ++i)
 	{
 		this->_arrayMatSrc[i] = NULL;
-		this->_garbage[i] = NULL;
+		//this->_garbage[i] = NULL;
 	}
 	std::cout << "\033[33m" << "MateriaSource Default Constructor Called" << std::endl;
 	std::cout << "\033[0m";
@@ -43,14 +43,13 @@ MateriaSource::MateriaSource(MateriaSource const & src)
 
 MateriaSource::~MateriaSource(void)
 {
-	for (int i = 0; i < 4; ++i)
-	{
-		if (this->_arrayMatSrc[i] != NULL && this->_garbage[i] != NULL)
-		{
-			delete this->_arrayMatSrc[i];
-			delete this->_garbage[i];
-		}
-	}
+	// for (int i = 0; i < 4; ++i)
+	// {
+	// 	if (this->_arrayMatSrc[i] != NULL)
+	// 		delete this->_arrayMatSrc[i];
+	// 	// if (this->_garbage[i] != NULL)
+	// 	// 	delete this->_garbage[i];
+	// }
 	std::cout << "\033[33m" << "MateriaSource Destructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
@@ -62,6 +61,11 @@ MateriaSource::~MateriaSource(void)
 
 MateriaSource& MateriaSource::operator=(MateriaSource const & rhs)
 {
+	for (int i = 0; i < 4; ++i)
+	{
+		if (this->_arrayMatSrc[i] != NULL)
+			delete this->_arrayMatSrc[i];
+	}
 	for(int i = 0; i < 4; ++i)
 	{
 		this->_arrayMatSrc[i] = rhs._arrayMatSrc[i];
@@ -78,22 +82,31 @@ void	MateriaSource::learnMateria(AMateria* learn)
 	//copie the AMateria to store it. It will be clone later
 	for (int i = 0; i < 4; ++i)
 	{
+		std::cout << i << std::endl;
 		if (this->_arrayMatSrc[i] == NULL)
 		{
 			this->_arrayMatSrc[i] = learn; //something like that probably...
 			break;
 		}
-		if (i == 3)
-		{
-			std::cout << "arrayMatSrc full" << std::endl;
-			this->_garbage[i] = learn;
-		}
+		std::cout << i << std::endl;
+		std::cout << "looking for my prob" << std::endl;
+		// if (i == 3)
+		// {
+		// 	std::cout << "arrayMatSrc full" << std::endl;
+		// 	for (int j = 0; j < 4; ++j)
+		// 	{
+		// 		if (this->_garbage[j] == NULL)
+		// 		{
+		// 			this->_garbage[j] = learn;
+		// 			break;
+		// 		}
+		// 	}
+		// }
 	}
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
-	// AMateria* tmp = new AMateria(type);
 	for (int i = 0; i < 4; ++i)
 	{
 		if (this->_arrayMatSrc[i]->getType() == type)

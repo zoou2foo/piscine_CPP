@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:09:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 12:49:48 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/03 15:55:46 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class Character : public ICharacter
 	protected:
 		std::string	_name;
 		AMateria* _arrayMateria[4];
-		AMateria* _garbage[4];
+		//AMateria* _garbage[4];
 };
 
 

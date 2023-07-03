@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:13:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/30 14:50:41 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/03 13:20:25 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,6 @@ void	AMateria::setType(std::string type)
 /******************************************************************************/
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
-
-// AMateria*	AMateria::clone(void) const
-// {
-// 	//create a new instance of the same type. Ice clone ice. Cure clone cure.
-// 	//new instance => new Ice() or new Cure()
-// 	//AMateria* clone1 = new Ice() or AMateria* clone2 = new Cure() Do I clone both here?
-// 	//do I code it here or not?
-// 	if (this->getType() == "ice")
-// 	{
-// 		AMateria* clone = new Ice();
-// 		return (clone);
-// 	}
-// 	else if (this->getType() == "cure")
-// 	{
-// 		AMateria* clone = new Cure();
-// 		return (clone);
-// 	}
-// 	return (NULL);
-// }
 
 void	AMateria::use(ICharacter& target)
 {
