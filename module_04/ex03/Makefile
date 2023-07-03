@@ -76,6 +76,7 @@ FILES	=	AMateria \
 			Ice \
 			Cure \
 			MateriaSource \
+			Character \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))

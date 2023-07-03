@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:35:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/30 14:18:41 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/03 11:47:47 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ AMateria*	Cure::clone(void) const
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout << "\033[32m" << "* heals " << target.getName() << "'s wounds *" << target.getName() << " *" << std::endl;
+	std::cout << "\033[32m" << "* heals " << target.getName() << "'s wounds *" << std::endl;
 	std::cout << "\033[0m";
 }

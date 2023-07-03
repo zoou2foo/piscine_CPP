@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:03:48 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/30 14:50:16 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/03 11:00:54 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class AMateria
 		std::string const & getType(void) const; //getter to return materia type
 		void				setType(std::string type);
 
-		// virtual AMateria*	clone(void) const = 0; //method; all derived classes will have it
+		virtual AMateria*	clone(void) const = 0; //method; all derived classes will have it
 		virtual void		use(ICharacter& target);
 
 	private:
