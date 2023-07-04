@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 16:13:45 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 08:49:16 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 Character::Character(std::string name)
 {
 	this->setName(name);
-	for (int i = 0; i < 4; ++i)
-	{
-		this->_arrayMateria[i] = NULL;
-		//this->_garbage[i] = NULL;
-	}
+	// for (int i = 0; i < 4; ++i)
+	// {
+	// 	this->_arrayMateria[i] = NULL;
+	// 	//this->_garbage[i] = NULL;
+	// }
 	std::cout << "\033[37m" << "Character Default Constructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
@@ -117,8 +117,6 @@ void	Character::equip(AMateria* m)
 			this->_arrayMateria[index] = m;
 			break;
 		}
-		std::cout << index << std::endl;
-		std::cout << "looking for the segfault from equip" << std::endl;
 		// if (index == 3)
 		// {
 		// 	std::cout << "array full" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:11:43 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 16:23:28 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 08:44:26 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	main()
 	std::cout << "------ ACTION TIME --------" << std::endl;
 	me->use(0, *bob);
 	me->use(1, *bob);
-	me->use(5, *bob);
 	std::cout << std::endl;
 
 

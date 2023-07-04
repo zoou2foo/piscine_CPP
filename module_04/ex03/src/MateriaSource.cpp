@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 13:05:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 16:13:39 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 08:49:27 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 MateriaSource::MateriaSource(void)
 {
-	for(int i = 0; i < 4; ++i)
-	{
-		this->_arrayMatSrc[i] = NULL;
-		//this->_garbage[i] = NULL;
-	}
+	// for(int i = 0; i < 4; ++i)
+	// {
+	// 	this->_arrayMatSrc[i] = NULL;
+	// 	//this->_garbage[i] = NULL;
+	// }
 	std::cout << "\033[33m" << "MateriaSource Default Constructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
@@ -86,10 +86,9 @@ void	MateriaSource::learnMateria(AMateria* learn)
 		if (this->_arrayMatSrc[i] == NULL)
 		{
 			this->_arrayMatSrc[i] = learn; //something like that probably...
+			std::cout << "what's in array MatSrc" << i << this->_arrayMatSrc[i]->getType() << std::endl;
 			break;
 		}
-		std::cout << i << std::endl;
-		std::cout << "looking for my prob" << std::endl;
 		// if (i == 3)
 		// {
 		// 	std::cout << "arrayMatSrc full" << std::endl;
