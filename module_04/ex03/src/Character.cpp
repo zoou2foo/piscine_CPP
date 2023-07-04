@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 08:49:16 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:41:08 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,18 @@ Character::Character(Character const & src)
 Character::~Character(void)
 {
 	//need to make sure to delete Materia (array)
-	// for (int i = 0; i < 4; ++i)
-	// {
-	// 	if (this->_arrayMateria[i] != NULL)
-	// 		delete this->_arrayMateria[i];
-	// 	// if (this->_garbage[i] != NULL)
-	// 	// 	delete this->_garbage[i];
-	// }
+	int	i = 0;
+	while (i < 4)
+	{
+		delete this->_arrayMateria[i];
+		i++;
+	}
+	i = 0;
+	while (this->_garbage[i])
+	{
+		delete this->_garbage[i];
+		i++;
+	}
 	std::cout << "\033[37m" << "Character Destructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
@@ -99,13 +104,20 @@ void	Character::setName(std::string name)
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-// void	Character::unequip(int idx)
-// {
-// 	//transfer Materia to a tmp array?? to keep the address?
-// 	//DO NOT delete Materia, just take it out from the inventory
-// 	//Check if Materia exists. If NOT: do nothing.
-
-// }
+void	Character::unequip(int idx)
+{
+	//transfer Materia to a tmp array?? to keep the address?
+	//DO NOT delete Materia, just take it out from the inventory
+	//Check if Materia exists. If NOT: do nothing.
+	int i = 0;
+	while (this->_garbage[i] != NULL)
+		i++;
+	if (i < 100)
+	{
+		this->_garbage[i] = this->_arrayMateria[idx];
+		this->_arrayMateria[idx] = NULL;
+	}
+}
 
 void	Character::equip(AMateria* m)
 {
@@ -117,20 +129,17 @@ void	Character::equip(AMateria* m)
 			this->_arrayMateria[index] = m;
 			break;
 		}
-		// if (index == 3)
-		// {
-		// 	std::cout << "array full" << std::endl;
-		// 	for (int j = 0; j < 4; ++j)
-		// 	{
-		// 		if (this->_garbage[j] == NULL)
-		// 		{
-		// 			this->_garbage[j] = m;
-		// 			break;
-		// 		}
-		// 	}
-		// }
-	} //how to deal with extra Materia and no space. DO NOT EXIT THE FUCKING PROGRAM
-	//If not enough space, send to garbage and delete garbage at the end. Only in Character. Make sure to delete garbage in destructor
+		if (index == 3)
+		{
+			int i = 0;
+			while (this->_garbage[i] != NULL)
+				i++;
+			if (i < 100)
+			{
+				this->_garbage[i] = m;
+			}
+		}
+	}
 }
 
 void	Character::use(int idx, ICharacter& target)
@@ -138,6 +147,12 @@ void	Character::use(int idx, ICharacter& target)
 	//need to make sure that the index is on the right range
 	if (idx >= 0 && idx < 4)
 	{
-		this->_arrayMateria[idx]->use(target);
+		if (this->_arrayMateria[idx] != NULL)
+			this->_arrayMateria[idx]->use(target);
+		else
+		{
+			std::cout << "trying to use a null pointer!" << std::endl;
+			return;
+		}
 	}
 }

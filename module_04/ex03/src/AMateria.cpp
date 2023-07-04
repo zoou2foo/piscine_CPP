@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:13:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 13:20:25 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:40:19 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,5 @@ void	AMateria::use(ICharacter& target)
 		std::cout << "\033[32m" << "* heals " << target.getName() << "'s wounds *" << std::endl;
 		std::cout << "\033[0m";
 	}
+
 }
