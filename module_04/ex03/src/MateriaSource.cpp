@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 13:05:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:45:51 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:48:31 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,3 +100,4 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 	}
 	return (0);
  	//not sure if done at the right time **might need a check if type known
+}
