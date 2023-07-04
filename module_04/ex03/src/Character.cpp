@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 09:20:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:07:07 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,20 @@ void	Character::setName(std::string name)
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-// void	Character::unequip(int idx)
-// {
-// 	//transfer Materia to a tmp array?? to keep the address?
-// 	//DO NOT delete Materia, just take it out from the inventory
-// 	//Check if Materia exists. If NOT: do nothing.
-
-// }
+void	Character::unequip(int idx)
+{
+	//transfer Materia to a tmp array?? to keep the address?
+	//DO NOT delete Materia, just take it out from the inventory
+	//Check if Materia exists. If NOT: do nothing.
+	int i = 0;
+	while (this->_garbage[i] != NULL)
+		i++;
+	if (i < 100)
+	{
+		this->_garbage[i] = this->_arrayMateria[idx];
+		this->_arrayMateria[idx] = NULL;
+	}
+}
 
 void	Character::equip(AMateria* m)
 {
@@ -118,8 +125,7 @@ void	Character::equip(AMateria* m)
 			std::cout << "array full" << std::endl;
 			this->_garbage[index] = m;
 		}
-	} //how to deal with extra Materia and no space. DO NOT EXIT THE FUCKING PROGRAM
-	//If not enough space, send to garbage and delete garbage at the end. Only in Character. Make sure to delete garbage in destructor
+	}
 }
 
 void	Character::use(int idx, ICharacter& target)
@@ -127,6 +133,12 @@ void	Character::use(int idx, ICharacter& target)
 	//need to make sure that the index is on the right range
 	if (idx >= 0 && idx < 4)
 	{
-		this->_arrayMateria[idx]->use(target);
+		if (this->_arrayMateria[idx] != NULL)
+			this->_arrayMateria[idx]->use(target);
+		else
+		{
+			std::cout << "trying to use a null pointer!" << std::endl;
+			return;
+		}
 	}
 }
