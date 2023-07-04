@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:35:45 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:54:15 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Character::Character(std::string name)
 //copy constructor
 Character::Character(Character const & src)
 {
-	//delete les Materias du Character before new replace
 	(*this) = src;
 	std::cout << "\033[37m" << "Character Copy Constructor Called" << std::endl;
 	std::cout << "\033[0m";
@@ -97,9 +96,6 @@ void	Character::setName(std::string name)
 
 void	Character::unequip(int idx)
 {
-	//transfer Materia to a tmp array?? to keep the address?
-	//DO NOT delete Materia, just take it out from the inventory
-	//Check if Materia exists. If NOT: do nothing.
 	int i = 0;
 	while (this->_garbage[i] != NULL)
 		i++;

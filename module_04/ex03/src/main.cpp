@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:11:43 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:29:58 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:56:33 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,3 @@ int	main()
 
 	return (0);
 }
-
-//Test 1 should display the following:
-// $> clang++ -W -Wall -Werror *.cpp
-// $> ./a.out | cat -e
-// * shoots an ice bolt at bob *$
-// * heals bob's wounds *$
