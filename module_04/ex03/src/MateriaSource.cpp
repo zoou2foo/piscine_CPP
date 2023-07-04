@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 13:05:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 12:09:49 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:28:40 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ MateriaSource::~MateriaSource(void)
 
 MateriaSource& MateriaSource::operator=(MateriaSource const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	for(int i = 0; i < 4; ++i)
 	{
 		this->_arrayMatSrc[i] = rhs._arrayMatSrc[i];

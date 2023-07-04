@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:35:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 09:06:42 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:28:18 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ Cure::~Cure(void)
 
 Cure& Cure::operator=(Cure const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	this->_type = rhs.getType();
 	return (*this);
 }

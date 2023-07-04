@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:29:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 16:10:38 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:22:55 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ Cat::~Cat(void)
 
 Cat&		Cat::operator=(Cat const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	*this->_brain = *rhs._brain;
 	this->_type = rhs.getType();
 	return (*this);

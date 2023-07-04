@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 08:17:43 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:11:20 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:24:32 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ WrongAnimal::~WrongAnimal(void)
 
 WrongAnimal&		WrongAnimal::operator=(WrongAnimal const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	this->_type = rhs.getType();
 	return (*this);
 }

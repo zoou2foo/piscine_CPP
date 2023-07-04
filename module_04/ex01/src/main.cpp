@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:42:05 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 14:02:55 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:13:49 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main()
 
 	delete Test;
 
-	
+
 	/*		TEST 1		*/
 	// const Animal** Parent = new const Animal*[10];
 	// int	index = 0;

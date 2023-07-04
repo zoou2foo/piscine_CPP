@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 09:37:35 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 16:21:53 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:07:52 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ Brain&		Brain::operator=(Brain const & rhs)
 	{
 		this->_ideas[i] = rhs._ideas[i];
 	}
-	//(*this) = rhs; //shallow
+	//(*this) = rhs; //shallow copy
 	return (*this);
 }

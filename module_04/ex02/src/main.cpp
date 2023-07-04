@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:42:05 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/29 10:57:00 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:10:16 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main()
 	const AAnimal** Parent = new const AAnimal*[10];
 	const AWrongAnimal* Wrong = new WrongCat(); //it will do it's proper sound as WrongAnimal is an abstract class
 	const WrongCat* c = new WrongCat();
-	//const AWrongAnimal* a = new AWrongAnimal(); //does not work
+	//const AWrongAnimal* a = new AWrongAnimal(); //does not work as it's an abstract class
 	int	index = 0;
 
 	while (index <= 4)
@@ -59,7 +59,7 @@ int	main()
 	}
 	delete[] Parent;
 
-	
+
 	/*		TEST 2		*/
 	// Dog* Test = new Dog();
 	// Dog Copy(*Test);

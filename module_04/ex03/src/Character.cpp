@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:54:15 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:28:07 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ Character::~Character(void)
 
 Character& Character::operator=(Character const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	this->_name = rhs.getName();
 	return (*this);
 }
