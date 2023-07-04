@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:07:07 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:35:45 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ Character::~Character(void)
 {
 	//need to make sure to delete Materia (array)
 	int	i = 0;
-	while (this->_arrayMateria[i])
+	while (i < 4)
 	{
 		delete this->_arrayMateria[i];
 		i++;
 	}
 	i = 0;
-	while (this->_arrayMateria[i])
+	while (this->_garbage[i])
 	{
 		delete this->_garbage[i];
 		i++;
@@ -122,8 +122,13 @@ void	Character::equip(AMateria* m)
 		}
 		if (index == 3)
 		{
-			std::cout << "array full" << std::endl;
-			this->_garbage[index] = m;
+			int i = 0;
+			while (this->_garbage[i] != NULL)
+				i++;
+			if (i < 100)
+			{
+				this->_garbage[i] = m;
+			}
 		}
 	}
 }

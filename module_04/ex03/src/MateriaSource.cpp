@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 13:05:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 08:56:29 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 11:17:32 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,6 @@ MateriaSource::MateriaSource(MateriaSource const & src)
 
 MateriaSource::~MateriaSource(void)
 {
-	// for (int i = 0; i < 4; ++i)
-	// {
-	// 	if (this->_arrayMatSrc[i] != NULL && this->_garbage[i] != NULL)
-	// 	{
-	// 		delete this->_arrayMatSrc[i];
-	// 		delete this->_garbage[i];
-	// 	}
-	// }
 	std::cout << "\033[33m" << "MateriaSource Destructor Called" << std::endl;
 	std::cout << "\033[0m";
 	return;
@@ -85,8 +77,13 @@ void	MateriaSource::learnMateria(AMateria* learn)
 		}
 		if (i == 3)
 		{
-			std::cout << "arrayMatSrc full" << std::endl;
-			this->_garbage[i] = learn;
+			int i = 0;
+			while (this->_garbage[i] != NULL)
+				i++;
+			if (i < 100)
+			{
+				this->_garbage[i] = learn;
+			}
 		}
 	}
 }
