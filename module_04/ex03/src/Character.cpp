@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 12:53:36 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 09:20:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,17 @@ Character::Character(Character const & src)
 Character::~Character(void)
 {
 	//need to make sure to delete Materia (array)
-	for (int i = 0; i < 4; ++i)
+	int	i = 0;
+	while (this->_arrayMateria[i])
 	{
-		if (this->_arrayMateria[i] != NULL && this->_garbage[i] != NULL)
-		{
-			delete this->_arrayMateria[i];
-			delete this->_garbage[i];
-		}
+		delete this->_arrayMateria[i];
+		i++;
+	}
+	i = 0;
+	while (this->_arrayMateria[i])
+	{
+		delete this->_garbage[i];
+		i++;
 	}
 	std::cout << "\033[37m" << "Character Destructor Called" << std::endl;
 	std::cout << "\033[0m";

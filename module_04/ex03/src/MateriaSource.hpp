@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:48:35 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 12:50:12 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 10:03:50 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class MateriaSource : public IMateriaSource
 
 	protected:
 		AMateria*	_arrayMatSrc[4];
-		AMateria*	_garbage[4];
+		AMateria*	_garbage[100];
 };
 
 #endif
