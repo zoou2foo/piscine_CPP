@@ -1,0 +1,11 @@
+/*			THINGS TO DO			*/
+1. Create a class Bureaucrat. Concrete class, so must follow canonical form
+	- needs a constant name
+	- a grade: ONLY between 1 to 150!!! IMPORTANT
+	- when instantiate a Bureaucrat, it must be a valid grade, otherwise
+	throw exception.
+	- nested class of exception. Bureaucrat::GradeTooHighException or a 
+	Bureaucrat::GradeTooLowException
+	- needs getName() and getGrade()
+	- needs setters to increment and decrement grade. Needs to be done in 2 functions
+	why??? not sure //QUESTION...
