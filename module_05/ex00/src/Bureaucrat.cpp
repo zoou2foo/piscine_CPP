@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/06 12:00:20 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/06 14:22:45 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-	std::cout << "\033[35m" << this->_name << " Bureaucrat Constructor Called" << std::endl;
-	std::cout << "\033[0m";
+	// std::cout << "\033[31m" << this->_name << " Bureaucrat Constructor Called" << std::endl;
+	// // std::cout << "\033[0m";
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
@@ -71,7 +71,7 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const & rhs)
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs)
 {
-	o << rhs.getName() << " bureaucrat grade " << rhs.getGrade() << std::endl;
+	o << rhs.getName() << " bureaucrat grade " << rhs.getGrade();
 	return o;
 }
 
