@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:08:13 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/03 11:48:13 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:28:27 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ Ice::~Ice(void)
 
 Ice& Ice::operator=(Ice const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	this->_type = rhs.getType();
 	return (*this);
 }

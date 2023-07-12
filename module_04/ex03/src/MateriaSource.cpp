@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
+/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 13:05:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:48:31 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/12 08:31:32 by valeriejean      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ MateriaSource::~MateriaSource(void)
 
 MateriaSource& MateriaSource::operator=(MateriaSource const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	for(int i = 0; i < 4; ++i)
 	{
 		this->_arrayMatSrc[i] = rhs._arrayMatSrc[i];
@@ -72,7 +74,7 @@ void	MateriaSource::learnMateria(AMateria* learn)
 	{
 		if (this->_arrayMatSrc[i] == NULL)
 		{
-			this->_arrayMatSrc[i] = learn; //something like that probably...
+			this->_arrayMatSrc[i] = learn;
 			break;
 		}
 		if (i == 3)
@@ -90,7 +92,7 @@ void	MateriaSource::learnMateria(AMateria* learn)
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
-	// AMateria* tmp = new AMateria(type);
+
 	for (int i = 0; i < 4; ++i)
 	{
 		if (this->_arrayMatSrc[i]->getType() == type)
@@ -99,5 +101,4 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		}
 	}
 	return (0);
- 	//not sure if done at the right time **might need a check if type known
 }

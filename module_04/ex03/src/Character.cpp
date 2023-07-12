@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
+/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:52:51 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:41:08 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/12 08:29:12 by valeriejean      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ Character::Character(std::string name)
 //copy constructor
 Character::Character(Character const & src)
 {
-	//delete les Materias du Character before new replace
 	(*this) = src;
 	std::cout << "\033[37m" << "Character Copy Constructor Called" << std::endl;
 	std::cout << "\033[0m";
@@ -69,15 +68,8 @@ Character::~Character(void)
 
 Character& Character::operator=(Character const & rhs)
 {
-	for (int i = 0; i < 4; ++i)
-	{
-		if (this->_arrayMateria[i] != NULL)
-			delete this->_arrayMateria[i];
-	}
-	for (int i = 0; i < 4; ++i)
-	{
-		this->_arrayMateria[i] = rhs._arrayMateria[i];
-	}
+	if (this == &rhs)
+		return (*this);
 	this->_name = rhs.getName();
 	return (*this);
 }
@@ -106,9 +98,6 @@ void	Character::setName(std::string name)
 
 void	Character::unequip(int idx)
 {
-	//transfer Materia to a tmp array?? to keep the address?
-	//DO NOT delete Materia, just take it out from the inventory
-	//Check if Materia exists. If NOT: do nothing.
 	int i = 0;
 	while (this->_garbage[i] != NULL)
 		i++;

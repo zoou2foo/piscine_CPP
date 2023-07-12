@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:53:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 13:37:17 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:23:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Animal::Animal(void)
 //copy constructor
 Animal::Animal(Animal const & src)
 {
-	//this->_type = src.getType(); repetitive
+	//this->_type = src.getType(); repetitive. As operator= does it
 	(*this) = src;
 	std::cout << "\033[35m" << "Animal Copy constructor called" << std::endl;
 	std::cout << "\033[0m";
@@ -54,6 +54,8 @@ Animal::~Animal(void)
 
 Animal&		Animal::operator=(Animal const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	this->_type = rhs.getType();
 	return (*this);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
+/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:13:27 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/04 11:40:19 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/12 08:28:08 by valeriejean      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ AMateria::~AMateria(void)
 
 AMateria&		AMateria::operator=(AMateria const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	this->_type = rhs.getType();
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 11:48:58 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 09:13:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:15:39 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 
 		Animal&				operator=(Animal const & rhs); //assignation op
 		void				setType(std::string type);
-		std::string	const & getType(void) const; //return cosnt & avoid to have a copy created each time
+		std::string	const & getType(void) const; //return const & avoid to have a copy created each time
 		virtual void		makeSound(void) const;
 
 	private:

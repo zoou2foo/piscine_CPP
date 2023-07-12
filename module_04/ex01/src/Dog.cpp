@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:59:07 by vjean             #+#    #+#             */
-/*   Updated: 2023/06/28 14:01:50 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:24:24 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ Dog::~Dog(void)
 
 Dog&	Dog::operator=(Dog const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	*this->_brain = *rhs._brain;
 	this->_type = rhs.getType();
 	return (*this);
