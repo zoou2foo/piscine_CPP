@@ -66,20 +66,21 @@ MD		=	mkdir -p
 #INCLUDE =	-I include
 
 # Program and directory names
-NAME	=	WhenIGrowUp
+NAME	=	FormUpMaggots
 SRCDIR	=	src/
 OBJDIR	=	bin/
 #TSTDIR	=	tests/
 
 # File names
 FILES	=	Bureaucrat \
+			Form \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
 
 
-CMD		=	./WhenIGrowUp
+CMD		=	./FormUpMaggots
 
 #------------------------------------------------------------------------------#
 #                                   TARGETS                                    #

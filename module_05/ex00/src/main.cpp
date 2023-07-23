@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/06 14:21:45 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/23 13:51:16 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main()
 	{
 		/*	TEST # 2 - All bad and ugly bureaucrats	*/
 		Bureaucrat c("Gerard", -42);
-		Bureaucrat d("Leon", 250);
+		Bureaucrat d("Leon", 25);
 		std::cout << c << std::endl;
 		std::cout << d << std::endl;
 	}
