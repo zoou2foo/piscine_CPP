@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:55 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/23 14:46:10 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/23 15:56:17 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Form
 		std::string getName(void) const;
 		int			getGradeToSign(void) const;
 		int			getGradeToExecute(void) const;
-		bool		beSigned(Bureaucrat bob);
+		void		beSigned(Bureaucrat bob);
 
 		class GradeTooHighException : public std::exception
 		{

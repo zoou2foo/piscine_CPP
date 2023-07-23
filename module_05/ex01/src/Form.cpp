@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/23 14:47:11 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/23 16:22:49 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Form::Form(Form const & src)
 
 Form::~Form(void)
 {
-	std::cout << "Fomr destructor called" << std::endl;
+	std::cout << "Form destructor called" << std::endl;
 	return;
 }
 
@@ -57,9 +57,9 @@ Form&	Form::operator=(Form const & rhs)
 }
 
 //might need to changed it to have the right thing printed
-std::ostream &operator<<(std::ostream &o, Form const &rhs);
+std::ostream &operator<<(std::ostream &o, Form const &rhs)
 {
-	o << rhs.getName() << rhs.getGrade() << std::endl;
+	o << rhs.getName() << rhs.getGradeToSign() << std::endl;
 	return o;
 }
 
@@ -87,7 +87,12 @@ int Form::getGradeToExecute(void) const
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-bool	Form::beSigned(Bureaucrat bob)
+void	Form::beSigned(Bureaucrat bob)
 {
-	
+	if (this->_gradeToSign == bob.getGrade())
+	{
+		this->_signed = true;
+	}
+	else
+		this->_signed = false;
 }
