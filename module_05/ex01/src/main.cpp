@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/23 16:23:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 11:42:30 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,31 @@ int	main()
 	std::cout << "\033[0m";
 	try
 	{
-		Bureaucrat a("Binouche", 1);
-		Bureaucrat b("Bob", 15);
-		Form c("A47"); //QUESTION: need to check if I would include grade needed to be signed
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
+		Bureaucrat Binouche("Binouche", 1);
+		//Bureaucrat b("Bob", 15);
+		std::cout << Binouche << std::endl;
+		//std::cout << b << std::endl;
+		// try
+		// {
+		// 	Binouche.incrementGrade();
+		// 	b.incrementGrade();
+		// 	std::cout << Binouche << std::endl;
+		// 	std::cout << b << std::endl;
+		// }
+		// catch(const std::exception& e)
+		// {
+		// 	std::cerr << e.what() << '\n';
+		// }
 		try
 		{
-			a.incrementGrade();
-			b.incrementGrade();
-			std::cout << a << std::endl;
-			std::cout << b << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		try
-		{
-			a.decrementeGrade();
-			b.decrementeGrade();
-			std::cout << a << std::endl;
-			std::cout << b << std::endl;
+			//Binouche.decrementeGrade();
+			//b.decrementeGrade();
+			Form c("A47", 15, 1);
+			std::cout << c << std::endl;
+			Binouche.signForm(c);
+			//std::cout << Binouche << std::endl;
+			//std::cout << b << std::endl;
+			std::cout << c << std::endl;
 		}
 		catch(const std::exception& e)
 		{

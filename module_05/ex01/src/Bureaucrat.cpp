@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/06 14:22:45 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 11:18:32 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,18 @@ void	Bureaucrat::decrementeGrade(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+}
+
+void	Bureaucrat::signForm(Form& something)
+{
+	try
+	{
+		something.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		//std::cerr << e.what() << '\n';
+		std::cout << this->getName() << " could not signed the form " << something.getName() << "because grade is " << e.what() << std::endl; //need to review how I would do this...
+	}
+	std::cout << this->getName() << " signed form " << something.getName() << std::endl;
 }
