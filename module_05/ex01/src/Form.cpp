@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/24 13:22:31 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 14:21:51 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ std::string Form::getSignedOrNot(void) const
 void	Form::beSigned(Bureaucrat& bob)
 {
 	if (this->_gradeToSign < bob.getGrade())
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
+		//throw GradeTooLowException();
 	this->_signed = true;
 }

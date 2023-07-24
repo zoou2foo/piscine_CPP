@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 11:07:22 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 14:24:48 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
 			public:
 				virtual const char*	what() const throw()
 				{
-					return ("Grade is too high! It has to be 1 or higher!");
+					return ("too high! It has to be 1 or higher!");
 				}
 		};
 
@@ -48,7 +48,7 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Grade is too low! 150 or lower!");
+					return ("too low! 150 or lower!");
 				}
 		};
 
