@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 13:40:15 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 15:36:06 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,78 @@ int	main()
 			std::cout << Billet << std::endl;
 			Machin.signForm(Billet);
 			std::cout << Billet << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
+	std::cout << "\033[32m" << "-----------------------TEST 5: Let's have some fun!----------------------------" << std::endl;
+	std::cout << "\033[0m";
+	try
+	{
+		Bureaucrat Yoda("Yoda", 42);
+		std::cout << Yoda << std::endl;
+		try
+		{
+			Form laisserPasser("A52", 41, 1);
+			std::cout << laisserPasser << std::endl;
+			Yoda.signForm(laisserPasser);
+			std::cout << laisserPasser << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		Yoda.decrementeGrade();
+		std::cout << Yoda << std::endl;
+		try
+		{
+			Form laisserPasser("A52", 41, 1);
+			std::cout << laisserPasser << std::endl;
+			Yoda.signForm(laisserPasser);
+			std::cout << laisserPasser << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
+	std::cout << "\033[32m" << "-----------------------TEST 5: Let's have MORE fun!----------------------------" << std::endl;
+	std::cout << "\033[0m";
+	try
+	{
+		Bureaucrat Yoda("Yoda", 42);
+		std::cout << Yoda << std::endl;
+		try
+		{
+			Form laisserPasser("A52", 42, 1);
+			std::cout << laisserPasser << std::endl;
+			Yoda.signForm(laisserPasser);
+			std::cout << laisserPasser << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		Yoda.incrementGrade();
+		std::cout << Yoda << std::endl;
+		try
+		{
+			Form laisserPasser("A52", 42, 1);
+			std::cout << laisserPasser << std::endl;
+			Yoda.signForm(laisserPasser);
+			std::cout << laisserPasser << std::endl;
 		}
 		catch (const std::exception& e)
 		{

@@ -66,7 +66,7 @@ MD		=	mkdir -p
 #INCLUDE =	-I include
 
 # Program and directory names
-NAME	=	FormUpMaggots
+NAME	=	28Bnot28C
 SRCDIR	=	src/
 OBJDIR	=	bin/
 #TSTDIR	=	tests/
@@ -74,13 +74,16 @@ OBJDIR	=	bin/
 # File names
 FILES	=	Bureaucrat \
 			Form \
+			PresidentialPardonForm \
+			RobotomyRequestForm \
+			ShrubberyCreationForm \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
 
 
-CMD		=	./FormUpMaggots
+CMD		=	./28Bnot28C
 
 #------------------------------------------------------------------------------#
 #                                   TARGETS                                    #

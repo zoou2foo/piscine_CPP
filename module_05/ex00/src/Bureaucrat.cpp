@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 13:25:05 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 15:38:42 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	Bureaucrat::getGrade(void) const
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
+//demotion
 void	Bureaucrat::incrementGrade(void)
 {
 	try
@@ -108,6 +109,7 @@ void	Bureaucrat::incrementGrade(void)
 	}
 }
 
+//promotion
 void	Bureaucrat::decrementeGrade(void)
 {
 	try

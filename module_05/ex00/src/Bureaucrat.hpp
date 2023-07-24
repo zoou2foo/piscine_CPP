@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/23 14:02:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 15:38:54 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Bureaucrat
 		Bureaucrat&	operator=(Bureaucrat const & rhs);
 		std::string	getName(void) const; //getter for name
 		int			getGrade(void) const; //getter for grade
-		void		incrementGrade(void);
-		void		decrementeGrade(void);
+		void		incrementGrade(void); //demotion
+		void		decrementeGrade(void); //promotion
 
 		class	GradeTooHighException : public std::exception
 		{
