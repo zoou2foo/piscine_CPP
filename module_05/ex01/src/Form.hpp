@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:55 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/24 11:39:50 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 13:38:00 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Form
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Too high!");
+					return ("too high!");
 				}
 		};
 
@@ -48,7 +48,7 @@ class Form
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Too low!");
+					return ("too low!");
 				}
 		};
 

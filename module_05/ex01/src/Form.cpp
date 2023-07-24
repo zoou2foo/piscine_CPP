@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/24 11:41:49 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 13:22:31 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ Form&	Form::operator=(Form const & rhs)
 {
 	if (this == &rhs)
 		return (*this);
+	this->_gradeToSign = rhs.getGradeToSign();
+	this->_gradeToExecute = rhs.getGradeToExecute();
 	return (*this);
 }
 

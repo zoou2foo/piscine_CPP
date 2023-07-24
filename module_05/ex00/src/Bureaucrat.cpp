@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 09:16:40 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/24 13:25:05 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const & rhs)
 {
 	if (this == &rhs)
 		return (*this);
+	this->_grade = rhs.getGrade();
 	return (*this);
 }
 
