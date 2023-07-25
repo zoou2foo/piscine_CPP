@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:47:53 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:37:32 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 14:52:21 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ std::string	PresidentialPardonForm::getTarget(void) const
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-void	PresidentialPardonForm::execute(Bureaucrat const & executor)
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	//first check if Form signed
 	//if (!this->_signed)

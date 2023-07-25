@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/25 11:08:15 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:02:11 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,14 +112,14 @@ void	AForm::beSigned(Bureaucrat& bob)
 	this->_signed = true;
 }
 
-void	AForm::execute(Bureaucrat const & executor)
+
+void	AForm::verifyExec(Bureaucrat const & executor) const
 {
 	//first check if Form signed
-	//if (!this->_signed)
-		//throw FormNotSigned();
-	//else
-		//check Bureaucrat's grade is enough to execute
-		//if no throw GradeTooLow();
-		//call executeForm
-	std::cout << executor.getName() << " got here!" << std::endl;
+	if (!this->_signed)
+		throw FormNotSigned();
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw Bureaucrat::GradeTooLowException();
+
+	//std::cout << executor.getName() << " got here!" << std::endl;
 }

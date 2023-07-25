@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:52:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:15:02 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:01:55 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,10 @@ std::string ShrubberyCreationForm::getTarget(void) const
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	//first check if Form signed
-	//if (!this->_signed)
-		//throw FormNotSigned();
-	//else
-		//check Bureaucrat's grade is enough to execute
-		//if no throw GradeTooLow();
-		//call executeForm
-	std::cout << executor.getName() << " got here!" << std::endl;
+	this->verifyExec(executor);
+	std::cout << "ok to execute" << std::endl;
+	//std::cout << executor.getName() << " got here!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:51:29 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:29:49 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 14:52:36 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class RobotomyRequestForm : virtual public AForm
 
 		RobotomyRequestForm& operator=(RobotomyRequestForm const & rhs);
 		std::string			getTarget(void) const;
-		virtual void		execute(Bureaucrat const & executor);
+		virtual void		execute(Bureaucrat const & executor) const;
 
 	private:
 		std::string _target;

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:50:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:27:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 14:52:27 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ std::string	RobotomyRequestForm::getTarget(void) const
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor)
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	std::cout << "biiiiiiiiizzzzzzzzzzzz (drill noise)" << std::endl;
 	//need to make check that the form was sign and executor has the grade to execute

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:49:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:30:12 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 14:52:15 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PresidentialPardonForm : virtual public AForm
 
 		PresidentialPardonForm& operator=(PresidentialPardonForm const & rhs);
 		std::string				getTarget(void) const;
-		virtual void			execute(Bureaucrat const & executor);
+		virtual void			execute(Bureaucrat const & executor) const;
 
 	private:
 		std::string _target;

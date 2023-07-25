@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 13:50:05 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 15:40:05 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ int	main()
 			std::cout << test << std::endl;
 			std::cout << test2 << std::endl;
 			std::cout << test3 << std::endl;
-			test.execute(Binouche);
-			test2.execute(Binouche);
-			test3.execute(Binouche);
 			Binouche.executeForm(test);
+			// Binouche.executeForm(test2);
+			// Binouche.executeForm(test3);
 		}
 		catch(const std::exception& e)
 		{

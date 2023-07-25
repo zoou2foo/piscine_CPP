@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:53:03 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:08:33 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:02:51 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ class ShrubberyCreationForm : virtual public AForm
 
 		ShrubberyCreationForm&	operator=(ShrubberyCreationForm const & rhs);
 		std::string				getTarget(void) const;
-		virtual void			execute(Bureaucrat const & executor);
+		virtual void			execute(Bureaucrat const & executor) const;
+
+
 
 	private:
 		std::string	_target;
