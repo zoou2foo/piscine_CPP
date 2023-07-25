@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:55 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/25 16:03:00 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:12:03 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ class AForm
 			public:
 				virtual const char* what() const throw()
 				{
-					return("Form grade is too low!");
+					return("Form grade is not signed!");
 				}
 		};
 

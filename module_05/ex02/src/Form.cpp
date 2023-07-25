@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/25 16:02:11 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:16:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,11 +115,8 @@ void	AForm::beSigned(Bureaucrat& bob)
 
 void	AForm::verifyExec(Bureaucrat const & executor) const
 {
-	//first check if Form signed
 	if (!this->_signed)
 		throw FormNotSigned();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw Bureaucrat::GradeTooLowException();
-
-	//std::cout << executor.getName() << " got here!" << std::endl;
 }

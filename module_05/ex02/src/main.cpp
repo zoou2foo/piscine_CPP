@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 15:40:05 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 16:13:06 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@ int	main()
 		std::cout << Binouche << std::endl;
 		try
 		{
-			ShrubberyCreationForm test("Binouche");
-			RobotomyRequestForm test2("Binouche2");
-			PresidentialPardonForm test3("Binouche3");
+			ShrubberyCreationForm test("Bob");
 			std::cout << test << std::endl;
-			std::cout << test2 << std::endl;
-			std::cout << test3 << std::endl;
+			Binouche.executeForm(test);
+			Binouche.signForm(test);
 			Binouche.executeForm(test);
 			// Binouche.executeForm(test2);
 			// Binouche.executeForm(test3);
