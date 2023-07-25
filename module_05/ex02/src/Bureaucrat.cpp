@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:42:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 14:07:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,5 +140,14 @@ void	Bureaucrat::signForm(AForm& something)
 
 void	Bureaucrat::executeForm(AForm const & form)
 {
-	
+	try
+	{
+		form.execute(*this);
+		std:: cout << this->getName() << " executed " << form.getName() << std::endl;9
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 }

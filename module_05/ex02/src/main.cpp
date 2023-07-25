@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 11:40:01 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 13:50:05 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main()
 			test.execute(Binouche);
 			test2.execute(Binouche);
 			test3.execute(Binouche);
+			Binouche.executeForm(test);
 		}
 		catch(const std::exception& e)
 		{
