@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:55 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/25 10:26:32 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 11:07:06 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Bureaucrat;
 class AForm
 {
 	public:
+		AForm(void); //Default
 		AForm(std::string name, int gradeToSign, int gradeToExecute);
 		AForm(AForm const & src);
 		~AForm(void);
@@ -58,7 +59,6 @@ class AForm
 		int					_gradeToSign;
 		int					_gradeToExecute;
 		bool				_signed;
-		AForm(void); //Default
 
 };
 

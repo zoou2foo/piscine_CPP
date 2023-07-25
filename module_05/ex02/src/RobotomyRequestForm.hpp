@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:51:29 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 08:52:57 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 11:29:49 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,20 @@
 #include <stdexcept>
 #include "Form.hpp"
 
-class RobotomyRequestForm : public AForm
+class RobotomyRequestForm : virtual public AForm
 {
 	public:
-		RobotomyRequestForm(std::string name, int gradeToSign, int gradeToExecute);
+		RobotomyRequestForm(void); //Default
+		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm const & src);
 		~RobotomyRequestForm(void);
 
-		RobotomyRequestForm operator=(RobotomyRequestForm const & rhs);
+		RobotomyRequestForm& operator=(RobotomyRequestForm const & rhs);
+		std::string			getTarget(void) const;
+		virtual void		execute(Bureaucrat const & executor);
 
 	private:
-		RobotomyRequestForm(void);
+		std::string _target;
 };
 
 #endif

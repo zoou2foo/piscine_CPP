@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:52:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 10:44:04 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 11:15:02 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /******************************************************************************/
 
 //need to call constructor of AForm to create the Shrubbery Creation Form.
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation Form", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation", 145, 137), _target(target)
 {
 	return;
 }
@@ -30,7 +30,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src)
 }
 
 //Default. Might not need to code it
-ShrubberyCreationForm::ShrubberyCreationForm(void)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery Creation Form", 145, 137), _target("Default")
 {
 	return;
 }
@@ -73,7 +73,7 @@ std::string ShrubberyCreationForm::getTarget(void) const
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
 	//first check if Form signed
 	//if (!this->_signed)

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/25 08:15:53 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 11:08:15 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _name(name
 	return;
 }
 
-AForm::AForm(void)
+AForm::AForm(void) : _name("Default"), _gradeToSign(1), _gradeToExecute(150), _signed(false)
 {
 	//std::cout << "Form default constructor called" << std::endl;
 	return;
@@ -110,4 +110,16 @@ void	AForm::beSigned(Bureaucrat& bob)
 		throw Bureaucrat::GradeTooLowException();
 		//throw GradeTooLowException();
 	this->_signed = true;
+}
+
+void	AForm::execute(Bureaucrat const & executor)
+{
+	//first check if Form signed
+	//if (!this->_signed)
+		//throw FormNotSigned();
+	//else
+		//check Bureaucrat's grade is enough to execute
+		//if no throw GradeTooLow();
+		//call executeForm
+	std::cout << executor.getName() << " got here!" << std::endl;
 }

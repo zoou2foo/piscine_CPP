@@ -74,9 +74,9 @@ OBJDIR	=	bin/
 # File names
 FILES	=	Bureaucrat \
 			Form \
+			ShrubberyCreationForm \
 			PresidentialPardonForm \
 			RobotomyRequestForm \
-			ShrubberyCreationForm \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))

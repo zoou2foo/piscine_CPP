@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:49:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 08:55:23 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 11:30:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,20 @@
 #include <stdexcept>
 #include "Form.hpp"
 
-class PresidentialPardonForm : public AForm
+class PresidentialPardonForm : virtual public AForm
 {
 	public:
-		PresidentialPardonForm(std::string name, int gradeToSign, int gradeToExecute);
+		PresidentialPardonForm(void); //Default
+		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm const & src);
 		~PresidentialPardonForm(void);
 
 		PresidentialPardonForm& operator=(PresidentialPardonForm const & rhs);
+		std::string				getTarget(void) const;
+		virtual void			execute(Bureaucrat const & executor);
 
 	private:
-		PresidentialPardonForm(void);
+		std::string _target;
 };
 
 

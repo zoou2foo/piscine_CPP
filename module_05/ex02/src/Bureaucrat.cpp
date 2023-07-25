@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 15:37:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 10:54:26 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void	Bureaucrat::decrementeGrade(void)
 	}
 }
 
-void	Bureaucrat::signForm(Form& something)
+void	Bureaucrat::signForm(AForm& something)
 {
 	try
 	{
