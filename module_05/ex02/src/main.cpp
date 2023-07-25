@@ -6,12 +6,13 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 15:46:05 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 10:43:02 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main()
 {
@@ -25,10 +26,7 @@ int	main()
 		std::cout << Binouche << std::endl;
 		try
 		{
-			Form c("A47", 15, 1);
-			std::cout << c << std::endl;
-			Binouche.signForm(c);
-			std::cout << c << std::endl;
+			ShrubberyCreationForm test("Binouche");
 		}
 		catch(const std::exception& e)
 		{

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 15:38:21 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 08:24:47 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Bureaucrat
 		void		incrementGrade(void); //demotion
 		void		decrementeGrade(void); //promotion
 		void		signForm(Form& something);
+		void		executeForm(Form const & form); //probably need to put AForm
 
 		class	GradeTooHighException : public std::exception
 		{

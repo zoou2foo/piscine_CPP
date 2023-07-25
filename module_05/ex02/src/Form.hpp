@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:55 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/24 14:25:40 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 10:26:32 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,22 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public:
-		Form(std::string name, int gradeToSign, int gradeToExecute);
-		Form(Form const & src);
-		~Form(void);
+		AForm(std::string name, int gradeToSign, int gradeToExecute);
+		AForm(AForm const & src);
+		~AForm(void);
 
-		Form& operator=(Form const & rhs);
-		std::string getName(void) const;
-		int			getGradeToSign(void) const;
-		int			getGradeToExecute(void) const;
-		std::string	getSignedOrNot(void) const;
-		void		beSigned(Bureaucrat& bob);
+		AForm& 			operator=(AForm const & rhs);
+		std::string 	getName(void) const;
+		int				getGradeToSign(void) const;
+		int				getGradeToExecute(void) const;
+		std::string		getSignedOrNot(void) const;
+		void			beSigned(Bureaucrat& signatory);
+		virtual void	execute(Bureaucrat const & executor) = 0;
 
-		class GradeTooHighException : public std::exception
+		class GradeTooHighException : public std::exception //keep it? or not?
 		{
 			public:
 				virtual const char* what() const throw()
@@ -57,11 +58,11 @@ class Form
 		int					_gradeToSign;
 		int					_gradeToExecute;
 		bool				_signed;
-		Form(void); //Default
+		AForm(void); //Default
 
 };
 
-std::ostream &operator<<(std::ostream &o, Form const &rhs);
+std::ostream &operator<<(std::ostream &o, AForm const &rhs);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/24 14:21:51 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 08:15:53 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /******************************************************************************/
 
 //in ex02, gradeToExecute will need to check if grade out of bounds like gradeToSign
-Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false)
 {
 	//std::cout << "Form constructor called" << std::endl;
 	if (gradeToSign < 1)
@@ -29,13 +29,13 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name),
 	return;
 }
 
-Form::Form(void)
+AForm::AForm(void)
 {
 	//std::cout << "Form default constructor called" << std::endl;
 	return;
 }
 
-Form::Form(Form const & src)
+AForm::AForm(AForm const & src)
 {
 	*this = src;
 	//std::cout << "Form copy constructor called" << std::endl;
@@ -46,7 +46,7 @@ Form::Form(Form const & src)
 /*								DESTRUCTOR									  */
 /******************************************************************************/
 
-Form::~Form(void)
+AForm::~AForm(void)
 {
 	//std::cout << "Form destructor called" << std::endl;
 	return;
@@ -56,7 +56,7 @@ Form::~Form(void)
 /*						ASSIGNATION & OVERLOAD OPERATOR						  */
 /******************************************************************************/
 
-Form&	Form::operator=(Form const & rhs)
+AForm&	AForm::operator=(AForm const & rhs)
 {
 	if (this == &rhs)
 		return (*this);
@@ -66,7 +66,7 @@ Form&	Form::operator=(Form const & rhs)
 }
 
 //name, grade needed to sign, grade to execute (need to add it construction) and if signed or not
-std::ostream &operator<<(std::ostream &o, Form const &rhs)
+std::ostream &operator<<(std::ostream &o, AForm const &rhs)
 {
 	o << rhs.getName() << "'s form has the following info: grade to sign = " << rhs.getGradeToSign() << ", grade to execute = " << rhs.getGradeToExecute() << ", and the form is " << rhs.getSignedOrNot();
 	return o;
@@ -76,22 +76,22 @@ std::ostream &operator<<(std::ostream &o, Form const &rhs)
 /*								GETTER & SETTER								  */
 /******************************************************************************/
 
-std::string Form::getName(void) const
+std::string AForm::getName(void) const
 {
 	return (this->_name);
 }
 
-int	Form::getGradeToSign(void) const
+int	AForm::getGradeToSign(void) const
 {
 	return(this->_gradeToSign);
 }
 
-int Form::getGradeToExecute(void) const
+int AForm::getGradeToExecute(void) const
 {
 	return(this->_gradeToExecute);
 }
 
-std::string Form::getSignedOrNot(void) const
+std::string AForm::getSignedOrNot(void) const
 {
 	if (this->_signed)
 		return ("signed");
@@ -104,7 +104,7 @@ std::string Form::getSignedOrNot(void) const
 /*							MEMBER FUNCTIONS								  */
 /******************************************************************************/
 
-void	Form::beSigned(Bureaucrat& bob)
+void	AForm::beSigned(Bureaucrat& bob)
 {
 	if (this->_gradeToSign < bob.getGrade())
 		throw Bureaucrat::GradeTooLowException();
