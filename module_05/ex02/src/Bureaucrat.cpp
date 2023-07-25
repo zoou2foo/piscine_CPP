@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 10:54:26 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/25 11:42:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,4 +136,9 @@ void	Bureaucrat::signForm(AForm& something)
 		//std::cerr << e.what() << '\n';
 		std::cerr << this->getName() << " could not signed the form " << something.getName() << " because grade is " << e.what() << std::endl; //need to review how I would do this...
 	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	
 }
