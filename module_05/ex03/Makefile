@@ -66,7 +66,7 @@ MD		=	mkdir -p
 #INCLUDE =	-I include
 
 # Program and directory names
-NAME	=	28Bnot28C
+NAME	=	CoffeeMakingIsBetter
 SRCDIR	=	src/
 OBJDIR	=	bin/
 #TSTDIR	=	tests/
@@ -77,13 +77,14 @@ FILES	=	Bureaucrat \
 			ShrubberyCreationForm \
 			PresidentialPardonForm \
 			RobotomyRequestForm \
+			Intern \
 			main \
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
 
 
-CMD		=	./28Bnot28C
+CMD		=	./CoffeeMakingIsBetter
 
 #------------------------------------------------------------------------------#
 #                                   TARGETS                                    #
