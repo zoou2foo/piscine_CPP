@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:53:03 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 16:02:51 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/26 09:14:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <fstream>
 #include "Form.hpp"
 
 class ShrubberyCreationForm : virtual public AForm

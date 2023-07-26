@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:52:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 16:18:24 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/26 09:15:51 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,15 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	//first check if Form signed
 	this->verifyExec(executor);
-	std::cout << "ok to execute" << std::endl;
-	//need to create the file and ASCII tree as output
-	//std::cout << executor.getName() << " got here!" << std::endl;
+
+	//setup for the filename
+	std::string fileName = this->getTarget();
+	std::string fileName2 = "_shrubbery";
+	std::string finalName = fileName+fileName2;
+	std::ofstream newFile(finalName);
+	//creation of the tree
+	if (newFile.is_open())
+		newFile << "         *\n        /|\\\n       /*|o\\\n      /*/|\\*\\\n     /X/O|*\\X\\\n    /*/X/|\\X\\*\\\n   /O/*/X|*\\O\\X\\\n  /*/O/X/|\\X\\O\\*\\\n /X/O/*/X|O\\X\\*\\O\\\n/O/X/*/O/|\\X\\*\\O\\X\\\n        |X|\n        |X|" << std::endl;
+	else
+		std::cout << "Error: Unable to create or open file " << finalName << std::endl;
 }
