@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:47:53 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 14:52:21 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/26 10:52:18 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,6 @@ std::string	PresidentialPardonForm::getTarget(void) const
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	//first check if Form signed
-	//if (!this->_signed)
-		//throw FormNotSigned();
-	//else
-		//check Bureaucrat's grade is enough to execute
-		//if no throw GradeTooLow();
-		//call executeForm -> only print "<target> has been pardoned by Zaphod Beeblebrox."
-	std::cout << executor.getName() << " got here!" << std::endl;
+	this->verifyExec(executor);
+	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox. 👏" << std::endl;
 }
