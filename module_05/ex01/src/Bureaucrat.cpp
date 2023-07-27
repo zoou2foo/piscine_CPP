@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:28:22 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 15:37:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 10:42:53 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,6 @@ void	Bureaucrat::signForm(Form& something)
 	}
 	catch(const std::exception& e)
 	{
-		//std::cerr << e.what() << '\n';
-		std::cerr << this->getName() << " could not signed the form " << something.getName() << " because grade is " << e.what() << std::endl; //need to review how I would do this...
+		std::cerr << this->getName() << " could not signed the form " << something.getName() << " because grade is " << e.what() << std::endl;
 	}
 }

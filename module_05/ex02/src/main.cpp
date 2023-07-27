@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/26 11:42:33 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 11:56:39 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,17 +115,17 @@ int	main()
 			std::cout << test << std::endl;
 			std::cout << test2 << std::endl;
 			std::cout << test3 << std::endl;
-			std::cout << "\033[36m" << "-----------------------TEST 3.1: Shrubbery ----------------------------" << std::endl;
+			std::cout << "\033[36m" << "--------------------------TEST 3.1: Shrubbery -------------------------------" << std::endl;
 			std::cout << "\033[0m";
 			MacPherson.executeForm(test);
 			MacPherson.signForm(test);
 			MacPherson.executeForm(test);
-			std::cout << "\033[36m" << "-----------------------TEST 3.2: Robotomy -----------------------------" << std::endl;
+			std::cout << "\033[36m" << "--------------------------TEST 3.2: Robotomy --------------------------------" << std::endl;
 			std::cout << "\033[0m";
 			MacPherson.executeForm(test2);
 			MacPherson.signForm(test2);
 			MacPherson.executeForm(test2);
-			std::cout << "\033[36m" << "------------------TEST 3.3: Presidential Pardon -----------------------" << std::endl;
+			std::cout << "\033[36m" << "---------------------TEST 3.3: Presidential Pardon --------------------------" << std::endl;
 			std::cout << "\033[0m";
 			MacPherson.executeForm(test3);
 			MacPherson.signForm(test3);

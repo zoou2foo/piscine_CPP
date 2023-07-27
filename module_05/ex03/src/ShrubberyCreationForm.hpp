@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:53:03 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/26 09:14:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 12:02:52 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 class ShrubberyCreationForm : virtual public AForm
 {
 	public:
-		ShrubberyCreationForm(void); //Default
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const & src);
 		~ShrubberyCreationForm(void);
@@ -34,9 +33,9 @@ class ShrubberyCreationForm : virtual public AForm
 
 
 	private:
+		ShrubberyCreationForm(void); //Default
 		std::string	_target;
 };
-
 
 
 #endif

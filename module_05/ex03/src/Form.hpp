@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:55 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/26 16:13:26 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 11:59:44 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class AForm
 		void			verifyExec(Bureaucrat const & executor) const;
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 
-		class GradeTooHighException : public std::exception //keep it? or not?
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
@@ -73,7 +73,5 @@ class AForm
 };
 
 std::ostream &operator<<(std::ostream &o, AForm const &rhs);
-
-
 
 #endif

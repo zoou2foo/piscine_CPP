@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 08:38:57 by valeriejean       #+#    #+#             */
-/*   Updated: 2023/07/25 16:16:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 10:54:00 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 /*								CONSTRUCTORS								  */
 /******************************************************************************/
 
-//in ex02, gradeToExecute will need to check if grade out of bounds like gradeToSign
 AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false)
 {
 	//std::cout << "Form constructor called" << std::endl;
@@ -65,7 +64,6 @@ AForm&	AForm::operator=(AForm const & rhs)
 	return (*this);
 }
 
-//name, grade needed to sign, grade to execute (need to add it construction) and if signed or not
 std::ostream &operator<<(std::ostream &o, AForm const &rhs)
 {
 	o << rhs.getName() << "'s form has the following info: grade to sign = " << rhs.getGradeToSign() << ", grade to execute = " << rhs.getGradeToExecute() << ", and the form is " << rhs.getSignedOrNot();
@@ -108,7 +106,6 @@ void	AForm::beSigned(Bureaucrat& bob)
 {
 	if (this->_gradeToSign < bob.getGrade())
 		throw Bureaucrat::GradeTooLowException();
-		//throw GradeTooLowException();
 	this->_signed = true;
 }
 

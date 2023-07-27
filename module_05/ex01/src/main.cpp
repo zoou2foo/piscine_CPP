@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 15:36:06 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 10:52:10 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main()
 {
 
 	std::cout << std::endl;
-	std::cout << "\033[32m" << "-----------------------TEST 1: Perfect bureaucrats & Forms----------------------------" << std::endl;
+	std::cout << "\033[32m" << "----------------------------------TEST 1: Perfect bureaucrats & Forms---------------------------------------" << std::endl;
 	std::cout << "\033[0m";
 	try
 	{
@@ -40,7 +40,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << std::endl;
-	std::cout << "\033[32m" << "-----------------------TEST 2: Not so perfect bureaucrats & Forms----------------------------" << std::endl;
+	std::cout << "\033[32m" << "--------------------------------TEST 2: Not so perfect bureaucrats & Forms----------------------------------" << std::endl;
 	std::cout << "\033[0m";
 	try
 	{
@@ -88,7 +88,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << std::endl;
-	std::cout << "\033[32m" << "-----------------------TEST 4: Perfect Bureaucrat & not so perfect Form----------------------------" << std::endl;
+	std::cout << "\033[32m" << "---------------------------TEST 4: Perfect Bureaucrat & not so perfect Form---------------------------------" << std::endl;
 	std::cout << "\033[0m";
 	try
 	{
@@ -111,7 +111,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << std::endl;
-	std::cout << "\033[32m" << "-----------------------TEST 5: Let's have some fun!----------------------------" << std::endl;
+	std::cout << "\033[32m" << "--------------------------------------TEST 5: Let's have some fun!------------------------------------------" << std::endl;
 	std::cout << "\033[0m";
 	try
 	{
@@ -147,7 +147,7 @@ int	main()
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << std::endl;
-	std::cout << "\033[32m" << "-----------------------TEST 5: Let's have MORE fun!----------------------------" << std::endl;
+	std::cout << "\033[32m" << "---------------------------------------TEST 6: Let's have MORE fun!-----------------------------------------" << std::endl;
 	std::cout << "\033[0m";
 	try
 	{

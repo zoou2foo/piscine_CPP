@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/26 16:19:19 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 12:01:32 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main()
 	randomForm4 = leStagiaire.makeForm("shrubbery creation", "Karen");
 
 	std::cout << std::endl;
-	std::cout << "\033[35m" << "What a productive little Intern! :)";
+	std::cout << "\033[35m" << "What a productive little Intern! ;)";
 	std::cout << "\033[0m";
 
 	delete (randomForm);

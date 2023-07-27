@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 15:03:10 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 11:58:56 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Bureaucrat
 		~Bureaucrat(void); //destructor
 
 		Bureaucrat&	operator=(Bureaucrat const & rhs);
-		std::string	getName(void) const; //getter for name
-		int			getGrade(void) const; //getter for grade
+		std::string	getName(void) const;
+		int			getGrade(void) const;
 		void		incrementGrade(void); //demotion
 		void		decrementeGrade(void); //promotion
 		void		signForm(AForm& something);
@@ -58,7 +58,6 @@ class Bureaucrat
 		int					_grade;
 		Bureaucrat(void); //default constructor
 };
-
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs);
 

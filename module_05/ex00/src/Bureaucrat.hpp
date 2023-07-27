@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 13:22:54 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/24 15:38:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 10:41:06 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Bureaucrat
 		~Bureaucrat(void); //destructor
 
 		Bureaucrat&	operator=(Bureaucrat const & rhs);
-		std::string	getName(void) const; //getter for name
-		int			getGrade(void) const; //getter for grade
+		std::string	getName(void) const;
+		int			getGrade(void) const;
 		void		incrementGrade(void); //demotion
 		void		decrementeGrade(void); //promotion
 
@@ -35,7 +35,7 @@ class Bureaucrat
 			public:
 				virtual const char*	what() const throw()
 				{
-					return ("Already at the top of your game! Can't go higher than that!");
+					return ("Grade too high. Out of bounds.");
 				}
 		};
 
@@ -44,7 +44,7 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Already at the bottom of the barrel! Can't go below that!");
+					return ("Grade too low. Out of bounds.");
 				}
 		};
 

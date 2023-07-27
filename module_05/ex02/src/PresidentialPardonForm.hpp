@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:49:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/25 14:52:15 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 11:54:07 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 class PresidentialPardonForm : virtual public AForm
 {
 	public:
-		PresidentialPardonForm(void); //Default
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm const & src);
 		~PresidentialPardonForm(void);
@@ -32,6 +31,7 @@ class PresidentialPardonForm : virtual public AForm
 
 	private:
 		std::string _target;
+		PresidentialPardonForm(void); //Default
 };
 
 

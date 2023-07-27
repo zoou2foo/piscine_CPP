@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:52:16 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/26 09:15:51 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/27 12:02:29 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src)
 	return;
 }
 
-//Default. Might not need to code it
+//Default
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery Creation Form", 145, 137), _target("Default")
 {
 	return;
