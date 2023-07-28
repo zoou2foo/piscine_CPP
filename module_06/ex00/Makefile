@@ -66,20 +66,20 @@ MD		=	mkdir -p
 #INCLUDE =	-I include
 
 # Program and directory names
-NAME	=	CoffeeMakingIsBetter
+NAME	=	ScalarType
 SRCDIR	=	src/
 OBJDIR	=	bin/
 #TSTDIR	=	tests/
 
 # File names
-FILES	=	
-			main \
+FILES	=	main \
+
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
 
 
-CMD		=	./CoffeeMakingIsBetter
+CMD		=	./ScalarType
 
 #------------------------------------------------------------------------------#
 #                                   TARGETS                                    #
