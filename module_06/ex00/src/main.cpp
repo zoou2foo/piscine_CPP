@@ -6,13 +6,17 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 11:53:17 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/28 16:06:19 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/28 16:27:22 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <typeinfo>
+
+//COMMENT: maybe better to create class to keep in a variable the type of string
+//and keep somewhere what to print according to type by static_cast<>
+//still need to first to take care of pseudo-literals and then, char
 
 int main(int ac, char **av)
 {
