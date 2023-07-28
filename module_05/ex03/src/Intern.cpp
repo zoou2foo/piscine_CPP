@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:46:30 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/26 16:19:36 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/28 10:13:15 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,8 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 	{
 		case 0:
 			return ((this->*PtrMemFn[i])(target));
-			i += 1;
 		case 1:
 			return ((this->*PtrMemFn[i])(target));
-			i += 1;
 		case 2:
 			return ((this->*PtrMemFn[i])(target));
 			break;
