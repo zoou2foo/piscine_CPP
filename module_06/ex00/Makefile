@@ -72,7 +72,8 @@ OBJDIR	=	bin/
 #TSTDIR	=	tests/
 
 # File names
-FILES	=	main \
+FILES	= Convert \
+		  main \
 
 
 SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
