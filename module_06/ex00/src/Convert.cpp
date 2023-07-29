@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:21 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/29 14:39:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/29 15:58:09 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,41 +149,85 @@ int	Convert::checkDouble(void)
 void	Convert::parseArg(void)
 {
 	if (this->_arg.length() == 1 && isdigit((int)this->_arg[0]) == 0)
+	{
+		this->_resChar = this->_arg[0];
 		this->setType("char");
+	}
 	else if (this->checkInt() == 0) //need to make sure there is not . in the number
+	{
+		this->_resInt = std::stoi(this->_arg);
 		this->setType("int");
+	}
 	else if (this->checkFloat() == 0)
+	{
+		this->_resFloat = std::stof(this->_arg);
 		this->setType("float");
+	}
 	else if (this->checkDouble() == 0)
+	{
+		this->_resDouble = std::stod(this->_arg);
 		this->setType("double");
+	}
 }
 
-void	Convert::makeChar(void)
-{
-	std::cout << "char: " << static_cast<char>(this->_arg) << std::endl;
-	std::cout << "int: " << static_cast<int>(this->_arg) << std::endl;
-	std::cout << "float: " << static_cast<float>(this->_arg) << std::endl;
-	std::cout << "double: " << static_cast<double>(this->_arg) << std::endl;
-}
+// void	Convert::makeChar(void)
+// {
+// 	std::cout << "char: " << static_cast<char>(this->_arg) << std::endl;
+// 	std::cout << "int: " << static_cast<int>(this->_arg) << std::endl;
+// 	std::cout << "float: " << static_cast<float>(this->_arg) << std::endl;
+// 	std::cout << "double: " << static_cast<double>(this->_arg) << std::endl;
+// }
 
-void	Convert::printConversion(void)
+
+// case 0: //charType : resChar
+// 		{
+// 			resInt_ = static_cast<int>(resChar_); // char to ascii value
+// 			resFloat_ = static_cast<float>(resInt_);
+// 			resDouble_ = static_cast<double>(resInt_);
+// 			break ;
+// 		}
+
+void	Convert::doConversion(void)
 {
 	std::string typeArrays[4] = { "char", "int", "float", "double" };
 
-	for (int i = 0; i < 4; i++)
+	int i = 0;
+	while (i < 4)
 	{
 		if (typeArrays[i] == this->getType())
 			break;
+		i++;
 	}
 	switch (i)
 	{
 		case 0:
-			makeChar();
+			this->_resInt = static_cast<int>(this->_resChar);
+			this->_resFloat = static_cast<float>(this->_resChar);
+			this->_resDouble = static_cast<double>(this->_resChar);
+			break;
 		case 1:
-			makeInt();
+			this->_resChar = static_cast<char>(this->_resInt);
+			this->_resFloat = static_cast<float>(this->_resInt);
+			this->_resDouble = static_cast<double>(this->_resInt);
+			break;
 		case 2:
-			makeFloat();
+			//float needs to keep the f at the end
+			this->_resChar = static_cast<char>(this->_resFloat);
+			this->_resInt = static_cast<int>(this->_resFloat);
+			this->_resDouble = static_cast<double>(this->_resFloat);
+			break;
 		case 3:
-			makeDouble();
+			this->_resChar = static_cast<char>(this->_resDouble);
+			this->_resInt = static_cast<int>(this->_resDouble);
+			this->_resFloat = static_cast<float>(this->_resDouble);
+			break;
 	}
+}
+
+void	Convert::printResult(void)
+{
+	std::cout << "char: " << this->_resChar << std::endl;
+	std::cout << "int: " << this->_resInt << std::endl;
+	std::cout << "float: " << this->_resFloat << std::endl;
+	std::cout << "double: " << this->_resDouble << std::endl;
 }

@@ -1,3 +1,7 @@
+
+//TODO: probably need to add a try and catch if character not displayable or impossible
+//TODO: also need to figure out to catch stoi/stof/stod errors
+
 Some notes:
 
 Maybe (what I was going for at first):
