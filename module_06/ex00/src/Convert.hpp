@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:07 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/29 11:39:47 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/29 14:24:49 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Convert
 		void		setArg(std::string arg);
 		void		pseudoLit(void);
 		void		parseArg(void);
+		void		printConversion(void);
 
 		class PseudoLitException : public std::exception
 		{
@@ -50,10 +51,11 @@ class Convert
 		std::string _arg;
 		int			checkInt(void);
 		int			checkFloat(void);
-		// void	makeChar(void);
-		// void	makeInt(void);
-		// void	makeFloat(void);
-		// void	makeDouble(void);
+		int			checkDouble(void);
+		void		makeChar(void);
+		void		makeInt(void);
+		void		makeFloat(void);
+		void		makeDouble(void);
 };
 
 #endif

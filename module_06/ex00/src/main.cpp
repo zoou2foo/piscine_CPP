@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 11:53:17 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/29 11:23:41 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/29 14:17:27 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(int ac, char **av)
 			nb.pseudoLit();
 			nb.parseArg();
 			std::cout << nb.getType() << std::endl;
+			nb.printConversion();
 			std::cout << "will need a print function" << std::endl;
 		}
 		catch(const std::exception& e)
