@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:21 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/29 15:58:09 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/31 10:49:11 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,22 +90,31 @@ void	Convert::pseudoLit(void)
 
 int	Convert::checkInt(void)
 {
-	//need to make sure that it's between min_int and max_int
-	//need to check for only digits
+	int flag = -1;
 	for (unsigned long i = 0; i < this->_arg.length(); i++)
 	{
 		if (this->_arg[i] == '.' || this->_arg[i] == 'f')
 				return (1);
 	}
-	if (!std::stoi(this->_arg)) //FIXME need to do something to avoid to get the error of stoi (for int max and int min)
-		return (1);
-	else
+	try
+	{
+		std::stoi(this->_arg);
+		flag = 0;
+	}
+	catch(const std::exception& e)
+	{
+		(void)e;
+		this->_stoiNotWorking = 1;
+		flag = 1;
+	}
+	if (flag == 0)
 		return (0);
+	else
+		return (1);
 }
 
 int	Convert::checkFloat(void)
 {
-	//check if there is one f and if it's at the end before \n
 	int f = 0;
 	for (unsigned long i = 0; i < this->_arg.length(); i++)
 	{
@@ -114,7 +123,7 @@ int	Convert::checkFloat(void)
 	}
 	if (f == 1 && this->_arg[this->_arg.length() - 1] == 'f')
 	{
-		if (std::stof(this->_arg)) //FIXME need to do something to avoid to get the error of stof if out of bounds
+		if (std::stof(this->_arg))
 			return (0);
 		else
 			return (1);
@@ -125,7 +134,6 @@ int	Convert::checkFloat(void)
 
 int	Convert::checkDouble(void)
 {
-	//need to make sure only one dot and NO f at all
 	int dot = 0;
 	int f = 0;
 	for (unsigned long i = 0; i < this->_arg.length(); i++)
@@ -153,7 +161,7 @@ void	Convert::parseArg(void)
 		this->_resChar = this->_arg[0];
 		this->setType("char");
 	}
-	else if (this->checkInt() == 0) //need to make sure there is not . in the number
+	else if (this->checkInt() == 0)
 	{
 		this->_resInt = std::stoi(this->_arg);
 		this->setType("int");
@@ -169,23 +177,6 @@ void	Convert::parseArg(void)
 		this->setType("double");
 	}
 }
-
-// void	Convert::makeChar(void)
-// {
-// 	std::cout << "char: " << static_cast<char>(this->_arg) << std::endl;
-// 	std::cout << "int: " << static_cast<int>(this->_arg) << std::endl;
-// 	std::cout << "float: " << static_cast<float>(this->_arg) << std::endl;
-// 	std::cout << "double: " << static_cast<double>(this->_arg) << std::endl;
-// }
-
-
-// case 0: //charType : resChar
-// 		{
-// 			resInt_ = static_cast<int>(resChar_); // char to ascii value
-// 			resFloat_ = static_cast<float>(resInt_);
-// 			resDouble_ = static_cast<double>(resInt_);
-// 			break ;
-// 		}
 
 void	Convert::doConversion(void)
 {
@@ -211,7 +202,6 @@ void	Convert::doConversion(void)
 			this->_resDouble = static_cast<double>(this->_resInt);
 			break;
 		case 2:
-			//float needs to keep the f at the end
 			this->_resChar = static_cast<char>(this->_resFloat);
 			this->_resInt = static_cast<int>(this->_resFloat);
 			this->_resDouble = static_cast<double>(this->_resFloat);
@@ -226,8 +216,16 @@ void	Convert::doConversion(void)
 
 void	Convert::printResult(void)
 {
-	std::cout << "char: " << this->_resChar << std::endl;
-	std::cout << "int: " << this->_resInt << std::endl;
-	std::cout << "float: " << this->_resFloat << std::endl;
-	std::cout << "double: " << this->_resDouble << std::endl;
+	if ((this->_resInt >= 0 && this->_resInt <= 32) || this->_resInt == 127)
+		std::cout << "char: non displayable" << std::endl;
+	else if (this->_resInt > 127)
+		std::cout << "char: impossible" << std::endl;
+	else
+		std::cout << "char: " << this->_resChar << std::endl;
+	if (this->_stoiNotWorking == 1)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << this->_resInt << std::endl;
+	std::cout << "float: " << std::setprecision(1) << std::fixed << this->_resFloat << "f" << std::endl;
+	std::cout << "double: " << std::setprecision(1) << std::fixed << this->_resDouble << std::endl;
 }

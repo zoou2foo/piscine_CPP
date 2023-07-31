@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:07 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/29 15:47:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/31 10:33:40 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define CONVERT_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <typeinfo>
+#include <climits>
 
 class Convert
 {
@@ -54,6 +56,7 @@ class Convert
 		int			_resInt;
 		float		_resFloat;
 		double		_resDouble;
+		int			_stoiNotWorking;
 		int			checkInt(void);
 		int			checkFloat(void);
 		int			checkDouble(void);
