@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/31 11:09:50 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/31 12:03:11 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,20 @@ Data&	Data::operator=(Data const & rhs)
 /******************************************************************************/
 
 
-
-
 /******************************************************************************/
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-Data*	Data::deserialize(uintptr_t raw)
-{
-	
-}
-
 uintptr_t	Data::serialize(Data* ptr)
 {
-	
+	//takes pointer and converts it to the unsigned integer type uintptr_t
+	uintptr_t res = reinterpret_cast<uintptr_t>(ptr);
+	return (res);
+}
+
+Data*	Data::deserialize(uintptr_t raw)
+{
+	//takes an unsigned integer parameter and converts it to a pointer to Data
+	Data* res = reinterpret_cast<Data *>(raw);
+	return (res);
 }

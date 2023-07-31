@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:56:05 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/31 11:07:04 by vjean            ###   ########.fr       */
+/*   Updated: 2023/07/31 16:05:45 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DATA_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <cstdint>
 #include <stdexcept>
@@ -25,13 +26,14 @@ class Data{
 		Data(Data const & src);
 		~Data(void);
 
-		Data& operator=(Data const & rhs);
-
-	private:
+		Data& 		operator=(Data const & rhs);
 		Data*		deserialize(uintptr_t raw);
 		uintptr_t	serialize(Data* ptr);
-		int			_dataOne;
-		int			_dataTwo;
+
+	private:
+		std::string	_dataOne;
+		int		_dataTwo;
+		size_t	_dataThree;
 
 };
 
