@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:49 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/31 16:52:44 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/01 14:11:52 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 Data::Data(void) : _dataOne("bob"), _dataTwo(42), _dataThree(465)
 {
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 	return;
 }
 
 Data::Data(Data const & src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 	return;
 }
@@ -35,7 +35,7 @@ Data::Data(Data const & src)
 
 Data::~Data(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 	return;
 }
 

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:08:45 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/01 11:53:47 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/01 13:50:50 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 /*								CONSTRUCTORS								  */
 /******************************************************************************/
 
-// Base::Base(void)
-// {
-// 	std::cout << "Base Default constructor called" << std::endl;
-// 	return;
-// }
-
 
 /******************************************************************************/
 /*								DESTRUCTOR									  */
@@ -29,7 +23,8 @@
 
 Base::~Base(void)
 {
-	std::cout << "Base destructor called" << std::endl;
+	//std::cout << "Base destructor called" << std::endl;
+	return;
 }
 
 
@@ -38,12 +33,9 @@ Base::~Base(void)
 /******************************************************************************/
 
 
-
 /******************************************************************************/
 /*								GETTER & SETTER								  */
 /******************************************************************************/
-
-
 
 
 /******************************************************************************/
@@ -74,10 +66,51 @@ Base* generate(void)
 
 void	identify(Base* p)
 {
-
+	std::cout << "\033[32m" << "-------Via identify(Base* p)-------" << std::endl;
+	std::cout << "\033[0m";
+	if (dynamic_cast<A*>(p))
+		std::cout << "Type: A" << std::endl;
+	else if (dynamic_cast<B*>(p))
+		std::cout << "Type: B" << std::endl;
+	else if (dynamic_cast<C*>(p))
+		std::cout << "Type: C" << std::endl;
 }
 
 void	identify(Base& p)
 {
-	
+	std::cout << "\033[32m" << "-------Via identify(Base& p)-------" << std::endl;
+	std::cout << "\033[0m";
+	try
+	{
+		A& test = dynamic_cast<A&>(p);
+		(void)test;
+		std::cout << "Type: A 🥳" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		(void)e;
+		std::cout << "Not type A 😭" << std::endl;
+	}
+	try
+	{
+		B& test = dynamic_cast<B&>(p);
+		(void)test;
+		std::cout << "Type: B 🥳" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		(void)e;
+		std::cout << "Not type B 😭" << std::endl;
+	}
+	try
+	{
+		C& test = dynamic_cast<C&>(p);
+		(void)test;
+		std::cout << "Type: C 🥳" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		(void)e;
+		std::cout << "Not type C 😭" << std::endl;
+	}
 }

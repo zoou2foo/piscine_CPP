@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:05:19 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/01 11:45:13 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/01 13:51:19 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 # define BASE_HPP
 
 #include <iostream>
-#include <iomanip>
 #include <string>
 
 class Base
 {
 	public:
-		//Base(void);
+		//Base(void); no need
 		virtual ~Base(void);
 
 };
