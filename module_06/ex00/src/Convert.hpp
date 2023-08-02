@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:07 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/01 14:11:05 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/02 11:17:55 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Convert
 		std::string getArg(void) const;
 		void		setType(std::string type);
 		void		setArg(std::string arg);
+		void		setCharFlag(int flag);
 		void		pseudoLit(void);
 		void		parseArg(void);
 		void		doConversion(void);
@@ -49,10 +50,12 @@ class Convert
 		std::string _type;
 		std::string _arg;
 		char		_resChar;
+		int			_charFlag;
 		int			_resInt;
 		float		_resFloat;
 		double		_resDouble;
 		int			_stoiNotWorking;
+		//int			checkChar(void);
 		int			checkInt(void);
 		int			checkFloat(void);
 		int			checkDouble(void);

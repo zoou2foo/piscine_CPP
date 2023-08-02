@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:21 by vjean             #+#    #+#             */
-/*   Updated: 2023/07/31 10:49:11 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/02 11:59:58 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 Convert::Convert(void)
 {
-	std::cout << "\033[33m" << "Default Constructor called" << std::endl;
-	std::cout << "\033[0m";
+	// std::cout << "\033[33m" << "Default Constructor called" << std::endl;
+	// std::cout << "\033[0m";
 	return;
 }
 
 Convert::Convert(Convert const & src)
 {
-	std::cout << "Copy Constructor called" << std::endl;
+	// std::cout << "Copy Constructor called" << std::endl;
 	*this = src;
 	return;
 }
@@ -36,8 +36,8 @@ Convert::Convert(Convert const & src)
 
 Convert::~Convert(void)
 {
-	std::cout << "\033[31m" << "Destructor called" << std::endl;
-	std::cout << "\033[0m";
+	// std::cout << "\033[31m" << "Destructor called" << std::endl;
+	// std::cout << "\033[0m";
 	return;
 }
 
@@ -78,6 +78,11 @@ void	Convert::setArg(std::string arg)
 	this->_arg = arg;
 }
 
+void	Convert::setCharFlag(int flag)
+{
+	this->_charFlag = flag;
+}
+
 /******************************************************************************/
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
@@ -91,11 +96,20 @@ void	Convert::pseudoLit(void)
 int	Convert::checkInt(void)
 {
 	int flag = -1;
-	for (unsigned long i = 0; i < this->_arg.length(); i++)
+	unsigned long i = 0;
+	if (this->_arg[i] == '-')
+		i++;
+	while (isdigit((int)this->_arg[i]) != 0 && i < this->_arg.length())
 	{
 		if (this->_arg[i] == '.' || this->_arg[i] == 'f')
-				return (1);
+		{
+			this->setCharFlag(-1);
+			return (1);
+		}
+		i++;
 	}
+	if (i != this->_arg.length())
+		return (1);
 	try
 	{
 		std::stoi(this->_arg);
@@ -142,6 +156,11 @@ int	Convert::checkDouble(void)
 			dot += 1;
 		else if (this->_arg[i] == 'f')
 			f += 1;
+	}
+	for (unsigned long i = 0; i < (this->_arg.length() - 1); i++)
+	{
+		if (isdigit((int)this->_arg[i]) == 0)
+			return (1);
 	}
 	if (f == 0 && dot == 1)
 	{
@@ -211,14 +230,17 @@ void	Convert::doConversion(void)
 			this->_resInt = static_cast<int>(this->_resDouble);
 			this->_resFloat = static_cast<float>(this->_resDouble);
 			break;
+		default:
+			std::cout << "format argument incorrect. Need to send one of the following: char, int, float or double" << std::endl;
+			exit (1);
 	}
 }
 
 void	Convert::printResult(void)
 {
-	if ((this->_resInt >= 0 && this->_resInt <= 32) || this->_resInt == 127)
+	if ((this->_resInt >= 0 && this->_resInt <= 32) || (this->_resInt == 127))
 		std::cout << "char: non displayable" << std::endl;
-	else if (this->_resInt > 127)
+	else if (this->_resInt > 127 || this->_resInt < 0)
 		std::cout << "char: impossible" << std::endl;
 	else
 		std::cout << "char: " << this->_resChar << std::endl;
