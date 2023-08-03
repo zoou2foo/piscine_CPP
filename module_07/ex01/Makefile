@@ -66,7 +66,7 @@ MD		=	mkdir -p
 #INCLUDE =	-I include
 
 # Program and directory names
-NAME	=	FewFunctions
+NAME	=	MoreFun
 SRCDIR	=	src/
 OBJDIR	=	bin/
 #TSTDIR	=	tests/
@@ -80,7 +80,7 @@ SRCS	=	$(addprefix $(SRCDIR), $(addsuffix .cpp $(FILES)))
 OBJS	=	$(addprefix $(OBJDIR), $(addsuffix .o, $(FILES)))
 
 
-CMD		=	./FewFunctions
+CMD		=	./MoreFun
 
 #------------------------------------------------------------------------------#
 #                                   TARGETS                                    #
