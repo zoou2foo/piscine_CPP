@@ -1,0 +1,35 @@
+/*
+What I have to do:
+
+<template><>
+class Array
+	Default Constructor: no parameter. But creates an empty array
+	Constructor(unsigned int n): creates an array of n elements initialized by default
+		About this constructor: Tip: Try to compile int * a = new int(); then display *a.??? What do they mean???
+	Constructor by Copy: must NOT affect the other array
+	Assignment operator: must NOT affect the other array
+	member function: unsigned int size(void). Does NOT modify the current instance.
+
+
+***MUST USE new[] to ALLOCATE MEMORY***
+
+
+Elements can be accessed through the subscript operator: []. Like element[indexMachin]
+IF index is out of bounds, THROW std::exception
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
