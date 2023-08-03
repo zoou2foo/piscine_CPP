@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:21 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/02 11:59:58 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/03 13:02:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,10 +157,22 @@ int	Convert::checkDouble(void)
 		else if (this->_arg[i] == 'f')
 			f += 1;
 	}
+	//here just make sure that it has something from 0 to 9 including a dot instead
+	//of using isdigit
 	for (unsigned long i = 0; i < (this->_arg.length() - 1); i++)
 	{
-		if (isdigit((int)this->_arg[i]) == 0)
+		if (this->_arg.find_first_of("0123456789.") == std::string::npos)
 			return (1);
+		// if (isdigit((int)this->_arg[i]) == 0)
+		// 	return (1);
+	}
+	for (unsigned long i = 0; i < this->_arg.length(); i++)
+	{
+		if (this->_arg[i] == '.')
+		{
+			if (isdigit((int)this->_arg[i + 1]) == 0)
+				return (1);
+		}
 	}
 	if (f == 0 && dot == 1)
 	{
