@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:03:01 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/03 09:05:51 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/03 11:04:10 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,6 @@ void	getArray(T & array)
 	std::cout << "\033[0m";
 }
 
-// template<typename T>
-// void	printArray(const T & array)
-// {
-// 	std::cout << array << std::endl;
-// 	array = 'a';
-// 	std::cout << array << std::endl;
-// }
-
-// template<typename T, int>
-// void	iter(const T* array, int length, void(*printArray)(const T & array))
-// {
-// 	for(int index = 0; index < length; index++)
-// 		printArray(array[index]);
-// }
 
 
 template<typename T>
@@ -56,6 +42,22 @@ void	iter(T * array, int length, void(*getArray)(T & array))
 		std::cout << "index: " << index << std::endl;
 		getArray(array[index]);
 	}
+}
+
+template<typename T>
+void	printArray(const T & array)
+{
+	std::cout << "\033[32m" << array << std::endl;
+	std::cout << "\033[0m";
+	// array = 'a';
+	// std::cout << array << std::endl;
+}
+
+template<typename T, int>
+void	iter(const T* array, int length, void(*printArray)(const T & array))
+{
+	for(int index = 0; index < length; index++)
+		printArray(array[index]);
 }
 
 #endif
