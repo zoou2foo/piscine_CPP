@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 11:08:28 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/07 14:56:40 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/07 15:21:32 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Array
 	public:
 		Array(void) : _size(0), _arrayElements(new T[0]) {} //Default: but need to create an empty array
 		Array(unsigned int n) : _size(n), _arrayElements(new T[n]) {} //Constructor to create an array of n elements
-		Array(Array const & src) {
+		Array(Array const & src) : _arrayElements(NULL) {
 			*this = src;
 		}
 		~Array(void) {
