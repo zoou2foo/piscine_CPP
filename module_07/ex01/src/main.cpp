@@ -6,16 +6,11 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:03:06 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/03 11:04:37 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/07 16:37:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Iter.hpp"
-
-//template function iter qui itère; print ce qu'il y a dans un tableau
-//peut importe le type
-//avoir un tableau de int, tableau de string...
-//autres idées de test?
 
 int main(void)
 {

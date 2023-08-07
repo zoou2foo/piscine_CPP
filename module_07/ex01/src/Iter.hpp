@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:03:01 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/03 11:04:10 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/07 16:35:42 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-
-//first function: iter
-//iter takes 1. address of array; 2. length of array; 3. FUNCTION to look every element of the array
-//3rd param: can be a template function too.
 
 template<typename T>
 void	getArray(T & array)
