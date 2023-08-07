@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:21:07 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/02 11:17:55 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/07 08:57:48 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ class Convert
 		float		_resFloat;
 		double		_resDouble;
 		int			_stoiNotWorking;
-		//int			checkChar(void);
 		int			checkInt(void);
 		int			checkFloat(void);
 		int			checkDouble(void);
