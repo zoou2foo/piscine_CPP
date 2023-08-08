@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:45:20 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/08 13:26:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/08 15:13:24 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class ErrorMsg : public std::exception
 template<typename T>
 void	easyfind(T element, int value)
 {
-	element::iterator	it;
+	T*	it; //maybe typename T::iterator it... ???
 
-	it = find(element.begin(), element.last(), value);
+	it = find(element.begin(), element.end(), value);
 	if (!it)
 		throw ErrorMsg();
 }
