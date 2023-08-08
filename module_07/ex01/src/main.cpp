@@ -6,84 +6,56 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 14:03:06 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/07 16:37:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/08 11:51:18 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Iter.hpp"
 
+class Test
+{
+	public:
+		Test(int val) : _value(val) {}
+		int getValue() const { return (this->_value);}
+	private:
+		int	_value;
+};
+
+void	printValue(const Test & value)
+{
+	std::cout << value.getValue() << std::endl;
+}
+
 int main(void)
 {
-	std::cout << "\033[35m" << "------------------------------Test 1------------------------------" << std::endl;
-	std::cout << "\033[0m";
-	std::cout << "-------------Test with string array (non const)-------------" << std::endl;
-	std::cout << "\033[0m";
-	std::string stringArray[4] = { "hello", "mother", "fuckers", "!"};
-	std::cout << "First call=> ";
-	iter(stringArray, 2, getArray);
-	std::cout << "Second call=> ";
-	iter(stringArray, 3, getArray);
-	std::cout << "Third call=> ";
-	iter(stringArray, 4, getArray);
+	/*----------------------------------------------------------------------------------------------------------------------------*/
+	//SIMPLE TEST - FIRST
+	int arrayInt[] = {1, 2, 3, 4, 5};
+	std::string strArray[] = {"hello", "motherfuckers", "!"};
+	Test arrayObj[] = {Test(5), Test(12), Test(3)};
 
-	std::cout << "\033[33m" << "-----Test with string array (non const  & after changes)----" << std::endl;
-	std::cout << "\033[0m";
-	iter(stringArray, 4, getArray);
+	iter(arrayInt, 5, getArray<int>);
+	iter(strArray, 3, getArray<std::string>);
+	iter(arrayObj, 3, printValue);
 
-	std::cout << "\033[33m"  << "-------------Test with int array (non const)-------------" << std::endl;
-	std::cout << "\033[0m";
-	int intArray[5] = { 124, 63, -2, 42, 0};
-	std::cout << "First call=> ";
-	iter(intArray, 1, getArray);
-	std::cout << "Second call=> ";
-	iter(intArray, 2, getArray);
-	std::cout << "Third call=> ";
-	iter(intArray, 3, getArray);
-	std::cout << "Fourth call=> ";
-	iter(intArray, 4, getArray);
-
-	std::cout << "\033[33m" << "-----Test with int array (non const  & after changes)----" << std::endl;
-	std::cout << "\033[0m";
-	iter(intArray, 5, getArray);
-
-	std::cout << "\033[35m" << "------------------------------Test 2------------------------------" << std::endl;
-	std::cout << "\033[0m";
-	std::cout << "\033[33m" << "-----Test with string array (const)-----" << std::endl;
-	std::cout << "\033[0m";
-	const std::string strArray[4] = { "hello", "mother", "fuckers", "!"};
-	iter(strArray, 1, printArray);
-	iter(strArray, 2, printArray);
-	iter(strArray, 3, printArray);
-	iter(strArray, 4, printArray);
-
-	std::cout << "\033[33m"  << "-------------Test with int array (const)-------------" << std::endl;
-	std::cout << "\033[0m";
-	const int intArray2[5] = { 124, 63, -2, 42, 0};
-	std::cout << "First call=> ";
-	iter(intArray2, 1, printArray);
-	std::cout << "Second call=> ";
-	iter(intArray2, 2, printArray);
-	std::cout << "Third call=> ";
-	iter(intArray2, 3, printArray);
-	std::cout << "Fourth call=> ";
-	iter(intArray2, 4, printArray);
 
     /*----------------------------------------------------------------------------------------------------------------------------*/
-	//simple test BELOW
+	//SECOND simple test BELOW
 	//Test without const: string first and then int
 	// std::string stringArray[4] = { "hello", "mother", "fuckers", "!"};
-	// iter(stringArray, 4, getArray);
+	// iter(stringArray, sizeof(stringArray), getArray);
 	// std::cout << "\033[33m" << "-----Test with string array (non const  & after changes)----" << std::endl;
 	// std::cout << "\033[0m";
 	// iter(stringArray, 4, getArray);
 
 	// std::cout << std::endl;
 	// int intArray[5] = { 124, 63, -2, 42, 0};
-	// iter(intArray, 4, getArray);
+	// iter(intArray, sizeof(intArray), getArray);
 	// std::cout << "\033[33m" << "-----Test with int array (non const  & after changes)----" << std::endl;
 	// std::cout << "\033[0m";
-	// iter(intArray, 4, getArray);
+	// iter(intArray, 5, getArray);
 
+	//NO NEED to test but in case:
 	// std::cout << "\033[33m" << "-----Test with string and int (const)----" << std::endl;
 	// std::cout << "\033[0m";
 	// const std::string strArray[4] = { "hello", "mother", "fuckers", "!"};
@@ -92,11 +64,37 @@ int main(void)
 	// iter(strArray, 4, printArray);
 
 	// const int intArray2[5] = { 124, 63, -2, 42, 0};
-	// iter(intArray2, 4, printArray);
+	// iter(intArray2, 5, printArray);
 	// std::cout << "\033[33m" << "-----Test with int array (const  & after changes)----" << std::endl;
 	// std::cout << "\033[0m";
-	// iter(intArray2, 4, printArray);
+	// iter(intArray2, 5, printArray);
 	/*----------------------------------------------------------------------------------------------------------------------------*/
+
+	/*----------------------------------------------------------------------------------------------------------------------------*/
+	// std::cout << "\033[35m" << "------------------------------Test 1------------------------------" << std::endl;
+	// std::cout << "\033[0m";
+	// std::cout << "-------------Test with string array (non const)-------------" << std::endl;
+	// std::cout << "\033[0m";
+	// std::string stringArray[4] = { "hello", "mother", "fuckers", "!"};
+	// iter(stringArray, 4, getArray);
+
+
+	// std::cout << "\033[33m"  << "-------------Test with int array (non const)-------------" << std::endl;
+	// std::cout << "\033[0m";
+	// int intArray[5] = { 124, 63, -2, 42, 0};
+	// iter(intArray, 4, getArray);
+
+	// std::cout << "\033[35m" << "------------------------------Test 2------------------------------" << std::endl;
+	// std::cout << "\033[0m";
+	// std::cout << "\033[33m" << "-----Test with string array (const)-----" << std::endl;
+	// std::cout << "\033[0m";
+	// const std::string strArray[4] = { "hello", "mother", "fuckers", "!"};
+	// iter(strArray, 4, printArray);
+
+	// std::cout << "\033[33m"  << "-------------Test with int array (const)-------------" << std::endl;
+	// std::cout << "\033[0m";
+	// const int intArray2[5] = { 124, 63, -2, 42, 0};
+	// iter(intArray2, 4, printArray);
 
 
 }

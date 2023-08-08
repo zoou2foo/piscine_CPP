@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:01:10 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/02 13:38:48 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/08 10:03:47 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 template<typename T>
 T const &	myMax(T const & x, T const & y)
 {
-	return (x >= y ? x : y);
+	return (x > y ? x : y);
 }
 
 template<typename T>
 T const &	myMin(T const & x, T const & y)
 {
-	return (x <= y ? x : y);
+	return (x < y ? x : y);
 }
 
 template<typename T>
