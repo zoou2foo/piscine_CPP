@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:45:20 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/08 15:13:24 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/09 08:54:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
+#include <vector>
+#include <deque>
 
 class ErrorMsg : public std::exception
 {
@@ -27,13 +29,14 @@ class ErrorMsg : public std::exception
 };
 
 template<typename T>
-void	easyfind(T element, int value)
+void	easyfind(T& element, int value)
 {
-	T*	it; //maybe typename T::iterator it... ???
+	typename T::iterator	it;
 
 	it = find(element.begin(), element.end(), value);
-	if (!it)
+	if (it == element.end())
 		throw ErrorMsg();
+	std::cout << "FOUND!" << std::endl;
 }
 
 #endif
