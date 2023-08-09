@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 08:56:37 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/09 17:05:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/09 17:49:47 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ Span&	Span::operator=(Span const & rhs)
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
+//addNumberAtLarge qui peut prendre un iterator(begin -> end)
+//	addNumber()
 void	Span::addNumber(int newElement)
 {
 	//add verification about capacity
@@ -80,10 +82,6 @@ void	Span::addNumber(int newElement)
 
 int		Span::shortestSpan(void)
 {
-	//calculate distance between numbers of the vector and find shortest and return it
-	//go through the vector compare the distance between each element
-	//keep the result in a var and compare it with the next comparaison: change the var
-	//if need to be or move to the next comparaison. Continue until done through the vector
 	std::vector<int>::iterator shortSpan;
 	std::vector<int> res;
 	int	finalRes = 0;
@@ -102,8 +100,12 @@ int		Span::shortestSpan(void)
 	return (finalRes);
 }
 
-// int		Span::longestSpan(void)
-// {
-// 	//calculate distance between numbers of the vector and find shortest and return it
-//	//max - min boom! Got it
-// }
+int		Span::longestSpan(void)
+{
+	int longestSpan = 0;
+	std::sort(this->_element.begin(), this->_element.end());
+	int min = this->_element.front();
+	int max = this->_element.back();
+	longestSpan = max - min;
+	return (longestSpan);
+}
