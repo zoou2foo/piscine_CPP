@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 08:56:41 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/09 10:02:20 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/09 17:06:23 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,22 @@ class Span
 
 		Span&	operator=(Span const & rhs);
 		void	addNumber(int newElement); //add a single number to the Span
-		int		shortestSpan(void) const; //return shortest distance between all the numbers stored
-		int		longestSpan(void) const; //return longest distance between all the numbers stored
+		int		shortestSpan(void); //return shortest distance between all the numbers stored
+		int		longestSpan(void); //return longest distance between all the numbers stored
+
+		// class FullMsg : public std::exception
+		// {
+		// 	public:
+		// 		virtual const char* what() const throw()
+		// 		{
+		// 			return("Container is FULL!");
+		// 		}
+		// };
 
 	private:
 		Span(void); //Default constructor
-		std::vector<int>	_element;
+		std::vector<int>	_element; //don't forget to put it back in private
+		unsigned long	_cap;
 };
 
 
