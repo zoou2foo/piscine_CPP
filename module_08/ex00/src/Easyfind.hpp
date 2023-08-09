@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:45:20 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/09 08:54:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/09 09:13:36 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EASYFIND_HPP
 
 #include <iostream>
+#include <stdexcept>
 #include <algorithm>
 #include <list>
 #include <vector>
