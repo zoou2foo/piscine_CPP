@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:11:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/10 15:37:01 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/10 15:54:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <stack>
 #include <deque>
+#include <list>
 
 template<typename T> //need to be a template to reproduce what stack does as we will just add iterator from deque
 class MutantStack : public std::stack<T>
@@ -60,7 +61,7 @@ class MutantStack : public std::stack<T>
 					return (this->_myIterator != rhs._myIterator);
 				}
 			private:
-				typename std::deque<T>::iterator	_myIterator;
+				typename std::deque<T>::iterator	_myIterator; //the "pointer"
 		};
 		iterator	begin(void) {
 			return (this->c.begin());
