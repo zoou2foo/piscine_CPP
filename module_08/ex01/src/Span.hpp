@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 08:56:41 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/09 17:45:55 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/10 08:46:02 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Span
 
 		Span&	operator=(Span const & rhs);
 		void	addNumber(int newElement); //add a single number to the Span
+		void	addNumberAtLarge(std::vector<int> num);
 		int		shortestSpan(void); //return shortest distance between all the numbers stored
 		int		longestSpan(void); //return longest distance between all the numbers stored
 

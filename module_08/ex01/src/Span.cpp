@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 08:56:37 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/09 17:49:47 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/10 11:05:51 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,30 @@ Span&	Span::operator=(Span const & rhs)
 
 //addNumberAtLarge qui peut prendre un iterator(begin -> end)
 //	addNumber()
+void	Span::addNumberAtLarge(std::vector<int> num)
+{
+	std::vector<int>::iterator	it;
+	std::vector<int>::iterator	it2;
+	it2 = this->_element.begin();
+	for (it = num.begin(); it != num.end(); ++it) //to go through my tmp vector
+	{
+		if (this->_element.size() == this->_cap) //if the size equals the capsize, need to stop filling up my main vector
+		{
+			std::cerr << "Container is FULL" << std::endl;
+			break;
+		}
+		it2 = this->_element.insert(it2, *it); //insert new element from it, to my main vector, it2. I need to keep the "pointer" updated
+		++it2; //and then moved my "pointer"
+	}
+	// for (std::vector<int>::iterator it3 = this->_element.begin(); it3 != this->_element.end(); ++it3)
+	// {
+	// 	int num = *it3;
+	// 	std::cout << num << std::endl;
+	// }
+	// std::cout << "---------------------------------------------" << std::endl;
+}
+
+
 void	Span::addNumber(int newElement)
 {
 	//add verification about capacity
@@ -87,6 +111,7 @@ int		Span::shortestSpan(void)
 	int	finalRes = 0;
 
 	std::sort(this->_element.begin(), this->_element.end()); //we can join std functions with containers and BOOM! MAGIC!
+	std::cout << "---------------------------------------------" << std::endl;
 	for (std::vector<int>::iterator it = this->_element.begin(); it != this->_element.end(); ++it)
 	{
 		int num1 = *it;
