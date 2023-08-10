@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:11:43 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/10 16:04:07 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/10 17:24:10 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int main()
 
 	mstack.push(5); //we add 5 in the stack
 	mstack.push(17); //we add 17 in the stack
-	test.push_back(5);
-	test.push_back(17);
+	test.push_front(5);
+	test.push_front(17);
 
 	std::cout << "What's on top of the stack (after pushing 2 numbers): " << mstack.top() << std::endl; //we print what's on top
-	std::cout << "Top of the list: " << test.back() << std::endl;
+	std::cout << "Top of the list: " << test.front() << std::endl;
 
 	mstack.pop(); //we remove element from the top
-	test.pop_back();
+	test.pop_front();
 
 	std::cout << "size after popping the element from the top: " << mstack.size() << std::endl; //we print the size
 	std::cout << "size after popping in list: " << test.size() << std::endl;
