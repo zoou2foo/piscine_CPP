@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/11 08:32:52 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/11 14:25:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,36 @@
 /*								CONSTRUCTORS								  */
 /******************************************************************************/
 
+BitcoinExchange::BitcoinExchange(void)
+{
+	return;
+}
 
+BitcoinExchange::BitcoinExchange(BitcoinExchange const & src)
+{
+	*this = src;
+}
 
 /******************************************************************************/
 /*								DESTRUCTOR									  */
 /******************************************************************************/
 
-
+BitcoinExchange::~BitcoinExchange(void)
+{
+	return;
+}
 
 
 /******************************************************************************/
 /*						ASSIGNATION & OVERLOAD OPERATOR						  */
 /******************************************************************************/
 
+BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange const & rhs)
+{
+	if (this == &rhs)
+		return (*this);
+	return (*this); //FIXME might need to copy more stuff
+}
 
 
 /******************************************************************************/
