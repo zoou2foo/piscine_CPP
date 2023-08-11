@@ -59,7 +59,7 @@ endif
 #------------------------------------------------------------------------------#
 
 # Compiler and flags
-CC		=	c++ -g
+CC		=	c++
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 MD		=	mkdir -p

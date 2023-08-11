@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:11:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/10 15:54:12 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/11 08:07:22 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <deque>
 #include <list>
 
-template<typename T> //need to be a template to reproduce what stack does as we will just add iterator from deque
+template<typename T> //need to be a template to reproduce what stack does as we will just add iterator from <deque>
 class MutantStack : public std::stack<T>
 {
 	public:
@@ -29,16 +29,8 @@ class MutantStack : public std::stack<T>
 		MutantStack& operator=(MutantStack const & rhs){
 			if (this == &rhs)
 				return (*this);
-			//might need to copy some stuff here
 			return (*this);
 		}
-		//prototyper begin() and end()
-		// MutantStack<T>::iterator*	begin(void) {
-		// 	return (this->c.begin()); //only in adapter containers that have a c which represents a sub-container(sequential container)
-		// }
-		// MutantStack<T>::iterator*	end(void) {
-		// 	return (this->c.end());
-		// }
 		class iterator
 		{
 			public:
@@ -64,7 +56,7 @@ class MutantStack : public std::stack<T>
 				typename std::deque<T>::iterator	_myIterator; //the "pointer"
 		};
 		iterator	begin(void) {
-			return (this->c.begin());
+			return (this->c.begin()); //only in adapter containers that have a c which represents a sub-container(sequential container)
 		}
 		iterator	end(void) {
 			return (this->c.end());
