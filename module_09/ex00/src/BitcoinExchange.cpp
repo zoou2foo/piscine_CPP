@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/11 14:25:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/14 10:47:55 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange const & rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	return (*this); //FIXME might need to copy more stuff
+	return (*this); //FIXME might need to copy more stuff **go through a loop to copy container
 }
 
 
@@ -58,3 +58,13 @@ BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange const & rhs)
 /******************************************************************************/
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
+
+void	BitcoinExchange::executeProg(std::ifstream& inputFile)
+{
+	std::string	tmp;
+
+	std::getline(inputFile, tmp);
+	std::cout << "Let's print first line: " << tmp << std::endl;
+	std::getline(inputFile, tmp);
+	std::cout << "Let's print second?? line: " << tmp << std::endl;
+}

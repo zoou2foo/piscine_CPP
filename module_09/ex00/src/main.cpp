@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:58:11 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/11 14:19:56 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/14 10:33:08 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,23 @@ int main(int ac, char** av)
 {
 	if (ac == 2)
 	{
-		
+		const char* fileName = av[1];
+		std::ifstream inputFile(fileName);
+		if (!inputFile.is_open())
+		{
+			std::cerr << "Error: could not open the file." << std::endl;
+			return (-1);
+		}
+		else
+		{
+			//don't forget to close inputFile at the END!!! inputFile.close()
+			BitcoinExchange myClass;
+			myClass.executeProg(inputFile);
+		}
 	}
 	else
 	{
-		std::cerr << "Error: could not open file. Make sure that you give a valid file with the exec." << std::endl;
+		std::cerr << "Error: need to provide ONE valid file as an argument." << std::endl;
 	}
 	return (0);
 }
