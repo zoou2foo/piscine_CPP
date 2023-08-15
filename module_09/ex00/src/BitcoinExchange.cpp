@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/14 15:27:44 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/15 13:17:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 BitcoinExchange::BitcoinExchange(void)
 {
+	this->_dateStruct = std::tm();
 	return;
 }
 
@@ -72,76 +73,94 @@ void	BitcoinExchange::setDate(std::string date)
 	this->_date = date;
 }
 
+int		BitcoinExchange::getInputDate(void) const
+{
+	return (this->_inputDate);
+}
+
+void	BitcoinExchange::setInputDate(int inputDate)
+{
+	this->_inputDate = inputDate;
+}
+
 
 /******************************************************************************/
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-void	BitcoinExchange::checkDate(std::string tmp)
+
+//to move database in my container
+	//have the key: date only and ADD => copy only the first 10 characters + add space + add => + add space
+	//have the int: stoi the value, the last element of tmp
+	//this->_myContainer.insert(std::pair<int, int>(str, int))
+void	BitcoinExchange::databaseToContainer(void)
 {
-	size_t dateEnd = tmp.find("|") - 1;
-	std::string date = tmp.substr(dateEnd, 10);
-	for (int i = 0; i < 10; ++i)
+	//to open data.csv
+	std::string	line;
+	std::ifstream dataBase("data.csv");
+	if (dataBase.is_open())
 	{
-		if (i == 4 || i == 7)
+		while (std::getline(dataBase, line))
 		{
-			if (date[i] != '-')
-			{
-				throw ErrorDate();
-				exit (-1);
-				//std::cerr << "Error: incorrect date format" << std::endl;
-				//probably need to move on to the next? ...
-			}
-		}
-		else if (!std::isdigit(date[i]))
-		{
-			throw ErrorDate();
-			//std::cerr << "Error: invalid date" << std::endl;
+			//I'll need to change date to int (same as I did for input)
+			//I'll need an int for date and an int for exchange_rate
+			//then, send it to the container
 		}
 	}
+}
+
+
+bool	BitcoinExchange::checkDate(std::string tmp)
+{
+	std::string date = tmp.substr(0, 10);
+	std::istringstream dateStream(date);
+	dateStream >> std::get_time(&this->_dateStruct, "%Y-%m-%d");
+	if (dateStream.fail())
+	{
+		return (false);
+	}
+	return (true);
 	std::cout << "checkDate passed" << std::endl;
 
 }
 
-void	BitcoinExchange::checkMiddle(std::string tmp)
+bool	BitcoinExchange::checkMiddle(std::string tmp)
 {
 	//check for space and pipe to separate date and value
 	if (tmp.find_first_of(" | ") == std::string::npos)
-	{
-		std::cerr << "no space and pipe" << std::endl;
-	}
+		return(false);
 	else
-	{
-		std::cout << "checkMiddle passed" << std::endl;
-	}
+		return (true);
 }
 
-void	BitcoinExchange::checkValue(std::string tmp)
+bool	BitcoinExchange::checkValue(std::string tmp)
 {
 	//check that the last part is an positive int or float and not higher than 1000.
 	size_t valueStart = tmp.find("|") + 1;
 	size_t valueLength = tmp.length() - valueStart;
 	std::string stringValue = tmp.substr(valueStart, valueLength);
 	float value = std::stof(stringValue);
-	if (value < 0 && value > 1000)
-	{
-		std::cerr << "Error: value needs to be between 0 and 1000" << std::endl;
-	}
+	if (value < 0 || value > 1000)
+		return (false);
 	else
 	{
 		this->setValue(value);
-		std::cout << "check Value passed" << std::endl;
+		return (true);
 	}
 
 }
 
-void	BitcoinExchange::moveToContainer(std::string tmp)
+void	BitcoinExchange::compareToDataBase(std::string tmp)
 {
-	//have the key: date only and ADD => copy only the first 10 characters + add space + add => + add space
-	//have the int: stoi the value, the last element of tmp
-	//this->_myContainer.insert(std::pair<string, int>(str, int))
-	(void)tmp;
-	std::cout << "time to move in container" << std::endl;
+	//first isolate the date from input and switch it to int
+	size_t valueEnd = tmp.find(" ");
+	std::string dateIsolate;
+	for (size_t i = 0; i < valueEnd; ++i)
+	{
+		if (tmp[i] != '-')
+			dateIsolate += tmp[i];
+	}
+	this->setInputDate(std::stoi(dateIsolate));
 }
 
 void	BitcoinExchange::executeProg(std::ifstream& inputFile)
@@ -154,19 +173,25 @@ void	BitcoinExchange::executeProg(std::ifstream& inputFile)
 		std::cerr << "Error: with the header of the file. File might be corrupted" << std::endl;
 		//exit or not???
 	}
+	this->databaseToContainer();
 	while (std::getline(inputFile, tmp))
 	{
-		try
+		if (!checkDate(tmp))
 		{
-			checkDate(tmp);
-			checkMiddle(tmp);
-			checkValue(tmp);
+			std::cerr << "Error: date invalid" << std::endl;
 		}
-		catch(const std::exception& e)
+		else if (!checkMiddle(tmp))
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "Error: incorrect format" << std::endl;
 		}
-		moveToContainer(tmp);
+		else if (!checkValue(tmp))
+		{
+			std::cerr << "Error: incorrect value. Make sure it is a positive int or float; between 0 to 1000" << std::endl;
+		}
+		else
+		{
+			compareToDataBase(tmp);//rename function time to compare with database
+		}
 		// if (!this->parseTmp(tmp))
 		// {
 		// 	//then move the line to my container

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:56 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/14 14:25:05 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/15 13:09:34 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <map>
 #include <string>
 #include <stdexcept>
+#include <iomanip>
+#include <ctime>
+#include <sstream>
 
 class BitcoinExchange
 {
@@ -29,28 +32,25 @@ class BitcoinExchange
 		BitcoinExchange&	operator=(BitcoinExchange const & rhs);
 		void				addStuffContainer(std::string date, int value);
 		void				executeProg(std::ifstream& inputFile);
-		void				checkDate(std::string tmp);
-		void				checkMiddle(std::string tmp);
-		void				checkValue(std::string tmp);
-		void				moveToContainer(std::string tmp);
+		bool				checkDate(std::string tmp);
+		bool				checkMiddle(std::string tmp);
+		bool				checkValue(std::string tmp);
+		void				compareToDataBase(std::string tmp);
+		void				databaseToContainer(void);
 		float				getValue(void) const;
 		void				setValue(float value);
 		std::string			getDate(void) const;
 		void				setDate(std::string date);
+		int					getInputDate(void) const;
+		void				setInputDate(int inputDate);
 
-		class ErrorDate : public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Error: incorrect date");
-				}
-		};
 
 	private:
-	std::map<std::string, int>	_myContainer;
+	std::map<int, int>	_myContainer;
 	float						_value;
 	std::string					_date;
+	std::tm						_dateStruct;
+	int							_inputDate;
 };
 
 
