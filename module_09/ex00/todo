@@ -102,7 +102,18 @@ void	BitcoinExchange::executeProg(std::ifstream& inputFile)
 
 
 
-
+some stuff to do stof:
+	if (line.length() - startRate == 1)
+			{
+				exRate[0] = line[startRate];
+			}
+			else {
+				for (size_t i = startRate; i <= line.length(); ++i)
+				{
+					std::cout << "line[startRate]: " << line[startRate] << std::endl;
+					exRate[i] += line[i];
+				}
+			}
 
 
 

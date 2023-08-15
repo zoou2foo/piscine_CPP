@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:56 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/15 13:09:34 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/15 14:36:10 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class BitcoinExchange
 
 
 	private:
-	std::map<int, int>	_myContainer;
+	std::map<int, float>	_myContainer;
 	float						_value;
 	std::string					_date;
 	std::tm						_dateStruct;

@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/15 13:17:59 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/15 15:11:04 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void	BitcoinExchange::setInputDate(int inputDate)
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-
 //to move database in my container
 	//have the key: date only and ADD => copy only the first 10 characters + add space + add => + add space
 	//have the int: stoi the value, the last element of tmp
@@ -100,13 +99,28 @@ void	BitcoinExchange::databaseToContainer(void)
 	std::ifstream dataBase("data.csv");
 	if (dataBase.is_open())
 	{
+		std::getline(dataBase, line);
 		while (std::getline(dataBase, line))
 		{
+			size_t valueEnd = line.find(",");
+			std::string dateIsolate;
+			for (size_t i = 0; i < valueEnd; ++i)
+			{
+				if (line[i] != '-')
+					dateIsolate += line[i];
+			}
+			int inputDate = std::stoi(dateIsolate);
+			size_t startRate = line.find(",") + 1;
+			std::string exRate = line.substr(startRate, line.length());
+			float exchangeRate = std::stof(exRate);
+			this->_myContainer.insert(std::pair<int, float>(inputDate, exchangeRate));
 			//I'll need to change date to int (same as I did for input)
 			//I'll need an int for date and an int for exchange_rate
 			//then, send it to the container
+			//std::string date = line.substr()
 		}
 	}
+	dataBase.close();
 }
 
 
