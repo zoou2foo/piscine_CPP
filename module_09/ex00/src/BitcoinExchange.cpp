@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/15 15:11:04 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/15 16:33:30 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,16 @@ void	BitcoinExchange::compareToDataBase(std::string tmp)
 			dateIsolate += tmp[i];
 	}
 	this->setInputDate(std::stoi(dateIsolate));
+	for (this->_it = this->_myContainer.begin(); this->_it != this->_myContainer.end(); ++this->_it)
+	{
+		//add a check up: if this->_inputDate < 20090103 => Error: Bitcoin was officially introduced on 2009-01-03
+		if (this->_inputDate == this->_it->first)//might to change when I do this check
+			//look at this->_it->second
+			//then this->_it->second * this->_value
+			//then, print this->_date + => + this->_value + = + result
+		//need to keep in a buffer the line when I go through the container. If I compare it and higher than
+		//mine, it means mine is not there, need to choose the previous one
+	}
 }
 
 void	BitcoinExchange::executeProg(std::ifstream& inputFile)
@@ -204,13 +214,8 @@ void	BitcoinExchange::executeProg(std::ifstream& inputFile)
 		}
 		else
 		{
-			compareToDataBase(tmp);//rename function time to compare with database
+			compareToDataBase(tmp);
 		}
-		// if (!this->parseTmp(tmp))
-		// {
-		// 	//then move the line to my container
-		// }
-		//maybe not need else as I would have deal with the error in function called in the if condition
 	}
 
 }
