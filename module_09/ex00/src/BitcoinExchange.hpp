@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:56 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/15 15:21:21 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/16 11:06:43 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ class BitcoinExchange
 {
 	public:
 		BitcoinExchange(void);
-		BitcoinExchange(BitcoinExchange const & src);
 		~BitcoinExchange(void);
 
-		BitcoinExchange&	operator=(BitcoinExchange const & rhs);
 		void				addStuffContainer(std::string date, int value);
 		void				executeProg(std::ifstream& inputFile);
 		bool				checkDate(std::string tmp);
@@ -46,6 +44,8 @@ class BitcoinExchange
 
 
 	private:
+	BitcoinExchange&	operator=(BitcoinExchange const & rhs);
+	BitcoinExchange(BitcoinExchange const & src);
 	std::map<int, float>			_myContainer;
 	std::map<int, float>::iterator	_it;
 	float							_value;

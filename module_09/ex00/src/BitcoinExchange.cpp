@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/16 09:36:29 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/16 11:06:09 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,12 @@ BitcoinExchange&	BitcoinExchange::operator=(BitcoinExchange const & rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	return (*this); //FIXME might need to copy more stuff **go through a loop to copy container
+	this->_it = rhs._it;
+	this->_value = rhs.getValue();
+	this->_date = rhs.getDate();
+	this->_dateStruct = rhs._dateStruct;
+	this->_inputDate = rhs.getInputDate();
+	return (*this);
 }
 
 
@@ -88,13 +93,8 @@ void	BitcoinExchange::setInputDate(int inputDate)
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
 
-//to move database in my container
-	//have the key: date only and ADD => copy only the first 10 characters + add space + add => + add space
-	//have the int: stoi the value, the last element of tmp
-	//this->_myContainer.insert(std::pair<int, int>(str, int))
 void	BitcoinExchange::databaseToContainer(void)
 {
-	//to open data.csv
 	std::string	line;
 	std::ifstream dataBase("data.csv");
 	if (dataBase.is_open())
@@ -114,10 +114,6 @@ void	BitcoinExchange::databaseToContainer(void)
 			std::string exRate = line.substr(startRate, line.length());
 			float exchangeRate = std::stof(exRate);
 			this->_myContainer.insert(std::pair<int, float>(inputDate, exchangeRate));
-			//I'll need to change date to int (same as I did for input)
-			//I'll need an int for date and an int for exchange_rate
-			//then, send it to the container
-			//std::string date = line.substr()
 		}
 	}
 	dataBase.close();
@@ -177,31 +173,29 @@ void	BitcoinExchange::compareToDataBase(std::string tmp)
 	this->setInputDate(std::stoi(dateIsolate));
 	int buffer = this->getInputDate();
 	float result = 0;
+	std::string bufDate;
+	//time to go through database
 	for (this->_it = this->_myContainer.begin(); this->_it != this->_myContainer.end(); ++this->_it)
 	{
-		//add a check up: if this->_inputDate < 20090103 => Error: Bitcoin was officially introduced on 2009-01-03
-		// std::cout << "date from input: " << this->getInputDate() << " and date from database: " << this->_it->first << std::endl;
-		if (this->_inputDate == this->_it->first)//might to change when I do this check
+		if (this->_inputDate == this->_it->first)
 		{
-			//std::cout << "found the date in database" << std::endl;
 			result = this->_it->second * this->getValue();
-			std::cout << this->getInputDate() << " => " << this->getValue() << " = " << result << std::endl;
+			bufDate = std::to_string(this->getInputDate());
+			bufDate.insert(4, "-");
+			bufDate.insert(7, "-");
+			std::cout << bufDate << " => " << this->getValue() << " = " << result << std::endl;
 			break;
 		}
-		if (this->_it->first > this->_inputDate && this->_inputDate > buffer)
+		if (this->_it->first > this->_inputDate && this->_inputDate > buffer) //to get previous date
 		{
-			// std::cout << "previous date to use: " << buffer << std::endl;
 			this->_it--;
-			// std::cout << "if we need to use previous: " << this->_it->first << std::endl;
 			result = this->_it->second * this->getValue();
-			std::cout << this->getInputDate() << " => " << this->getValue() << " = " << result << std::endl;
+			std::string tmp = std::to_string(this->getInputDate());
+			tmp.insert(4, "-");
+			tmp.insert(7, "-");
+			std::cout << tmp << " => " << this->getValue() << " = " << result << std::endl;
 			break;
 		}
-			//look at this->_it->second
-			//then this->_it->second * this->_value
-			//then, print this->_date + => + this->_value + = + result
-		//need to keep in a buffer the line when I go through the container. If I compare it and higher than
-		//mine, it means mine is not there, need to choose the previous one
 		buffer = this->_it->first;
 	}
 }
@@ -232,10 +226,7 @@ void	BitcoinExchange::executeProg(std::ifstream& inputFile)
 			std::cerr << "Error: incorrect value. Make sure it is a positive int or float; between 0 to 1000" << std::endl;
 		}
 		else
-		{
-			// std::cout << "tmp before going to compareToDatabase: " << tmp << std::endl;
 			compareToDataBase(tmp);
-		}
 	}
 
 }
