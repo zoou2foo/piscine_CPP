@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:08:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/16 13:41:38 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/16 13:50:33 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	RPN::executeProg(std::string rpnExp)
 	this->setRPNexp(rpnExp);
 	size_t end = this->_rpnExp.find(" ");
 	std::string tmp = this->_rpnExp.substr(0, end);
+	std::string newExpr = this->_rpnExp.substr(end + 1, this->_rpnExp.length());
 	for (unsigned long i = 0; i < tmp.length(); ++i)
 	{
 		if (tmp.find_first_of("0123456789") == std::string::npos)
@@ -81,4 +82,7 @@ void	RPN::executeProg(std::string rpnExp)
 	}
 	int	digit = std::stoi(tmp);
 	std::cout << digit << std::endl;
+	this->_myContainer.push(digit);
+	
+
 }
