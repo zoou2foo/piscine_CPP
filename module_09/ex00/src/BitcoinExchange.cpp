@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/15 16:33:30 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/16 09:36:29 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,15 +175,34 @@ void	BitcoinExchange::compareToDataBase(std::string tmp)
 			dateIsolate += tmp[i];
 	}
 	this->setInputDate(std::stoi(dateIsolate));
+	int buffer = this->getInputDate();
+	float result = 0;
 	for (this->_it = this->_myContainer.begin(); this->_it != this->_myContainer.end(); ++this->_it)
 	{
 		//add a check up: if this->_inputDate < 20090103 => Error: Bitcoin was officially introduced on 2009-01-03
+		// std::cout << "date from input: " << this->getInputDate() << " and date from database: " << this->_it->first << std::endl;
 		if (this->_inputDate == this->_it->first)//might to change when I do this check
+		{
+			//std::cout << "found the date in database" << std::endl;
+			result = this->_it->second * this->getValue();
+			std::cout << this->getInputDate() << " => " << this->getValue() << " = " << result << std::endl;
+			break;
+		}
+		if (this->_it->first > this->_inputDate && this->_inputDate > buffer)
+		{
+			// std::cout << "previous date to use: " << buffer << std::endl;
+			this->_it--;
+			// std::cout << "if we need to use previous: " << this->_it->first << std::endl;
+			result = this->_it->second * this->getValue();
+			std::cout << this->getInputDate() << " => " << this->getValue() << " = " << result << std::endl;
+			break;
+		}
 			//look at this->_it->second
 			//then this->_it->second * this->_value
 			//then, print this->_date + => + this->_value + = + result
 		//need to keep in a buffer the line when I go through the container. If I compare it and higher than
 		//mine, it means mine is not there, need to choose the previous one
+		buffer = this->_it->first;
 	}
 }
 
@@ -214,6 +233,7 @@ void	BitcoinExchange::executeProg(std::ifstream& inputFile)
 		}
 		else
 		{
+			// std::cout << "tmp before going to compareToDatabase: " << tmp << std::endl;
 			compareToDataBase(tmp);
 		}
 	}
