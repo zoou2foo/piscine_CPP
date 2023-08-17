@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:08:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/16 11:26:37 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/17 13:47:49 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int ac, char** av)
 		std::string rpnExp = av[1];
 		RPN	myClass;
 		myClass.executeProg(rpnExp);
-		std::cout << "let's start this shit" << std::endl;
+		//myClass.printResult();
+		//std::cout << "let's start this shit" << std::endl; //print the result from stack
 	}
 	else if (ac > 2)
 		std::cout << "Error: you need to put the RPN expression between double quotes" << std::endl;

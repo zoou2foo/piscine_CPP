@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:09:09 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/17 09:02:03 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/17 13:47:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <stack>
+#include <string>
+
 
 class RPN
 {
@@ -27,7 +29,8 @@ class RPN
 		void		setRPNexp(std::string rpnExp);
 		char		getOperator(void) const;
 		void		setOperator(char op);
-		void		doTheMath(void);
+		void		doTheMath(char op);
+		//void		printResult(void);
 
 	private:
 		RPN(RPN const & src);
