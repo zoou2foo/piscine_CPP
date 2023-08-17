@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:08:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/17 08:19:24 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/17 09:18:12 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 RPN::RPN(void)
 {
+	this->setOperator('\0');
 	return;
 }
 
@@ -66,15 +67,75 @@ char RPN::getOperator(void) const
 	return (this->_operator);
 }
 
-void	RPN::setOperator(std::string operator)
+void	RPN::setOperator(char op)
 {
-	this->_operator = operator;
+	this->_operator = op;
 }
 
 
 /******************************************************************************/
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
+
+void	RPN::doTheMath(void)
+{
+	if (this->_myContainer.size() < 2)
+	{
+		std::cout << "Error" << std::endl;
+		exit(1);
+	}
+	char opArray[4] = {'+', '-', '/', '*'};
+	int i = 0;
+	while (i < 4)
+	{
+		if (opArray[i] == this->_operator)
+			break;
+		i++;
+	}
+	int nb1;
+	int nb2;
+	int result;
+	switch (i)
+	{
+		case 0:
+			//addition of the two elements at top of stack
+			nb1 = this->_myContainer.top();
+			this->_myContainer.pop();
+			nb2 = this->_myContainer.top();
+			result = nb1 + nb2;
+			this->_myContainer.push(result);
+			this->setOperator('\0');
+		case 1:
+			//subtraction
+			nb1 = this->_myContainer.top();
+			this->_myContainer.pop();
+			nb2 = this->_myContainer.top();
+			result = nb1 - nb2;
+			this->_myContainer.push(result);
+			this->setOperator('\0');
+		case 2:
+			//division **Look if it's a division by 0 => ERROR!
+			nb1 = this->_myContainer.top();
+			this->_myContainer.pop();
+			nb2 = this->_myContainer.top();
+			if (nb2 == 0)
+			{
+				std::cout << "Error: division by 0 impossible" << std::endl;
+				exit(1);
+			}
+			result = nb1 / nb2;
+			this->_myContainer.push(result);
+			this->setOperator('\0');
+		case 3:
+			//multiplication
+			nb1 = this->_myContainer.top();
+			this->_myContainer.pop();
+			nb2 = this->_myContainer.top();
+			result = nb1 * nb2;
+			this->_myContainer.push(result);
+			this->setOperator('\0');
+	}
+}
 
 void	RPN::executeProg(std::string rpnExp)
 {
@@ -88,19 +149,31 @@ void	RPN::executeProg(std::string rpnExp)
 	{
 		if (tmp.find_first_of("0123456789") == std::string::npos)
 		{
-			std::cout << "Error: bad input" << std::endl;
-			exit(1);
-		}
-		else if (tmp.find_first_of("+-/*"))
-		{
-			this->setOperator(tmp[i]);
+			if (tmp.find_first_of("+-/*") != std::string::npos)
+			{
+			this->setOperator(static_cast<char>(tmp[i]));
 			break;
+			}
+			else
+			{
+				std::cout << "Error: bad input" << std::endl;
+				exit(1);
+			}
 		}
+		// else if (tmp.find_first_of("+-/*") != std::string::npos)
+		// {
+		// 	this->setOperator(static_cast<char>(tmp[i]));
+		// 	break;
+		// }
 	}
-	int	digit = std::stoi(tmp);
-	std::cout << digit << std::endl;
-	this->_myContainer.push(digit);
-	while (!newExpr.empty())
-		this->executeProg(newExpr);
-
+	if (this->_operator != '\0')
+			this->doTheMath();
+	else
+	{
+		int	digit = std::stoi(tmp);//need to check for max int
+		std::cout << digit << std::endl;
+		this->_myContainer.push(digit);
+		while (!newExpr.empty())
+			this->executeProg(newExpr);
+	}
 }
