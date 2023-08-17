@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:08:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/16 13:50:33 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/17 08:19:24 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,16 @@ void	RPN::setRPNexp(std::string rpnExp)
 	this->_rpnExp = rpnExp;
 }
 
+char RPN::getOperator(void) const
+{
+	return (this->_operator);
+}
+
+void	RPN::setOperator(std::string operator)
+{
+	this->_operator = operator;
+}
+
 
 /******************************************************************************/
 /*								MEMBER FUNCTIONS							  */
@@ -68,10 +78,12 @@ void	RPN::setRPNexp(std::string rpnExp)
 
 void	RPN::executeProg(std::string rpnExp)
 {
-	this->setRPNexp(rpnExp);
-	size_t end = this->_rpnExp.find(" ");
-	std::string tmp = this->_rpnExp.substr(0, end);
-	std::string newExpr = this->_rpnExp.substr(end + 1, this->_rpnExp.length());
+	//this->setRPNexp(rpnExp);
+	size_t end = rpnExp.find(" ");
+	std::string tmp = rpnExp.substr(0, end);
+	std::string newExpr = rpnExp.substr(end + 1, rpnExp.length());
+	if (end == rpnExp.length())
+		newExpr = "";
 	for (unsigned long i = 0; i < tmp.length(); ++i)
 	{
 		if (tmp.find_first_of("0123456789") == std::string::npos)
@@ -79,10 +91,16 @@ void	RPN::executeProg(std::string rpnExp)
 			std::cout << "Error: bad input" << std::endl;
 			exit(1);
 		}
+		else if (tmp.find_first_of("+-/*"))
+		{
+			this->setOperator(tmp[i]);
+			break;
+		}
 	}
 	int	digit = std::stoi(tmp);
 	std::cout << digit << std::endl;
 	this->_myContainer.push(digit);
-	
+	while (!newExpr.empty())
+		this->executeProg(newExpr);
 
 }
