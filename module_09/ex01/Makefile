@@ -96,7 +96,7 @@ ldirs:
 $(NAME): $(OBJS)
 	$(HIDE) $(START)
 #	$(HIDE) cd libft && make && cd ..
-	$(HIDE) $(CC) -g $(MODE) $(CFLAGS) -o $@ $^
+	$(HIDE) $(CC) $(MODE) $(CFLAGS) -o $@ $^
 	@echo "$(GREEN)Files compiled$(DEF_COLOR)"
 
 $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.cpp
