@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:08:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/17 09:18:12 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/17 11:16:54 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	RPN::doTheMath(void)
 			result = nb1 + nb2;
 			this->_myContainer.push(result);
 			this->setOperator('\0');
+			break;
 		case 1:
 			//subtraction
 			nb1 = this->_myContainer.top();
@@ -113,6 +114,7 @@ void	RPN::doTheMath(void)
 			result = nb1 - nb2;
 			this->_myContainer.push(result);
 			this->setOperator('\0');
+			break;
 		case 2:
 			//division **Look if it's a division by 0 => ERROR!
 			nb1 = this->_myContainer.top();
@@ -126,54 +128,53 @@ void	RPN::doTheMath(void)
 			result = nb1 / nb2;
 			this->_myContainer.push(result);
 			this->setOperator('\0');
+			break;
 		case 3:
 			//multiplication
 			nb1 = this->_myContainer.top();
 			this->_myContainer.pop();
 			nb2 = this->_myContainer.top();
+			this->_myContainer.pop();
 			result = nb1 * nb2;
 			this->_myContainer.push(result);
 			this->setOperator('\0');
+			break;
 	}
 }
 
 void	RPN::executeProg(std::string rpnExp)
 {
-	//this->setRPNexp(rpnExp);
 	size_t end = rpnExp.find(" ");
-	std::string tmp = rpnExp.substr(0, end);
-	std::string newExpr = rpnExp.substr(end + 1, rpnExp.length());
-	if (end == rpnExp.length())
+	std::string newExpr;
+	std::string tmp;
+	tmp = rpnExp.substr(0, end); //start from beginning to the space
+	if (end == std::string::npos)
 		newExpr = "";
-	for (unsigned long i = 0; i < tmp.length(); ++i)
-	{
-		if (tmp.find_first_of("0123456789") == std::string::npos)
-		{
-			if (tmp.find_first_of("+-/*") != std::string::npos)
-			{
-			this->setOperator(static_cast<char>(tmp[i]));
-			break;
-			}
-			else
-			{
-				std::cout << "Error: bad input" << std::endl;
-				exit(1);
-			}
-		}
-		// else if (tmp.find_first_of("+-/*") != std::string::npos)
-		// {
-		// 	this->setOperator(static_cast<char>(tmp[i]));
-		// 	break;
-		// }
-	}
-	if (this->_operator != '\0')
-			this->doTheMath();
 	else
 	{
-		int	digit = std::stoi(tmp);//need to check for max int
-		std::cout << digit << std::endl;
-		this->_myContainer.push(digit);
-		while (!newExpr.empty())
-			this->executeProg(newExpr);
+		newExpr = rpnExp.substr(end + 1, rpnExp.length()); //newExpr starts at end(+ 1) up to the end of the string
 	}
+	for (unsigned long i = 0; i < tmp.length(); ++i)
+	{
+		char currentChar = tmp[i];
+		if (isdigit(currentChar))
+		{
+			int	digit = std::stoi(tmp);//need to check for max int
+			std::cout << digit << std::endl;
+			this->_myContainer.push(digit);
+		}
+		else if(tmp.find_first_of("+-/*") != std::string::npos)
+		{
+			this->setOperator(static_cast<char>(tmp[i]));
+			this->doTheMath();
+		}
+		else
+		{
+			std::cout << "Error: bad input" << std::endl;
+			exit(1);
+		}
+	}
+	if (!newExpr.empty())
+			this->executeProg(newExpr);
+	std::cout << "print result??" << std::endl;
 }
