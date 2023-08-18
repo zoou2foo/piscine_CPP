@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/18 11:29:35 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/18 14:50:30 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class PmergeMe
 
 		PmergeMe&	operator=(PmergeMe const & rhs);
 		void		parseSequence(int ac, char** av);
+		void		startEngine(void);
 
 		class ErrorMsg : public std::exception
 		{
@@ -40,6 +41,8 @@ class PmergeMe
 		};
 
 	private:
+	std::vector<int>	_myVector;
+	std::list<int>		_myList;
 
 };
 

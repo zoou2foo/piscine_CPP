@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:54:31 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/18 13:32:54 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/18 14:50:48 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	PmergeMe::parseSequence(int ac, char** av)
 			//std::cout << tmp << std::endl;
 			if (tmp < 0)
 				throw ErrorMsg();
+			this->_myVector.push_back(tmp);
+			this->_myList.push_back(tmp);
 		}
 		catch(const std::exception& e)
 		{
@@ -85,4 +87,9 @@ void	PmergeMe::parseSequence(int ac, char** av)
 		}
 	}
 	std::cout << "let's move to the next step" << std::endl;
+}
+
+void	PmergeMe::startEngine(void)
+{
+	//need to start a timer
 }
