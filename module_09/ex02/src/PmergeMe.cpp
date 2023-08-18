@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:54:31 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/17 16:03:40 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/18 13:32:54 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,31 @@ PmergeMe&	PmergeMe::operator=(PmergeMe const & rhs)
 /******************************************************************************/
 /*								MEMBER FUNCTIONS							  */
 /******************************************************************************/
+
+void	PmergeMe::parseSequence(int ac, char** av)
+{
+	for (int i = 1; i < ac; ++i)
+	{
+		try
+		{
+			int j = 0;
+			while (av[i][j])
+			{
+				if (!std::isdigit(av[i][j]))
+					throw ErrorMsg();
+				j++;
+			}
+			int tmp = std::stoi(av[i]);
+			//std::cout << tmp << std::endl;
+			if (tmp < 0)
+				throw ErrorMsg();
+		}
+		catch(const std::exception& e)
+		{
+			(void)e;
+			std::cerr << "Error: bad input" << std::endl;
+			return;
+		}
+	}
+	std::cout << "let's move to the next step" << std::endl;
+}

@@ -59,7 +59,7 @@ endif
 #------------------------------------------------------------------------------#
 
 # Compiler and flags
-CC		=	c++
+CC		=	c++ -g
 CFLAGS	=	-Wall -Werror -Wextra -std=c++98
 RM		=	rm -rf
 MD		=	mkdir -p
@@ -96,7 +96,7 @@ ldirs:
 $(NAME): $(OBJS)
 	$(HIDE) $(START)
 #	$(HIDE) cd libft && make && cd ..
-	$(HIDE) $(CC) $(MODE) $(CFLAGS) -o $@ $^
+	$(HIDE) $(CC) -g $(MODE) $(CFLAGS) -o $@ $^
 	@echo "$(GREEN)Files compiled$(DEF_COLOR)"
 
 $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.cpp

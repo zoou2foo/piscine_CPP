@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/17 15:54:21 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/18 11:29:35 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <vector>
 #include <list>
 #include <iomanip>
+#include <algorithm>
+#include <string>
 
 class PmergeMe
 {
@@ -25,7 +27,17 @@ class PmergeMe
 		PmergeMe(PmergeMe const & src);
 		~PmergeMe(void);
 
-		PmergeMe& operator=(PmergeMe const & rhs);
+		PmergeMe&	operator=(PmergeMe const & rhs);
+		void		parseSequence(int ac, char** av);
+
+		class ErrorMsg : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Error");
+				}
+		};
 
 	private:
 

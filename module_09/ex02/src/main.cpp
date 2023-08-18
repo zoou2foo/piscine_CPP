@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:57:39 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/17 16:04:03 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/18 11:24:03 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 int main(int ac, char** av)
 {
-	(void)av;
 	if (ac > 2 && ac < 3000)
 	{
 		PmergeMe myClass;
-		std::cout << "time to sort" << std::endl;
+		myClass.parseSequence(ac, av);
 	}
 	else
 	{
