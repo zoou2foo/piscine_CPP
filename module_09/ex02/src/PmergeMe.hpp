@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/21 15:30:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/21 16:30:21 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,28 @@ void	sortNmerge(std::vector<T>& leftVec, std::vector<T>& rightVec, std::vector<T
 {
 	typename std::vector<T>::iterator itMiddle = vec.begin();
 	std::advance(itMiddle, vec.size() / 2);
-	typename std::vector<T>::iterator itSecondHalf = itMiddle;
+	// typename std::vector<T>::iterator itSecondHalf = itMiddle;
 	typename std::vector<T>::iterator it = vec.begin();
 	typename std::vector<T>::iterator itLeft = leftVec.begin();
 	typename std::vector<T>::iterator itRight = rightVec.begin();
+	std::cout << "leftVec: " << *itLeft << std::endl;
+	std::cout << "rightVec: " << *itRight << std::endl;
+	std::cout << "main vec: " << *it << std::endl;
 
-	while (it != itMiddle && itSecondHalf != vec.end())
-	{
-		if (*itLeft < *itRight)
-		{
-			vec.push_back(*itLeft);
-			it++;
-		}
-		else
-		{
-			vec.push_back(*itRight);
-			itSecondHalf++;
-			it++;
-		}
-	}
+	// while (it != itMiddle && itSecondHalf != vec.end())
+	// {
+	// 	if (*itLeft < *itRight)
+	// 	{
+	// 		vec.push_back(*itLeft);
+	// 		it++;
+	// 	}
+	// 	else
+	// 	{
+	// 		vec.push_back(*itRight);
+	// 		itSecondHalf++;
+	// 		it++;
+	// 	}
+	// }
 	// while (it != itMiddle)
 	// {
 	// 	std::cout << "I created an infinite loop" << std::endl;
@@ -83,10 +86,10 @@ void	sortNmerge(std::vector<T>& leftVec, std::vector<T>& rightVec, std::vector<T
 	// }
 
 	//print after sorting
-	for (it = vec.begin(); it != vec.end(); ++it)
-	{
-		std::cout << *it << " ";
-	}
+	// for (it = vec.begin(); it != vec.end(); ++it)
+	// {
+	// 	std::cout << *it << " ";
+	// }
 
 
 	// for (; it != leftVec.end(); ++it)
