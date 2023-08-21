@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:54:31 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/21 11:27:08 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/21 12:01:56 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,16 @@ void	PmergeMe::startEngine(void)
 	//Split everything in pairs
 	this->firstStep(this->_myVector);
 	//merge back everything in ORDER
-	
+
 
 	std::chrono::system_clock::time_point end = std::chrono::system_clock::now();
 	std::chrono::microseconds durationMicroSec = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 	std::cout << "It took: " << durationMicroSec.count()  << " microseconds" << std::endl;
-	
-	/*SECOND CONTAINER	--	LIST*/
 
+	/*SECOND CONTAINER	--	LIST*/
+	start = std::chrono::system_clock::now();
+	this->firstStep(this->_myList);
+	end = std::chrono::system_clock::now();
+	durationMicroSec = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "It took: " << durationMicroSec.count()  << " microseconds" << std::endl;
 }
