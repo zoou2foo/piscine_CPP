@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:54:31 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/21 12:01:56 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/22 10:31:28 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ PmergeMe&	PmergeMe::operator=(PmergeMe const & rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	return (*this); //FIXME by the end of the ex.
+	return (*this);
 }
 
 /******************************************************************************/
@@ -86,28 +86,51 @@ void	PmergeMe::parseSequence(int ac, char** av)
 			return;
 		}
 	}
-	std::cout << "let's move to the next step" << std::endl;
 }
 
 void	PmergeMe::startEngine(void)
 {
 	/*FIRST CONTAINER	--	VECTOR*/
+	std::cout << "---------------------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << "Vector unsorted: ";
+	for (std::vector<int>::iterator it = this->_myVector.begin(); it != this->_myVector.end(); ++ it)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
 	//need to start a timer
 	std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
-
-	//Split everything in pairs
+	//Time to divide N conquer vector
 	this->firstStep(this->_myVector);
-	//merge back everything in ORDER
-
-
+	//time to stop timer
 	std::chrono::system_clock::time_point end = std::chrono::system_clock::now();
 	std::chrono::microseconds durationMicroSec = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "Vector sorted: ";
+	for (std::vector<int>::iterator it = this->_myVector.begin(); it != this->_myVector.end(); ++it)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
 	std::cout << "It took: " << durationMicroSec.count()  << " microseconds" << std::endl;
 
+	std::cout << "---------------------------------------------------------------------------------------------------------" << std::endl;
+
 	/*SECOND CONTAINER	--	LIST*/
+	std::cout << "List unsorted: ";
+	for (std::list<int>::iterator ite = this->_myList.begin(); ite != this->_myList.end(); ++ite)
+	{
+		std::cout << *ite << " ";
+	}
+	std::cout << std::endl;
 	start = std::chrono::system_clock::now();
 	this->firstStep(this->_myList);
 	end = std::chrono::system_clock::now();
 	durationMicroSec = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "List sorted: ";
+	for (std::list<int>::iterator ite = this->_myList.begin(); ite != this->_myList.end(); ++ite)
+	{
+		std::cout << *ite << " ";
+	}
+	std::cout << std::endl;
 	std::cout << "It took: " << durationMicroSec.count()  << " microseconds" << std::endl;
 }
