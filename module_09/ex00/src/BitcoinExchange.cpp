@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/22 10:58:07 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/22 15:17:59 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,15 +149,26 @@ bool	BitcoinExchange::checkValue(std::string tmp)
 	size_t valueStart = tmp.find("|") + 1;
 	size_t valueLength = tmp.length() - valueStart;
 	std::string stringValue = tmp.substr(valueStart, valueLength);
-	float value = std::stof(stringValue);
-	if (value < 0 || value > 1000)
+	if (valueLength - 1 < 1)
 		return (false);
-	else
+	if (stringValue.find_first_of("0123456789.") == std::string::npos)
+		return (false);
+	try
 	{
-		this->setValue(value);
-		return (true);
+		float value = std::stof(stringValue);
+		if (value < 0 || value > 1000)
+			return (false);
+		else
+		{
+			this->setValue(value);
+			return (true);
+		}
 	}
-
+	catch(const std::exception& e)
+	{
+		(void)e;
+		return (false);
+	}
 }
 
 void	BitcoinExchange::compareToDataBase(std::string tmp)

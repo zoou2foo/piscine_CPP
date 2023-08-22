@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:54:31 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/22 10:58:58 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/22 14:29:42 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	PmergeMe::parseSequence(int ac, char** av)
 		{
 			(void)e;
 			std::cerr << "Error: bad input" << std::endl;
-			return;
+			exit(1);
 		}
 	}
 }

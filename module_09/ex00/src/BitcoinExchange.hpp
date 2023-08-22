@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:56 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/16 11:06:43 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/22 15:14:41 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ class BitcoinExchange
 		void				setDate(std::string date);
 		int					getInputDate(void) const;
 		void				setInputDate(int inputDate);
-
 
 	private:
 	BitcoinExchange&	operator=(BitcoinExchange const & rhs);
