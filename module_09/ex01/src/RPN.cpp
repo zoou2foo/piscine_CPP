@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:08:44 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/17 15:38:02 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/22 10:58:36 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	RPN::doTheMath(char op)
 			this->_myContainer.push(nb1 - nb2);
 			break;
 		case '/':
-			//division **Look if it's a division by 0 => ERROR!
+			//division
 			if (nb2 == 0)
 			{
 				std::cout << "Error: division by 0 impossible" << std::endl;

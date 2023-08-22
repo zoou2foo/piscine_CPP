@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 08:32:40 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/16 11:06:09 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/22 10:58:07 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,8 +207,7 @@ void	BitcoinExchange::executeProg(std::ifstream& inputFile)
 	std::getline(inputFile, tmp);
 	if (tmp.compare("date | value") != 0)
 	{
-		std::cerr << "Error: with the header of the file. File might be corrupted" << std::endl;
-		//exit or not???
+		std::cerr << "Error: with the header of the file. File MIGHT be corrupted" << std::endl;
 	}
 	this->databaseToContainer();
 	while (std::getline(inputFile, tmp))
