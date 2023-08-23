@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:57:39 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/18 14:50:32 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/23 16:23:29 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char** av)
 {
-	if (ac > 2 && ac < 3000)
+	if (ac > 2 && ac <= 3000)
 	{
 		PmergeMe myClass;
 		myClass.parseSequence(ac, av);

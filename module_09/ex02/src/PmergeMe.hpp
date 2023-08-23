@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/22 10:33:51 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/23 16:50:14 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,26 @@ void	sortNmerge(std::list<T>& leftLst, std::list<T>& rightLst, std::list<T>& lst
 template<typename T>
 void	sortNmerge(std::vector<T>& leftVec, std::vector<T>& rightVec, std::vector<T>& vec)
 {
+	std::vector<T> tmp;
 	typename std::vector<T>::iterator it = vec.begin();
 	typename std::vector<T>::iterator itLeft = leftVec.begin();
 	typename std::vector<T>::iterator itRight = rightVec.begin();
+	typename std::vector<T>::iterator itTmp = tmp.begin();
 
 	while (itLeft != leftVec.end() && itRight != rightVec.end())
 	{
+		if (*itLeft > *(itLeft + 1))//segfault, found where
+		{
+			*itTmp = *itLeft;
+			*itLeft = *(itLeft + 1);
+			*(itLeft + 1) = *itTmp;
+		}
+		if (*itRight > *(itRight + 1))
+		{
+			*itTmp = *itRight;
+			*itRight = *(itRight + 1);
+			*(itRight + 1) = *itTmp;
+		}
 		if (*itLeft < *itRight)
 		{
 			*it = *itLeft;
