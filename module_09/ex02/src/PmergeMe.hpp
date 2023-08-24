@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/23 20:15:58 by valeriejean      ###   ########.fr       */
+/*   Updated: 2023/08/24 11:57:57 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,50 @@ void	sortNmerge(std::vector<T>& leftVec, std::vector<T>& rightVec, std::vector<T
 	typename std::vector<T>::iterator it = vec.begin();
 	typename std::vector<T>::iterator itLeft = leftVec.begin();
 	typename std::vector<T>::iterator itRight = rightVec.begin();
-	typename std::vector<T>::iterator itTmp = tmp.begin();
+	// typename std::vector<T>::iterator itTmp = tmp.begin();
+	// typename std::vector<T>::iterator itTmp2 = tmp.begin();
 
+	// std::cout << "itLeft pointe quoi: " << *itLeft << std::endl;
+	// std::cout << "itLeft + 1 pointe quoi: " << *(itLeft + 1) << std::endl;
+	// std::cout << "itRight pointe quoi: " << *itRight << std::endl;
+	// std::cout << "itRight + 1 pointe quoi: " << *(itRight + 1) << std::endl;
 	while (itLeft != leftVec.end() && itRight != rightVec.end())
 	{
-		if (*itLeft > *(itLeft + 1))//maybe segfault
+		if (*itLeft > *(++itLeft))//maybe segfault
 		{
-			*itTmp = *itLeft;
-			*itLeft = *(itLeft + 1);
-			*(itLeft + 1) = *itTmp;
+			// *itTmp = *itLeft;
+			// *itLeft = *(itLeft + 1);
+			// *(itLeft + 1) = *itTmp;
+			tmp.push_back(*(--itLeft));
+			tmp.push_back(*(++itLeft));
+			leftVec.pop_back();
+			leftVec.pop_back();
+			leftVec.push_back(tmp.back());
+			leftVec.push_back(tmp.front());
+			tmp.pop_back();
+			tmp.pop_back();
 		}
-		if (*itRight > *(itRight + 1))
+		if (*itRight > *(++itRight))
 		{
-			*itTmp = *itRight;
-			*itRight = *(itRight + 1);
-			*(itRight + 1) = *itTmp;
+			// *itTmp = *itRight;
+			// *itRight = *(itRight + 1);
+			// *(itRight + 1) = *itTmp;
+			tmp.push_back(*(--itRight));
+			tmp.push_back(*(++itRight));
+			rightVec.pop_back();
+			rightVec.pop_back();
+			rightVec.push_back(tmp.back());
+			rightVec.push_back(tmp.front());
+			tmp.pop_back();
+			tmp.pop_back();
 		}
 		if (*itLeft < *itRight)
 		{
-			*it = *itLeft;
-			itLeft++;
+			// *it = *itLeft;
+			// itLeft++;
+			vec.insert(it, *itLeft); //
+			leftVec.erase(itLeft);
+			//itLeft++;
 		}
 		else
 		{
@@ -148,7 +172,7 @@ void	splitInPairs(std::vector<T>& vec) //vector
 	std::vector<T> leftVec;
 	std::vector<T> rightVec;
 	size_t length = vec.size();
-	if (length <= 1) //to end recursion
+	if (length <= 2) //to end recursion
 		return;
 	size_t	middle = length / 2;
 	size_t	i = 0;
