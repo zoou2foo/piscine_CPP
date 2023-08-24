@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/24 13:49:01 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/24 15:33:45 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,36 +33,64 @@ void	sortNmerge(T& leftCont, T& rightCont, T& container)
 template<typename T>
 void	sortNmerge(std::list<T>& leftLst, std::list<T>& rightLst, std::list<T>& lst)
 {
-	typename std::list<T>::iterator it = lst.begin();
-	typename std::list<T>::iterator itLeft = leftLst.begin();
-	typename std::list<T>::iterator itRight = rightLst.begin();
+	std::lst<T> tmp;
+	typename std::vector<T>::iterator itLeft = leftLst.begin();
+	typename std::vector<T>::iterator itRight = rightLst.begin();
 
 	while (itLeft != leftLst.end() && itRight != rightLst.end())
 	{
 		if (*itLeft < *itRight)
 		{
-			*it = *itLeft;
-			itLeft++;
+			tmp.push_back(*itLeft);
+			++itLeft;
 		}
 		else
 		{
-			*it = *itRight;
-			itRight++;
+			tmp.push_back(*itRight);
+			++itRight;
 		}
-		it++;
 	}
-	while (itLeft != leftLst.end())
+	//odd numbers
+	tmp.insert(tmp.end(), itLeft, leftLst.end());
+	tmp.insert(tmp.end(), itRight, rightLst.end());
+
+	//time to insert back to the main vec
+	typename std::lst<T>::iterator it = lst.begin();
+	for (typename std::vector<T>::iterator itTmp = tmp.begin(); itTmp != tmp.end(); ++itTmp)
 	{
-		*it = *itLeft;
-		itLeft++;
-		it++;
+		*it = *itTmp;
+		++it;
 	}
-	while (itRight != rightLst.end())
-	{
-		*it = *itRight;
-		itRight++;
-		it++;
-	}
+	// typename std::list<T>::iterator it = lst.begin();
+	// typename std::list<T>::iterator itLeft = leftLst.begin();
+	// typename std::list<T>::iterator itRight = rightLst.begin();
+
+	// while (itLeft != leftLst.end() && itRight != rightLst.end())
+	// {
+	// 	if (*itLeft < *itRight)
+	// 	{
+	// 		*it = *itLeft;
+	// 		itLeft++;
+	// 	}
+	// 	else
+	// 	{
+	// 		*it = *itRight;
+	// 		itRight++;
+	// 	}
+	// 	it++;
+	// }
+	// while (itLeft != leftLst.end())
+	// {
+	// 	*it = *itLeft;
+	// 	itLeft++;
+	// 	it++;
+	// }
+	// while (itRight != rightLst.end())
+	// {
+	// 	*it = *itRight;
+	// 	itRight++;
+	// 	it++;
+	// }
 }
 
 template<typename T>
