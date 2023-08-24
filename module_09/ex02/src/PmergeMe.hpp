@@ -6,7 +6,7 @@
 /*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/24 15:33:45 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/24 15:50:05 by vjean            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	sortNmerge(T& leftCont, T& rightCont, T& container)
 	(void)container;
 }
 
-template<typename T>
+template<typename T> //list
 void	sortNmerge(std::list<T>& leftLst, std::list<T>& rightLst, std::list<T>& lst)
 {
-	std::lst<T> tmp;
-	typename std::vector<T>::iterator itLeft = leftLst.begin();
-	typename std::vector<T>::iterator itRight = rightLst.begin();
+	std::list<T> tmp;
+	typename std::list<T>::iterator itLeft = leftLst.begin();
+	typename std::list<T>::iterator itRight = rightLst.begin();
 
 	while (itLeft != leftLst.end() && itRight != rightLst.end())
 	{
@@ -55,45 +55,15 @@ void	sortNmerge(std::list<T>& leftLst, std::list<T>& rightLst, std::list<T>& lst
 	tmp.insert(tmp.end(), itRight, rightLst.end());
 
 	//time to insert back to the main vec
-	typename std::lst<T>::iterator it = lst.begin();
-	for (typename std::vector<T>::iterator itTmp = tmp.begin(); itTmp != tmp.end(); ++itTmp)
+	typename std::list<T>::iterator it = lst.begin();
+	for (typename std::list<T>::iterator itTmp = tmp.begin(); itTmp != tmp.end(); ++itTmp)
 	{
 		*it = *itTmp;
 		++it;
 	}
-	// typename std::list<T>::iterator it = lst.begin();
-	// typename std::list<T>::iterator itLeft = leftLst.begin();
-	// typename std::list<T>::iterator itRight = rightLst.begin();
-
-	// while (itLeft != leftLst.end() && itRight != rightLst.end())
-	// {
-	// 	if (*itLeft < *itRight)
-	// 	{
-	// 		*it = *itLeft;
-	// 		itLeft++;
-	// 	}
-	// 	else
-	// 	{
-	// 		*it = *itRight;
-	// 		itRight++;
-	// 	}
-	// 	it++;
-	// }
-	// while (itLeft != leftLst.end())
-	// {
-	// 	*it = *itLeft;
-	// 	itLeft++;
-	// 	it++;
-	// }
-	// while (itRight != rightLst.end())
-	// {
-	// 	*it = *itRight;
-	// 	itRight++;
-	// 	it++;
-	// }
 }
 
-template<typename T>
+template<typename T> //vector
 void	sortNmerge(std::vector<T>& leftVec, std::vector<T>& rightVec, std::vector<T>& vec)
 {
 	std::vector<T> tmp;
@@ -138,17 +108,14 @@ template<typename T>
 void	splitInPairs(std::list<T>& lst) //list
 {
 	size_t length = lst.size();
-	if (length <= 1)
+	if (length <= 1) //to end recursion
 		return;
-	std::list<T> leftLst;
-	std::list<T> rightLst;
-	typename std::list<T>::iterator itMiddle = lst.begin();
-	std::advance(itMiddle, lst.size() / 2);
-	typename std::list<T>::iterator	itLst = lst.begin();
-	for(; itLst != itMiddle; itLst++)
-		leftLst.push_back(*itLst);
-	for(; itLst != lst.end(); itLst++)
-		rightLst.push_back(*itLst);
+	typename std::list<T>::iterator middle = lst.begin();
+	for (size_t i = 0; i < (length / 2); i++)
+		middle++;
+	std::list<T> leftLst(lst.begin(), middle);
+	std::list<T> rightLst(middle, lst.end());
+
 	splitInPairs(leftLst);
 	splitInPairs(rightLst);
 	sortNmerge(leftLst, rightLst, lst);
