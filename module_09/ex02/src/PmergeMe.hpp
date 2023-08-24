@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vjean <vjean@student.42.fr>                +#+  +:+       +#+        */
+/*   By: valeriejean <valeriejean@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:46:59 by vjean             #+#    #+#             */
-/*   Updated: 2023/08/23 16:50:14 by vjean            ###   ########.fr       */
+/*   Updated: 2023/08/23 20:15:58 by valeriejean      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	sortNmerge(std::vector<T>& leftVec, std::vector<T>& rightVec, std::vector<T
 
 	while (itLeft != leftVec.end() && itRight != rightVec.end())
 	{
-		if (*itLeft > *(itLeft + 1))//segfault, found where
+		if (*itLeft > *(itLeft + 1))//maybe segfault
 		{
 			*itTmp = *itLeft;
 			*itLeft = *(itLeft + 1);
